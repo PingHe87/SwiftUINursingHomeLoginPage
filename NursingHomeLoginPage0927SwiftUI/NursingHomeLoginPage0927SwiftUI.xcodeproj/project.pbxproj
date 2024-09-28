@@ -1,0 +1,496 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EF1792E72CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1792E62CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift */; };
+		EF1792E92CA73FAD00E9D691 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1792E82CA73FAD00E9D691 /* ContentView.swift */; };
+		EF1792EB2CA73FAD00E9D691 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF1792EA2CA73FAD00E9D691 /* Assets.xcassets */; };
+		EF1792EE2CA73FAD00E9D691 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF1792ED2CA73FAD00E9D691 /* Preview Assets.xcassets */; };
+		EF1792FC2CA7408E00E9D691 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1792FB2CA7408E00E9D691 /* LoginView.swift */; };
+		EF1792FE2CA7424000E9D691 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1792FD2CA7424000E9D691 /* InputView.swift */; };
+		EF1793002CA7478300E9D691 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1792FF2CA7478300E9D691 /* RegistrationView.swift */; };
+		EF1793022CA74E2C00E9D691 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1793012CA74E2C00E9D691 /* ProfileView.swift */; };
+		EF1793042CA74FCA00E9D691 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1793032CA74FCA00E9D691 /* SettingsRowView.swift */; };
+		EF1793062CA7520300E9D691 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1793052CA7520300E9D691 /* User.swift */; };
+		EF1793082CA7571C00E9D691 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF1793072CA7571C00E9D691 /* GoogleService-Info.plist */; };
+		EF17930B2CA757C400E9D691 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EF17930A2CA757C400E9D691 /* FirebaseAuth */; };
+		EF17930D2CA757C400E9D691 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EF17930C2CA757C400E9D691 /* FirebaseFirestore */; };
+		EF17930F2CA757C400E9D691 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = EF17930E2CA757C400E9D691 /* FirebaseStorage */; };
+		EF1793132CA7583900E9D691 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1793122CA7583900E9D691 /* AuthViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EF1792E32CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NursingHomeLoginPage0927SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF1792E62CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursingHomeLoginPage0927SwiftUIApp.swift; sourceTree = "<group>"; };
+		EF1792E82CA73FAD00E9D691 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EF1792EA2CA73FAD00E9D691 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF1792ED2CA73FAD00E9D691 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EF1792FB2CA7408E00E9D691 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		EF1792FD2CA7424000E9D691 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		EF1792FF2CA7478300E9D691 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		EF1793012CA74E2C00E9D691 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		EF1793032CA74FCA00E9D691 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
+		EF1793052CA7520300E9D691 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EF1793072CA7571C00E9D691 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "NursingHomeLoginPage0927SwiftUI/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		EF1793122CA7583900E9D691 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF1792E02CA73FAD00E9D691 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF17930B2CA757C400E9D691 /* FirebaseAuth in Frameworks */,
+				EF17930D2CA757C400E9D691 /* FirebaseFirestore in Frameworks */,
+				EF17930F2CA757C400E9D691 /* FirebaseStorage in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EF1792DA2CA73FAD00E9D691 = {
+			isa = PBXGroup;
+			children = (
+				EF1792E52CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUI */,
+				EF1792E42CA73FAD00E9D691 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EF1792E42CA73FAD00E9D691 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF1792E32CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUI.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF1792E52CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				EF1793072CA7571C00E9D691 /* GoogleService-Info.plist */,
+				EF1792EA2CA73FAD00E9D691 /* Assets.xcassets */,
+				EF1792F42CA73FCF00E9D691 /* App */,
+				EF1792F62CA73FDA00E9D691 /* Components */,
+				EF1792F52CA73FD300E9D691 /* Core */,
+				EF1792F72CA73FE400E9D691 /* Model */,
+				EF1792EC2CA73FAD00E9D691 /* Preview Content */,
+			);
+			path = NursingHomeLoginPage0927SwiftUI;
+			sourceTree = "<group>";
+		};
+		EF1792EC2CA73FAD00E9D691 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EF1792ED2CA73FAD00E9D691 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EF1792F42CA73FCF00E9D691 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				EF1792E62CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		EF1792F52CA73FD300E9D691 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				EF1792F92CA7401900E9D691 /* Authentication */,
+				EF1792FA2CA7402300E9D691 /* Profile */,
+				EF1792F82CA73FF200E9D691 /* Root */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		EF1792F62CA73FDA00E9D691 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EF1792FD2CA7424000E9D691 /* InputView.swift */,
+				EF1793032CA74FCA00E9D691 /* SettingsRowView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		EF1792F72CA73FE400E9D691 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EF1793052CA7520300E9D691 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EF1792F82CA73FF200E9D691 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				EF1792E82CA73FAD00E9D691 /* ContentView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		EF1792F92CA7401900E9D691 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				EF1793102CA7581400E9D691 /* View */,
+				EF1793112CA7581800E9D691 /* ViewModel */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		EF1792FA2CA7402300E9D691 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				EF1793012CA74E2C00E9D691 /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		EF1793102CA7581400E9D691 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EF1792FB2CA7408E00E9D691 /* LoginView.swift */,
+				EF1792FF2CA7478300E9D691 /* RegistrationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EF1793112CA7581800E9D691 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF1793122CA7583900E9D691 /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EF1792E22CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF1792F12CA73FAD00E9D691 /* Build configuration list for PBXNativeTarget "NursingHomeLoginPage0927SwiftUI" */;
+			buildPhases = (
+				EF1792DF2CA73FAD00E9D691 /* Sources */,
+				EF1792E02CA73FAD00E9D691 /* Frameworks */,
+				EF1792E12CA73FAD00E9D691 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NursingHomeLoginPage0927SwiftUI;
+			packageProductDependencies = (
+				EF17930A2CA757C400E9D691 /* FirebaseAuth */,
+				EF17930C2CA757C400E9D691 /* FirebaseFirestore */,
+				EF17930E2CA757C400E9D691 /* FirebaseStorage */,
+			);
+			productName = NursingHomeLoginPage0927SwiftUI;
+			productReference = EF1792E32CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUI.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EF1792DB2CA73FAD00E9D691 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					EF1792E22CA73FAD00E9D691 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = EF1792DE2CA73FAD00E9D691 /* Build configuration list for PBXProject "NursingHomeLoginPage0927SwiftUI" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EF1792DA2CA73FAD00E9D691;
+			packageReferences = (
+				EF1793092CA757C400E9D691 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = EF1792E42CA73FAD00E9D691 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EF1792E22CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EF1792E12CA73FAD00E9D691 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF1792EE2CA73FAD00E9D691 /* Preview Assets.xcassets in Resources */,
+				EF1792EB2CA73FAD00E9D691 /* Assets.xcassets in Resources */,
+				EF1793082CA7571C00E9D691 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EF1792DF2CA73FAD00E9D691 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF1792FC2CA7408E00E9D691 /* LoginView.swift in Sources */,
+				EF1792FE2CA7424000E9D691 /* InputView.swift in Sources */,
+				EF1792E92CA73FAD00E9D691 /* ContentView.swift in Sources */,
+				EF1792E72CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift in Sources */,
+				EF1793062CA7520300E9D691 /* User.swift in Sources */,
+				EF1793022CA74E2C00E9D691 /* ProfileView.swift in Sources */,
+				EF1793002CA7478300E9D691 /* RegistrationView.swift in Sources */,
+				EF1793042CA74FCA00E9D691 /* SettingsRowView.swift in Sources */,
+				EF1793132CA7583900E9D691 /* AuthViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EF1792EF2CA73FAD00E9D691 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EF1792F02CA73FAD00E9D691 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF1792F22CA73FAD00E9D691 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"NursingHomeLoginPage0927SwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = 2VC6YTM2SL;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinghe.NursingHomeLogin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EF1792F32CA73FAD00E9D691 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"NursingHomeLoginPage0927SwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = 2VC6YTM2SL;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinghe.NursingHomeLogin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EF1792DE2CA73FAD00E9D691 /* Build configuration list for PBXProject "NursingHomeLoginPage0927SwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF1792EF2CA73FAD00E9D691 /* Debug */,
+				EF1792F02CA73FAD00E9D691 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF1792F12CA73FAD00E9D691 /* Build configuration list for PBXNativeTarget "NursingHomeLoginPage0927SwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF1792F22CA73FAD00E9D691 /* Debug */,
+				EF1792F32CA73FAD00E9D691 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EF1793092CA757C400E9D691 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EF17930A2CA757C400E9D691 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF1793092CA757C400E9D691 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		EF17930C2CA757C400E9D691 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF1793092CA757C400E9D691 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		EF17930E2CA757C400E9D691 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF1793092CA757C400E9D691 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = EF1792DB2CA73FAD00E9D691 /* Project object */;
+}
