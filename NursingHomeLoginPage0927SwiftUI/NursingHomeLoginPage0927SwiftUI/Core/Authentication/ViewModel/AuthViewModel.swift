@@ -19,8 +19,21 @@ class AuthViewModel : ObservableObject {
         
     }
     
-    func signIn(withEmail email : String, password : String) async throws{
-        print("Sign in ..")
+    func signIn(withEmail email: String, password: String) async throws {
+        do {
+            let result = try await Auth.auth().signIn(withEmail: email, password: password)
+            
+            // update  userSession
+            self.userSession = result.user
+            
+            //await fetchUser()  // 假设你有实现这个函数来从 Firestore 获取用户数据
+            
+            print("User signed in successfully.")
+        } catch {
+            // catch error
+            print("Error signing in: \(error.localizedDescription)")
+            throw error
+        }
     }
     
     func createUser(withEmail email : String, password : String, fullname : String) async throws{
@@ -35,8 +48,19 @@ class AuthViewModel : ObservableObject {
         }
     }
     
-    func signOut(){
-        
+    func signOut() {
+        do {
+            //try sign out
+            try Auth.auth().signOut()
+            
+            // set nil after success
+            self.userSession = nil
+            self.currentUser = nil
+            print("User signed out successfully.")
+        } catch {
+            // error control
+            print("Error signing out: \(error.localizedDescription)")
+        }
     }
     
     func deleteAccount(){
