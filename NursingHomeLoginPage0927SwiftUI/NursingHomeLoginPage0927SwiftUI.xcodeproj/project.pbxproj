@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D9C166E2CAE3E6A00B46D4C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D9C166D2CAE3E6A00B46D4C /* GoogleService-Info.plist */; };
 		8DF046682CADEA8E00D1F8E6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1792FB2CA7408E00E9D691 /* LoginView.swift */; };
 		EF1792E72CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1792E62CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift */; };
 		EF1792E92CA73FAD00E9D691 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1792E82CA73FAD00E9D691 /* ContentView.swift */; };
@@ -22,10 +21,10 @@
 		EF17930D2CA757C400E9D691 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EF17930C2CA757C400E9D691 /* FirebaseFirestore */; };
 		EF17930F2CA757C400E9D691 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = EF17930E2CA757C400E9D691 /* FirebaseStorage */; };
 		EF1793132CA7583900E9D691 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1793122CA7583900E9D691 /* AuthViewModel.swift */; };
+		EF8F041F2CB8391800FCEE8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF8F041E2CB8391800FCEE8C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8D9C166D2CAE3E6A00B46D4C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		EF1792E32CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NursingHomeLoginPage0927SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1792E62CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursingHomeLoginPage0927SwiftUIApp.swift; sourceTree = "<group>"; };
 		EF1792E82CA73FAD00E9D691 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,6 +37,7 @@
 		EF1793032CA74FCA00E9D691 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		EF1793052CA7520300E9D691 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EF1793122CA7583900E9D691 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		EF8F041E2CB8391800FCEE8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,7 @@
 		EF1792E52CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				8D9C166D2CAE3E6A00B46D4C /* GoogleService-Info.plist */,
+				EF8F041E2CB8391800FCEE8C /* GoogleService-Info.plist */,
 				EF1792EA2CA73FAD00E9D691 /* Assets.xcassets */,
 				EF1792F42CA73FCF00E9D691 /* App */,
 				EF1792F52CA73FD300E9D691 /* Core */,
@@ -236,8 +236,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF1792EE2CA73FAD00E9D691 /* Preview Assets.xcassets in Resources */,
+				EF8F041F2CB8391800FCEE8C /* GoogleService-Info.plist in Resources */,
 				EF1792EB2CA73FAD00E9D691 /* Assets.xcassets in Resources */,
-				8D9C166E2CAE3E6A00B46D4C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
