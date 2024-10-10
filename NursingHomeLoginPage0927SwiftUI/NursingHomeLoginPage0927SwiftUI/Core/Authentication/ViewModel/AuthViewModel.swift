@@ -10,6 +10,10 @@ import FirebaseAuth
 import Firebase
 import FirebaseFirestore
 
+protocol AuthenticationFormProtocal {
+    var formIsValid : Bool{ get }
+}
+
 class AuthViewModel : ObservableObject {
     
     @Published var userSession : FirebaseAuth.User?
@@ -30,9 +34,9 @@ class AuthViewModel : ObservableObject {
             // update  userSession
             self.userSession = result.user
             
-            //await fetchUser()  // 假设你有实现这个函数来从 Firestore 获取用户数据
+            await fetchUser()
             
-            print("User signed in successfully.")
+            // print("User signed in successfully.")
         } catch {
             // catch error
             print("Error signing in: \(error.localizedDescription)")

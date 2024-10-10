@@ -54,7 +54,7 @@ struct ProfileView: View {
                 // Account section
                 Section("Account") {
                     Button {
-                        // 调用 signOut 函数
+                        // implement signOut func
                         authViewModel.signOut()
                     } label: {
                         SettingsRowView(imageName: "arrow.left.circle.fill", title: "Sign Out", tintColor: .red)

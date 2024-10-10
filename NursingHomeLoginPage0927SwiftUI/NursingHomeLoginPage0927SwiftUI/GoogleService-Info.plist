@@ -26,7 +26,5 @@
 	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:300047067306:ios:1d9321b32a7d91d0e0c8d3</string>
-	<key>DATABASE_URL</key>
-	<string>https://nursinghome-3ab0a-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>
