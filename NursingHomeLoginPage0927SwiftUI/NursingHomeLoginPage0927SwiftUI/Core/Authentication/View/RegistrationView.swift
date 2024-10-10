@@ -42,10 +42,25 @@ struct RegistrationView: View {
                           placeholder: "Enter your password",
                           isSecuredField: true)
                 
-                InputView(text: $confirmpassword,
-                          title: "Confirm Password",
-                          placeholder: "Confirm your password",
-                          isSecuredField: true)
+                ZStack(alignment: .trailing){
+                    InputView(text: $confirmpassword,
+                              title: "Confirm Password",
+                              placeholder: "Confirm your password",
+                              isSecuredField: true)
+                    if !password.isEmpty && !confirmpassword.isEmpty{
+                        if password == confirmpassword{
+                            Image(systemName: "checkmark.circle.fill")
+                                .imageScale(.large)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color(.systemGreen))
+                        }else{
+                            Image(systemName: "xmark.circle.fill")
+                                .imageScale(.large)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color(.systemRed))
+                        }
+                    }
+                }
             }
             .padding(.horizontal)
             .padding(.top,12)
@@ -67,6 +82,8 @@ struct RegistrationView: View {
                 .frame(width: UIScreen.main.bounds.width - 32, height: 48)
             }
             .background(Color(.systemBlue))
+            .disabled(!formIsValid)
+            .opacity(formIsValid ? 1.0 : 0.5)
             .cornerRadius(10)
             .padding(.top,24)
             
@@ -86,6 +103,20 @@ struct RegistrationView: View {
         }
     }
 }
+
+// MARK : - AuthenticationFormProtocal
+
+extension RegistrationView: AuthenticationFormProtocal{
+    var formIsValid : Bool{
+        return !email.isEmpty
+        && email.contains("@")
+        && !password.isEmpty
+        && password.count > 5
+        && confirmpassword == password
+        && !fullname.isEmpty
+    }
+}
+
 
 #Preview {
     RegistrationView()

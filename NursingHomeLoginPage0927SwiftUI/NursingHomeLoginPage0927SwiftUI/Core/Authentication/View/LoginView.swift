@@ -79,6 +79,7 @@ struct LoginView: View {
         }
     }
 }
+// MARK : - AuthenticationFormProtocal
 
 extension LoginView: AuthenticationFormProtocal{
     var formIsValid : Bool{
