@@ -13,6 +13,11 @@ struct WeatherView: View {
     var weather: ResponseBody
     private let speechService = SpeechService()  // Initialize SpeechService for speech synthesis
     
+    // Helper function to round temperature to the nearest integer
+    func roundedTemperature(_ temp: Double) -> Int {
+        return Int(temp.rounded())
+    }
+    
     var body: some View {
         ZStack(alignment: .leading) {
             VStack {
@@ -41,8 +46,8 @@ struct WeatherView: View {
                         
                         Spacer()
                         
-                        // Feels like temperature directly in Fahrenheit
-                        Text("\(Int(weather.main.feels_like))°F")
+                        // Feels like temperature in Fahrenheit, rounded
+                        Text("\(roundedTemperature(weather.main.feels_like))°F")
                             .font(.system(size: 60))
                             .fontWeight(.bold)
                             .padding()
@@ -76,11 +81,11 @@ struct WeatherView: View {
                         .padding(.bottom)
                     
                     HStack {
-                        // Min temperature in Fahrenheit
-                        WeatherRow(logo: "thermometer", name: "Min temp", value: "\(Int(weather.main.temp_min))°F")
+                        // Min temperature in Fahrenheit, rounded
+                        WeatherRow(logo: "thermometer", name: "Min temp", value: "\(roundedTemperature(weather.main.temp_min))°F")
                         Spacer()
-                        // Max temperature in Fahrenheit
-                        WeatherRow(logo: "thermometer", name: "Max temp", value: "\(Int(weather.main.temp_max))°F")
+                        // Max temperature in Fahrenheit, rounded
+                        WeatherRow(logo: "thermometer", name: "Max temp", value: "\(roundedTemperature(weather.main.temp_max))°F")
                     }
                     
                     HStack {
@@ -126,9 +131,9 @@ struct WeatherView: View {
     func speakWeather() {
         let weatherInfo = """
         The weather in \(weather.name) is currently \(weather.weather.first?.description ?? "no description").
-        The temperature is \(Int(weather.main.temp)) degrees Fahrenheit.
+        The temperature is \(roundedTemperature(weather.main.temp)) degrees Fahrenheit.
         """
-        speechService.speak(text: weatherInfo)  // Use temperature directly from API in Fahrenheit
+        speechService.speak(text: weatherInfo)  // Use temperature with rounding
     }
 }
 
