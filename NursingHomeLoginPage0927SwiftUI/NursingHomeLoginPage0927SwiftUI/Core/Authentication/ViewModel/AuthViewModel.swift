@@ -42,6 +42,7 @@ class AuthViewModel : ObservableObject {
             print("Error signing in: \(error.localizedDescription)")
             throw error
         }
+        
     }
     
     func createUser(withEmail email : String, password : String, fullname : String) async throws{

@@ -21,7 +21,15 @@
 		EF17930D2CA757C400E9D691 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EF17930C2CA757C400E9D691 /* FirebaseFirestore */; };
 		EF17930F2CA757C400E9D691 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = EF17930E2CA757C400E9D691 /* FirebaseStorage */; };
 		EF1793132CA7583900E9D691 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1793122CA7583900E9D691 /* AuthViewModel.swift */; };
+		EF2A9FB02CC1FBD20053460E /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A9FAF2CC1FBD20053460E /* WeatherManager.swift */; };
+		EF2A9FB42CC1FFAE0053460E /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A9FB32CC1FFAE0053460E /* ModelData.swift */; };
+		EF2A9FB62CC1FFFA0053460E /* WeatherData.json in Resources */ = {isa = PBXBuildFile; fileRef = EF2A9FB52CC1FFFA0053460E /* WeatherData.json */; };
+		EF2A9FB82CC2005C0053460E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A9FB72CC2005C0053460E /* Extensions.swift */; };
+		EF2A9FBA2CC202740053460E /* WeatherRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A9FB92CC202740053460E /* WeatherRow.swift */; };
 		EF8F041F2CB8391800FCEE8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF8F041E2CB8391800FCEE8C /* GoogleService-Info.plist */; };
+		EF9775F32CC2D2AA0019CFBA /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9775F22CC2D2AA0019CFBA /* SpeechService.swift */; };
+		EFAF0CC32CC1F89500070545 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF0CC22CC1F89500070545 /* LocationManager.swift */; };
+		EFAF0CC52CC1FA3B00070545 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF0CC42CC1FA3B00070545 /* WeatherView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +45,15 @@
 		EF1793032CA74FCA00E9D691 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		EF1793052CA7520300E9D691 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EF1793122CA7583900E9D691 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		EF2A9FAF2CC1FBD20053460E /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
+		EF2A9FB32CC1FFAE0053460E /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		EF2A9FB52CC1FFFA0053460E /* WeatherData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WeatherData.json; sourceTree = "<group>"; };
+		EF2A9FB72CC2005C0053460E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		EF2A9FB92CC202740053460E /* WeatherRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRow.swift; sourceTree = "<group>"; };
 		EF8F041E2CB8391800FCEE8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EF9775F22CC2D2AA0019CFBA /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
+		EFAF0CC22CC1F89500070545 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		EFAF0CC42CC1FA3B00070545 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				EF1792ED2CA73FAD00E9D691 /* Preview Assets.xcassets */,
+				EF2A9FB52CC1FFFA0053460E /* WeatherData.json */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -94,8 +111,8 @@
 		EF1792F42CA73FCF00E9D691 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				EF1792F62CA73FDA00E9D691 /* Components */,
 				EF1792E62CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift */,
+				EF1792F62CA73FDA00E9D691 /* Components */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -103,6 +120,8 @@
 		EF1792F52CA73FD300E9D691 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EF9775F12CC2D2740019CFBA /* speech */,
+				EFAF0CBD2CC1EF0F00070545 /* Weather */,
 				EF1792F92CA7401900E9D691 /* Authentication */,
 				EF1792FA2CA7402300E9D691 /* Profile */,
 				EF1792F82CA73FF200E9D691 /* Root */,
@@ -115,6 +134,7 @@
 			children = (
 				EF1792FD2CA7424000E9D691 /* InputView.swift */,
 				EF1793032CA74FCA00E9D691 /* SettingsRowView.swift */,
+				EF2A9FB92CC202740053460E /* WeatherRow.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -167,6 +187,42 @@
 				EF1793122CA7583900E9D691 /* AuthViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EF2A9FB12CC1FBDC0053460E /* WeatherModel */ = {
+			isa = PBXGroup;
+			children = (
+				EFAF0CC22CC1F89500070545 /* LocationManager.swift */,
+				EF2A9FAF2CC1FBD20053460E /* WeatherManager.swift */,
+				EF2A9FB32CC1FFAE0053460E /* ModelData.swift */,
+			);
+			path = WeatherModel;
+			sourceTree = "<group>";
+		};
+		EF2A9FB22CC1FBEB0053460E /* WeatherView */ = {
+			isa = PBXGroup;
+			children = (
+				EFAF0CC42CC1FA3B00070545 /* WeatherView.swift */,
+			);
+			path = WeatherView;
+			sourceTree = "<group>";
+		};
+		EF9775F12CC2D2740019CFBA /* speech */ = {
+			isa = PBXGroup;
+			children = (
+				EF9775F22CC2D2AA0019CFBA /* SpeechService.swift */,
+			);
+			path = speech;
+			sourceTree = "<group>";
+		};
+		EFAF0CBD2CC1EF0F00070545 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				EF2A9FB22CC1FBEB0053460E /* WeatherView */,
+				EF2A9FB12CC1FBDC0053460E /* WeatherModel */,
+				EF2A9FB72CC2005C0053460E /* Extensions.swift */,
+			);
+			path = Weather;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +293,7 @@
 			files = (
 				EF1792EE2CA73FAD00E9D691 /* Preview Assets.xcassets in Resources */,
 				EF8F041F2CB8391800FCEE8C /* GoogleService-Info.plist in Resources */,
+				EF2A9FB62CC1FFFA0053460E /* WeatherData.json in Resources */,
 				EF1792EB2CA73FAD00E9D691 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,15 +305,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF2A9FBA2CC202740053460E /* WeatherRow.swift in Sources */,
+				EFAF0CC52CC1FA3B00070545 /* WeatherView.swift in Sources */,
 				EF1792FE2CA7424000E9D691 /* InputView.swift in Sources */,
 				EF1792E92CA73FAD00E9D691 /* ContentView.swift in Sources */,
+				EF2A9FB42CC1FFAE0053460E /* ModelData.swift in Sources */,
+				EFAF0CC32CC1F89500070545 /* LocationManager.swift in Sources */,
 				EF1792E72CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift in Sources */,
+				EF9775F32CC2D2AA0019CFBA /* SpeechService.swift in Sources */,
 				8DF046682CADEA8E00D1F8E6 /* LoginView.swift in Sources */,
+				EF2A9FB02CC1FBD20053460E /* WeatherManager.swift in Sources */,
 				EF1793062CA7520300E9D691 /* User.swift in Sources */,
 				EF1793022CA74E2C00E9D691 /* ProfileView.swift in Sources */,
 				EF1793002CA7478300E9D691 /* RegistrationView.swift in Sources */,
 				EF1793042CA74FCA00E9D691 /* SettingsRowView.swift in Sources */,
 				EF1793132CA7583900E9D691 /* AuthViewModel.swift in Sources */,
+				EF2A9FB82CC2005C0053460E /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +457,7 @@
 				DEVELOPMENT_TEAM = 2VC6YTM2SL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need the location to fetch weather";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -422,6 +487,7 @@
 				DEVELOPMENT_TEAM = 2VC6YTM2SL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need the location to fetch weather";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

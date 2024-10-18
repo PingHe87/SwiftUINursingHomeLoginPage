@@ -6,17 +6,22 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct ProfileView: View {
     
     @EnvironmentObject var authViewModel: AuthViewModel
+    @StateObject private var weatherManager = WeatherManager()  // Initialize WeatherManager to fetch weather data
+    @State private var weatherData: ResponseBody? = nil  // Holds the weather data
+    @State private var isLoading = true  // Indicates if the weather data is still loading
 
     var body: some View {
-        if let user = authViewModel.currentUser{
+        NavigationView {  // Add NavigationView to enable navigation
             List {
+                // User profile section
                 Section {
                     HStack {
-                        Text(user.initials)
+                        Text(authViewModel.currentUser?.initials ?? "")
                             .font(.title)
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
@@ -25,51 +30,78 @@ struct ProfileView: View {
                             .clipShape(Circle())
                         
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(user.fullname)
+                            Text(authViewModel.currentUser?.fullname ?? "Unknown")
                                 .fontWeight(.semibold)
                                 .font(.subheadline)
                                 .padding(.top, 4)
                             
-                            Text(user.email)
+                            Text(authViewModel.currentUser?.email ?? "No email")
                                 .font(.footnote)
                                 .foregroundColor(.gray)
                         }
                     }
                 }
-                
-                // General section
-                Section("General") {
-                    HStack {
-                        SettingsRowView(imageName: "gear",
-                                        title: "Version",
-                                        tintColor: Color(.systemGray))
-                        Spacer()
-                        
-                        Text("1.0.0")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
+
+                // Weather section with NavigationLink to WeatherView
+                Section("Weather") {
+                    if isLoading {
+                        // Show loading text while fetching weather data
+                        Text("Loading weather data...")
+                    } else if let weather = weatherData {
+                        // When data is loaded, navigate to WeatherView with weather data
+                        NavigationLink(destination: WeatherView(weather: weather)) {
+                            HStack {
+                                Image(systemName: "cloud.sun.fill")
+                                    .foregroundColor(.blue)
+                                Text("View Weather")
+                                    .foregroundColor(.primary)
+                            }
+                        }
+                    } else {
+                        // Show error text if weather data failed to load
+                        Text("Failed to load weather data.")
                     }
                 }
-                
-                // Account section
+
+                // Account section with Sign Out button
                 Section("Account") {
                     Button {
-                        // implement signOut func
+                        // Call sign out function
                         authViewModel.signOut()
                     } label: {
                         SettingsRowView(imageName: "arrow.left.circle.fill", title: "Sign Out", tintColor: .red)
                     }
-                    
-//------- delete account button ----------
-//                    Button {
-//                        print("Delete account ...")
-//                    } label: {
-//                        SettingsRowView(imageName: "xmark.circle.fill", title: "Delete Account", tintColor: .red)
-//                    }
                 }
+            }
+            .onAppear {
+                // Load weather data when the view appears
+                Task {
+                    await loadWeather()
+                }
+            }
+            .navigationTitle("Profile")  // Set navigation title
+        }
+    }
+
+    // Async function to fetch weather data using WeatherManager
+    private func loadWeather() async {
+        do {
+            let location = CLLocation(latitude: 32.7767, longitude: -96.7970)  // Dallas coordinates for testing
+            let fetchedWeatherData = try await weatherManager.getCurrentWeather(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            
+            // Ensure updating UI on the main thread
+            DispatchQueue.main.async {
+                self.weatherData = fetchedWeatherData
+                self.isLoading = false
+            }
+        } catch {
+            print("Error loading weather data: \(error)")
+            DispatchQueue.main.async {
+                self.isLoading = false
             }
         }
     }
+
 }
 
 #Preview {
