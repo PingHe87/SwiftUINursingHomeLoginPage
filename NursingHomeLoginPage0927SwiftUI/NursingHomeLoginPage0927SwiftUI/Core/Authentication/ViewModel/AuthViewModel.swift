@@ -85,4 +85,20 @@ class AuthViewModel : ObservableObject {
         
         // print("Debug, current user is \(String(describing: self.currentUser))")
     }
+    
+    
+    func changePassword(to newPassword: String) async throws {
+        guard let user = Auth.auth().currentUser else {
+            throw NSError(domain: "UserNotLoggedIn", code: 401, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])
+        }
+            
+        do {
+            try await user.updatePassword(to: newPassword)
+            print("Password changed successfully")
+        } catch {
+            print("Error updating password: \(error.localizedDescription)")
+            throw error
+        }
+    }
+    
 }

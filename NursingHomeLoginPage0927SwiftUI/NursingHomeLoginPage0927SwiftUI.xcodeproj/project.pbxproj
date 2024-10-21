@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49D734B92CC68F51007358FF /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D734B82CC68F47007358FF /* ChangePasswordView.swift */; };
 		8DF046682CADEA8E00D1F8E6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1792FB2CA7408E00E9D691 /* LoginView.swift */; };
 		EF1792E72CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1792E62CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift */; };
 		EF1792E92CA73FAD00E9D691 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1792E82CA73FAD00E9D691 /* ContentView.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49D734B82CC68F47007358FF /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		EF1792E32CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NursingHomeLoginPage0927SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1792E62CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursingHomeLoginPage0927SwiftUIApp.swift; sourceTree = "<group>"; };
 		EF1792E82CA73FAD00E9D691 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				EF1792FB2CA7408E00E9D691 /* LoginView.swift */,
+				49D734B82CC68F47007358FF /* ChangePasswordView.swift */,
 				EF1792FF2CA7478300E9D691 /* RegistrationView.swift */,
 			);
 			path = View;
@@ -308,6 +311,7 @@
 				EF2A9FBA2CC202740053460E /* WeatherRow.swift in Sources */,
 				EFAF0CC52CC1FA3B00070545 /* WeatherView.swift in Sources */,
 				EF1792FE2CA7424000E9D691 /* InputView.swift in Sources */,
+				49D734B92CC68F51007358FF /* ChangePasswordView.swift in Sources */,
 				EF1792E92CA73FAD00E9D691 /* ContentView.swift in Sources */,
 				EF2A9FB42CC1FFAE0053460E /* ModelData.swift in Sources */,
 				EFAF0CC32CC1F89500070545 /* LocationManager.swift in Sources */,
