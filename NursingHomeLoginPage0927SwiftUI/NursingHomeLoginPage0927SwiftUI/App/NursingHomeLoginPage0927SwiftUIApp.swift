@@ -12,6 +12,8 @@ import Firebase
 @main
 struct NursingHomeLoginPage0927SwiftUIApp: App {
     
+    
+    
     @StateObject var viewModel = AuthViewModel()
     init(){
         FirebaseApp.configure()

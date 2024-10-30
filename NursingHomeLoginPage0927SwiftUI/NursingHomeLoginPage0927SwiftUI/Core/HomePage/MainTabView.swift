@@ -6,35 +6,54 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct MainTabView: View {
-    @State private var selectedTab = 1  // Default to the Home tab with index 1
-    private let activeColor = UIColor(red: 236/255, green: 19/255, blue: 0, alpha: 1.0)  // Red color for selected items
-    private let inactiveColor = UIColor.darkGray  // Dark gray color for unselected items
+    @StateObject private var locationManager = LocationManager()  // Shared LocationManager to get the user's location
+    @StateObject private var weatherManager = WeatherManager()  // WeatherManager to get weather data
+    @State private var weather: ResponseBody? = nil  // Holds real-time weather data
+    @State private var isLoading = true  // Controls loading state
+    @State private var locationUpdated = false  // Tracks if location has been updated
 
-    init() {
-        UITabBar.appearance().backgroundColor = UIColor.white  // Set TabView background to white
-        UITabBar.appearance().unselectedItemTintColor = inactiveColor  // Set unselected items to dark gray
-        UITabBar.appearance().tintColor = activeColor  // Set selected items to red
-    }
-    
     var body: some View {
-        TabView(selection: $selectedTab) {
+        TabView {
             // Calendar Tab
             Text("Calendar Page Placeholder")
                 .tabItem {
                     Label("Calendar", systemImage: "calendar")
                         .font(.system(size: 18, weight: .bold))
                 }
-                .tag(0)
 
-            // Weather Tab
-            WeatherView(weather: previewWeather)
-                .tabItem {
-                    Label("Weather", systemImage: "cloud.sun")
-                        .font(.system(size: 18, weight: .bold))
+            // Real-time Weather Tab with WeatherView
+            Group {
+                if let weather = weather {
+                    WeatherView(weather: weather)  // Pass real-time weather data to WeatherView
+                } else if isLoading {
+                    VStack {
+                        Text("Loading Weather...")
+                        ProgressView()
+                    }
+                } else {
+                    Text("Failed to load weather data.")
                 }
-                .tag(2)
+            }
+            .tabItem {
+                Label("Weather", systemImage: "cloud.sun")
+                    .font(.system(size: 18, weight: .bold))
+            }
+            .onAppear {
+                // Request location data on first appearance
+                if !locationUpdated {
+                    locationManager.requestLocation()
+                }
+            }
+            .onReceive(locationManager.$location) { newLocation in
+                // When location updates, fetch new weather data
+                if let location = newLocation {
+                    locationUpdated = true
+                    fetchWeatherData(latitude: location.latitude, longitude: location.longitude)
+                }
+            }
 
             // Homepage Tab in the center
             Text("Homepage Placeholder")
@@ -42,21 +61,29 @@ struct MainTabView: View {
                     Label("Home", systemImage: "house")
                         .font(.system(size: 18, weight: .bold))
                 }
-                .tag(1)
 
-            // Profile Tab on the right
+            // Profile Tab with navigation to ProfileView
             ProfileView()
                 .tabItem {
                     Label("Profile", systemImage: "person.crop.circle")
                         .font(.system(size: 18, weight: .bold))
                 }
-                .tag(3)
+                .environmentObject(locationManager)  // Pass location manager to ProfileView
         }
+        .environmentObject(locationManager)  // Ensure shared LocationManager instance
     }
-}
-
-struct MainTabView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainTabView()
+    
+    // Request weather data based on location
+    private func fetchWeatherData(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+        isLoading = true
+        Task {
+            do {
+                weather = try await weatherManager.getCurrentWeather(latitude: latitude, longitude: longitude)
+                isLoading = false
+            } catch {
+                print("Error fetching weather:", error)
+                isLoading = false
+            }
+        }
     }
 }
