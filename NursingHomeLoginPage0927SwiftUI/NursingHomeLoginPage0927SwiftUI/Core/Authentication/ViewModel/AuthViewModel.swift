@@ -9,6 +9,7 @@ import Foundation
 import FirebaseAuth
 import Firebase
 import FirebaseFirestore
+import SwiftUI
 
 protocol AuthenticationFormProtocal {
     var formIsValid : Bool{ get }
@@ -101,4 +102,17 @@ class AuthViewModel : ObservableObject {
         }
     }
     
+    func forgotPassword(email: String) async throws {
+        guard !email.isEmpty else {
+            throw NSError(domain: "InvalidEmail", code: 400, userInfo: [NSLocalizedDescriptionKey: "Email cannot be empty"])
+        }
+        
+        do {
+            try await Auth.auth().sendPasswordReset(withEmail: email)
+            print("Password reset email sent successfully to \(email)")
+        } catch {
+            print("Error sending password reset email: \(error.localizedDescription)")
+            throw error
+        }
+    }
 }

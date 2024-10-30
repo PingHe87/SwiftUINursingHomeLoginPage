@@ -60,6 +60,17 @@ struct LoginView: View {
                 .cornerRadius(10)
                 .padding(.top,24)
                 
+                NavigationLink{
+                    ForgotPasswordView()
+                }label : {
+                    HStack{
+                        Text("Forgot your password?")
+                            .fontWeight(.bold)
+                    }
+                }
+                
+                
+                
                 Spacer()
                 
                 //sign up button

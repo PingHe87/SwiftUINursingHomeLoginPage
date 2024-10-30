@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4940A4082CD2CF0200011FEC /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4940A4072CD2CF0200011FEC /* ForgotPasswordView.swift */; };
 		49D734B92CC68F51007358FF /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D734B82CC68F47007358FF /* ChangePasswordView.swift */; };
 		8DF046682CADEA8E00D1F8E6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1792FB2CA7408E00E9D691 /* LoginView.swift */; };
 		EF1792E72CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1792E62CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4940A4072CD2CF0200011FEC /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		49D734B82CC68F47007358FF /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		EF1792E32CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NursingHomeLoginPage0927SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1792E62CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NursingHomeLoginPage0927SwiftUIApp.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		492B33142CD17DF90031218D /* Calendar */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Calendar; sourceTree = "<group>"; };
+		4940A4002CD2AE0A00011FEC /* CalendarView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = CalendarView; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,7 @@
 		EF1792F52CA73FD300E9D691 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				4940A4002CD2AE0A00011FEC /* CalendarView */,
 				492B33142CD17DF90031218D /* Calendar */,
 				EF9775F12CC2D2740019CFBA /* speech */,
 				EFAF0CBD2CC1EF0F00070545 /* Weather */,
@@ -184,6 +188,7 @@
 			children = (
 				EF1792FB2CA7408E00E9D691 /* LoginView.swift */,
 				49D734B82CC68F47007358FF /* ChangePasswordView.swift */,
+				4940A4072CD2CF0200011FEC /* ForgotPasswordView.swift */,
 				EF1792FF2CA7478300E9D691 /* RegistrationView.swift */,
 			);
 			path = View;
@@ -250,6 +255,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				492B33142CD17DF90031218D /* Calendar */,
+				4940A4002CD2AE0A00011FEC /* CalendarView */,
 			);
 			name = NursingHomeLoginPage0927SwiftUI;
 			packageProductDependencies = (
@@ -332,6 +338,7 @@
 				EF1793002CA7478300E9D691 /* RegistrationView.swift in Sources */,
 				EF1793042CA74FCA00E9D691 /* SettingsRowView.swift in Sources */,
 				EF1793132CA7583900E9D691 /* AuthViewModel.swift in Sources */,
+				4940A4082CD2CF0200011FEC /* ForgotPasswordView.swift in Sources */,
 				EF2A9FB82CC2005C0053460E /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -72,6 +72,7 @@ struct ProfileView: View {
                         SettingsRowView(imageName: "arrow.left.circle.fill", title: "Sign Out", tintColor: .red)
                     }
                 }
+                
             }
             .onAppear {
                 // Load weather data when the view appears
