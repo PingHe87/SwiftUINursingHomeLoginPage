@@ -10,7 +10,7 @@ import Foundation
 
 // If you wish to Archive this project, move this file outside of the Preview Content folder, as this folder is not taken into consideration by the Xcode Archive
 
-var previewWeather: ResponseBody = load("weatherData.json")
+var previewWeather: ResponseBody = load("WeatherData.json")
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data 
