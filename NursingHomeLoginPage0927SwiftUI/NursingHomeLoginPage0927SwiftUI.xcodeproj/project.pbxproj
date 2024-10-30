@@ -28,6 +28,7 @@
 		EF2A9FB62CC1FFFA0053460E /* WeatherData.json in Resources */ = {isa = PBXBuildFile; fileRef = EF2A9FB52CC1FFFA0053460E /* WeatherData.json */; };
 		EF2A9FB82CC2005C0053460E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A9FB72CC2005C0053460E /* Extensions.swift */; };
 		EF2A9FBA2CC202740053460E /* WeatherRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A9FB92CC202740053460E /* WeatherRow.swift */; };
+		EF6846EA2CD2BDF4003D0885 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6846E92CD2BDF0003D0885 /* MainTabView.swift */; };
 		EF8F041F2CB8391800FCEE8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF8F041E2CB8391800FCEE8C /* GoogleService-Info.plist */; };
 		EF9775F32CC2D2AA0019CFBA /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9775F22CC2D2AA0019CFBA /* SpeechService.swift */; };
 		EFAF0CC32CC1F89500070545 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF0CC22CC1F89500070545 /* LocationManager.swift */; };
@@ -54,6 +55,7 @@
 		EF2A9FB52CC1FFFA0053460E /* WeatherData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WeatherData.json; sourceTree = "<group>"; };
 		EF2A9FB72CC2005C0053460E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EF2A9FB92CC202740053460E /* WeatherRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRow.swift; sourceTree = "<group>"; };
+		EF6846E92CD2BDF0003D0885 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		EF8F041E2CB8391800FCEE8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF9775F22CC2D2AA0019CFBA /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
 		EFAF0CC22CC1F89500070545 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -129,7 +131,7 @@
 		EF1792F52CA73FD300E9D691 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				4940A4002CD2AE0A00011FEC /* CalendarView */,
+				EF6846E82CD2BDE7003D0885 /* HomePage */,
 				492B33142CD17DF90031218D /* Calendar */,
 				EF9775F12CC2D2740019CFBA /* speech */,
 				EFAF0CBD2CC1EF0F00070545 /* Weather */,
@@ -218,6 +220,14 @@
 				EFAF0CC42CC1FA3B00070545 /* WeatherView.swift */,
 			);
 			path = WeatherView;
+			sourceTree = "<group>";
+		};
+		EF6846E82CD2BDE7003D0885 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				EF6846E92CD2BDF0003D0885 /* MainTabView.swift */,
+			);
+			path = HomePage;
 			sourceTree = "<group>";
 		};
 		EF9775F12CC2D2740019CFBA /* speech */ = {
@@ -330,6 +340,7 @@
 				EF2A9FB42CC1FFAE0053460E /* ModelData.swift in Sources */,
 				EFAF0CC32CC1F89500070545 /* LocationManager.swift in Sources */,
 				EF1792E72CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift in Sources */,
+				EF6846EA2CD2BDF4003D0885 /* MainTabView.swift in Sources */,
 				EF9775F32CC2D2AA0019CFBA /* SpeechService.swift in Sources */,
 				8DF046682CADEA8E00D1F8E6 /* LoginView.swift in Sources */,
 				EF2A9FB02CC1FBD20053460E /* WeatherManager.swift in Sources */,
@@ -473,7 +484,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NursingHomeLoginPage0927SwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = 4HRM3PXTG7;
+				DEVELOPMENT_TEAM = 2VC6YTM2SL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need the location to fetch weather";
@@ -487,7 +498,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pinghe.NursingHomeLogin;
+				PRODUCT_BUNDLE_IDENTIFIER = compinghe.NursingHomeLogin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -503,7 +514,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NursingHomeLoginPage0927SwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = 4HRM3PXTG7;
+				DEVELOPMENT_TEAM = 2VC6YTM2SL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need the location to fetch weather";
@@ -517,7 +528,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pinghe.NursingHomeLogin;
+				PRODUCT_BUNDLE_IDENTIFIER = compinghe.NursingHomeLogin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
