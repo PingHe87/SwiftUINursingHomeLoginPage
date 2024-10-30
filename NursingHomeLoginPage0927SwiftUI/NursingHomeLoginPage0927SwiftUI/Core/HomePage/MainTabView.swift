@@ -9,10 +9,13 @@ import SwiftUI
 
 struct MainTabView: View {
     @State private var selectedTab = 1  // Default to the Home tab with index 1
+    private let activeColor = UIColor(red: 236/255, green: 19/255, blue: 0, alpha: 1.0)  // Red color for selected items
+    private let inactiveColor = UIColor.darkGray  // Dark gray color for unselected items
 
     init() {
-        UITabBar.appearance().backgroundColor = UIColor(red: 236/255, green: 19/255, blue: 0, alpha: 1.0)  // Set background color
-        UITabBar.appearance().unselectedItemTintColor = .white  // Set color for unselected tab items
+        UITabBar.appearance().backgroundColor = UIColor.white  // Set TabView background to white
+        UITabBar.appearance().unselectedItemTintColor = inactiveColor  // Set unselected items to dark gray
+        UITabBar.appearance().tintColor = activeColor  // Set selected items to red
     }
     
     var body: some View {
@@ -22,9 +25,6 @@ struct MainTabView: View {
                 .tabItem {
                     Label("Calendar", systemImage: "calendar")
                         .font(.system(size: 18, weight: .bold))
-                        .foregroundColor(selectedTab == 0 ? Color.red : Color.white)
-                        .background(selectedTab == 0 ? Color.white : Color.clear)
-                        .cornerRadius(10)
                 }
                 .tag(0)
 
@@ -33,9 +33,6 @@ struct MainTabView: View {
                 .tabItem {
                     Label("Weather", systemImage: "cloud.sun")
                         .font(.system(size: 18, weight: .bold))
-                        .foregroundColor(selectedTab == 2 ? Color.red : Color.white)
-                        .background(selectedTab == 2 ? Color.white : Color.clear)
-                        .cornerRadius(10)
                 }
                 .tag(2)
 
@@ -44,9 +41,6 @@ struct MainTabView: View {
                 .tabItem {
                     Label("Home", systemImage: "house")
                         .font(.system(size: 18, weight: .bold))
-                        .foregroundColor(selectedTab == 1 ? Color.red : Color.white)
-                        .background(selectedTab == 1 ? Color.white : Color.clear)
-                        .cornerRadius(10)
                 }
                 .tag(1)
 
@@ -55,13 +49,9 @@ struct MainTabView: View {
                 .tabItem {
                     Label("Profile", systemImage: "person.crop.circle")
                         .font(.system(size: 18, weight: .bold))
-                        .foregroundColor(selectedTab == 3 ? Color.red : Color.white)
-                        .background(selectedTab == 3 ? Color.white : Color.clear)
-                        .cornerRadius(10)
                 }
                 .tag(3)
         }
-        .accentColor(.white)  // Set color for selected icons and text to white
     }
 }
 
