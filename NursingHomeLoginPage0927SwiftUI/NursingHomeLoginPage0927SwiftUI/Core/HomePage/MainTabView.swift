@@ -67,11 +67,13 @@ struct MainTabView: View {
                 }  .tag(2)
             
             // Menu Tab placeholder
-            Text("Menu Placeholder")
+            
+            MenuView()
                 .tabItem {
                     Label("Menu", systemImage: "list.bullet")
                         .font(.system(size: 18, weight: .bold))
                 }
+            
             
             // Profile Tab with navigation to ProfileView
             ProfileView()

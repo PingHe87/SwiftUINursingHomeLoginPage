@@ -31,6 +31,11 @@
 		EF56384F2CD9480B002AF271 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56384E2CD94809002AF271 /* HomepageView.swift */; };
 		EF5638522CD948E1002AF271 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5638512CD948E0002AF271 /* ActivityModel.swift */; };
 		EF5638542CD948F1002AF271 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5638532CD948F0002AF271 /* ActivityViewModel.swift */; };
+		EF5638572CD95397002AF271 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5638562CD95396002AF271 /* MenuItem.swift */; };
+		EF5638592CD953A7002AF271 /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5638582CD953A6002AF271 /* MenuData.swift */; };
+		EF56385B2CD953E6002AF271 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56385A2CD953E6002AF271 /* MenuViewModel.swift */; };
+		EF56385D2CD953FB002AF271 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56385C2CD953FA002AF271 /* MenuView.swift */; };
+		EF5638602CD9573B002AF271 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF56385F2CD95731002AF271 /* info.plist */; };
 		EF6846EA2CD2BDF4003D0885 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6846E92CD2BDF0003D0885 /* MainTabView.swift */; };
 		EF8F041F2CB8391800FCEE8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF8F041E2CB8391800FCEE8C /* GoogleService-Info.plist */; };
 		EF9775F32CC2D2AA0019CFBA /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9775F22CC2D2AA0019CFBA /* SpeechService.swift */; };
@@ -61,6 +66,11 @@
 		EF56384E2CD94809002AF271 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
 		EF5638512CD948E0002AF271 /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 		EF5638532CD948F0002AF271 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
+		EF5638562CD95396002AF271 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		EF5638582CD953A6002AF271 /* MenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuData.swift; sourceTree = "<group>"; };
+		EF56385A2CD953E6002AF271 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		EF56385C2CD953FA002AF271 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		EF56385F2CD95731002AF271 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = info.plist; sourceTree = "<group>"; };
 		EF6846E92CD2BDF0003D0885 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		EF8F041E2CB8391800FCEE8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF9775F22CC2D2AA0019CFBA /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
@@ -107,6 +117,7 @@
 		EF1792E52CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				EF56385F2CD95731002AF271 /* info.plist */,
 				EF8F041E2CB8391800FCEE8C /* GoogleService-Info.plist */,
 				EF1792EA2CA73FAD00E9D691 /* Assets.xcassets */,
 				EF1792F42CA73FCF00E9D691 /* App */,
@@ -251,6 +262,10 @@
 		EF5638552CD9527E002AF271 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				EF56385C2CD953FA002AF271 /* MenuView.swift */,
+				EF56385A2CD953E6002AF271 /* MenuViewModel.swift */,
+				EF5638582CD953A6002AF271 /* MenuData.swift */,
+				EF5638562CD95396002AF271 /* MenuItem.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -352,6 +367,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF5638602CD9573B002AF271 /* info.plist in Resources */,
 				EF1792EE2CA73FAD00E9D691 /* Preview Assets.xcassets in Resources */,
 				EF8F041F2CB8391800FCEE8C /* GoogleService-Info.plist in Resources */,
 				EF2A9FB62CC1FFFA0053460E /* WeatherData.json in Resources */,
@@ -367,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF2A9FBA2CC202740053460E /* WeatherRow.swift in Sources */,
+				EF5638592CD953A7002AF271 /* MenuData.swift in Sources */,
 				EFAF0CC52CC1FA3B00070545 /* WeatherView.swift in Sources */,
 				EF1792FE2CA7424000E9D691 /* InputView.swift in Sources */,
 				49D734B92CC68F51007358FF /* ChangePasswordView.swift in Sources */,
@@ -386,6 +403,9 @@
 				EF1793042CA74FCA00E9D691 /* SettingsRowView.swift in Sources */,
 				EF1793132CA7583900E9D691 /* AuthViewModel.swift in Sources */,
 				EF5638542CD948F1002AF271 /* ActivityViewModel.swift in Sources */,
+				EF56385D2CD953FB002AF271 /* MenuView.swift in Sources */,
+				EF5638572CD95397002AF271 /* MenuItem.swift in Sources */,
+				EF56385B2CD953E6002AF271 /* MenuViewModel.swift in Sources */,
 				4940A4082CD2CF0200011FEC /* ForgotPasswordView.swift in Sources */,
 				EF2A9FB82CC2005C0053460E /* Extensions.swift in Sources */,
 			);
@@ -524,6 +544,7 @@
 				DEVELOPMENT_TEAM = 2VC6YTM2SL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NursingHomeLoginPage0927SwiftUI/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need the location to fetch weather";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -554,6 +575,7 @@
 				DEVELOPMENT_TEAM = 2VC6YTM2SL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NursingHomeLoginPage0927SwiftUI/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need the location to fetch weather";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
