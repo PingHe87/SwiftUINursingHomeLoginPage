@@ -14,7 +14,11 @@ struct MainTabView: View {
     @State private var weather: ResponseBody? = nil  // Holds real-time weather data
     @State private var isLoading = true  // Controls loading state
     @State private var locationUpdated = false  // Tracks if location has been updated
-
+    
+    // State variable for tab selection
+    @State private var selectedTab: Int = 2  // Default to Homepage tab
+    
+    
     var body: some View {
         TabView {
             // Calendar Tab
@@ -23,7 +27,7 @@ struct MainTabView: View {
                     Label("Calendar", systemImage: "calendar")
                         .font(.system(size: 18, weight: .bold))
                 }
-
+            
             // Real-time Weather Tab with WeatherView
             Group {
                 if let weather = weather {
@@ -54,14 +58,21 @@ struct MainTabView: View {
                     fetchWeatherData(latitude: location.latitude, longitude: location.longitude)
                 }
             }
-
+            
             // Homepage Tab in the center
-            Text("Homepage Placeholder")
+            HomepageView()
                 .tabItem {
                     Label("Home", systemImage: "house")
                         .font(.system(size: 18, weight: .bold))
+                }  .tag(2)
+            
+            // Menu Tab placeholder
+            Text("Menu Placeholder")
+                .tabItem {
+                    Label("Menu", systemImage: "list.bullet")
+                        .font(.system(size: 18, weight: .bold))
                 }
-
+            
             // Profile Tab with navigation to ProfileView
             ProfileView()
                 .tabItem {

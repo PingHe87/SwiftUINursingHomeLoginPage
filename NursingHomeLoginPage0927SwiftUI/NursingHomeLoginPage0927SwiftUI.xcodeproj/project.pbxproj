@@ -28,6 +28,9 @@
 		EF2A9FB62CC1FFFA0053460E /* WeatherData.json in Resources */ = {isa = PBXBuildFile; fileRef = EF2A9FB52CC1FFFA0053460E /* WeatherData.json */; };
 		EF2A9FB82CC2005C0053460E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A9FB72CC2005C0053460E /* Extensions.swift */; };
 		EF2A9FBA2CC202740053460E /* WeatherRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A9FB92CC202740053460E /* WeatherRow.swift */; };
+		EF56384F2CD9480B002AF271 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56384E2CD94809002AF271 /* HomepageView.swift */; };
+		EF5638522CD948E1002AF271 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5638512CD948E0002AF271 /* ActivityModel.swift */; };
+		EF5638542CD948F1002AF271 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5638532CD948F0002AF271 /* ActivityViewModel.swift */; };
 		EF6846EA2CD2BDF4003D0885 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6846E92CD2BDF0003D0885 /* MainTabView.swift */; };
 		EF8F041F2CB8391800FCEE8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF8F041E2CB8391800FCEE8C /* GoogleService-Info.plist */; };
 		EF9775F32CC2D2AA0019CFBA /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9775F22CC2D2AA0019CFBA /* SpeechService.swift */; };
@@ -55,6 +58,9 @@
 		EF2A9FB52CC1FFFA0053460E /* WeatherData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WeatherData.json; sourceTree = "<group>"; };
 		EF2A9FB72CC2005C0053460E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EF2A9FB92CC202740053460E /* WeatherRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRow.swift; sourceTree = "<group>"; };
+		EF56384E2CD94809002AF271 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
+		EF5638512CD948E0002AF271 /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
+		EF5638532CD948F0002AF271 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		EF6846E92CD2BDF0003D0885 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		EF8F041E2CB8391800FCEE8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF9775F22CC2D2AA0019CFBA /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
@@ -86,6 +92,7 @@
 			children = (
 				EF1792E52CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUI */,
 				EF1792E42CA73FAD00E9D691 /* Products */,
+				EF56384B2CD94576002AF271 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +138,7 @@
 		EF1792F52CA73FD300E9D691 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EF5638502CD948D5002AF271 /* Activity */,
 				EF6846E82CD2BDE7003D0885 /* HomePage */,
 				492B33142CD17DF90031218D /* Calendar */,
 				EF9775F12CC2D2740019CFBA /* speech */,
@@ -222,9 +230,27 @@
 			path = WeatherView;
 			sourceTree = "<group>";
 		};
+		EF56384B2CD94576002AF271 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				4940A4002CD2AE0A00011FEC /* CalendarView */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		EF5638502CD948D5002AF271 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				EF5638532CD948F0002AF271 /* ActivityViewModel.swift */,
+				EF5638512CD948E0002AF271 /* ActivityModel.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
 		EF6846E82CD2BDE7003D0885 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				EF56384E2CD94809002AF271 /* HomepageView.swift */,
 				EF6846E92CD2BDF0003D0885 /* MainTabView.swift */,
 			);
 			path = HomePage;
@@ -339,16 +365,19 @@
 				EF1792E92CA73FAD00E9D691 /* ContentView.swift in Sources */,
 				EF2A9FB42CC1FFAE0053460E /* ModelData.swift in Sources */,
 				EFAF0CC32CC1F89500070545 /* LocationManager.swift in Sources */,
+				EF5638522CD948E1002AF271 /* ActivityModel.swift in Sources */,
 				EF1792E72CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift in Sources */,
 				EF6846EA2CD2BDF4003D0885 /* MainTabView.swift in Sources */,
 				EF9775F32CC2D2AA0019CFBA /* SpeechService.swift in Sources */,
 				8DF046682CADEA8E00D1F8E6 /* LoginView.swift in Sources */,
+				EF56384F2CD9480B002AF271 /* HomepageView.swift in Sources */,
 				EF2A9FB02CC1FBD20053460E /* WeatherManager.swift in Sources */,
 				EF1793062CA7520300E9D691 /* User.swift in Sources */,
 				EF1793022CA74E2C00E9D691 /* ProfileView.swift in Sources */,
 				EF1793002CA7478300E9D691 /* RegistrationView.swift in Sources */,
 				EF1793042CA74FCA00E9D691 /* SettingsRowView.swift in Sources */,
 				EF1793132CA7583900E9D691 /* AuthViewModel.swift in Sources */,
+				EF5638542CD948F1002AF271 /* ActivityViewModel.swift in Sources */,
 				4940A4082CD2CF0200011FEC /* ForgotPasswordView.swift in Sources */,
 				EF2A9FB82CC2005C0053460E /* Extensions.swift in Sources */,
 			);
