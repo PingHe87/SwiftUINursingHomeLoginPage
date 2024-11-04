@@ -40,14 +40,25 @@ struct HomepageView: View {
                                     .font(.title3)
                                     .fontWeight(.semibold)
                                     .frame(maxWidth: .infinity, alignment: .leading)  // Left-align the text
-                                Text("Time: \(activity.time)")
-                                    .font(.body)
-                                    .foregroundColor(.secondary)
-                                    .frame(maxWidth: .infinity, alignment: .leading)  // Left-align the text
-                                Text("Location: \(activity.location)")  // Display the location
-                                    .font(.body)
-                                    .foregroundColor(.secondary)
-                                    .frame(maxWidth: .infinity, alignment: .leading)  // Left-align the text
+                                // Time with icon
+                                HStack(spacing: 5) {
+                                    Image(systemName: "clock")  // Time icon
+                                        .foregroundColor(.blue)
+                                    Text("\(activity.time)")
+                                        .font(.body)
+                                        .foregroundColor(.secondary)
+                                        .frame(maxWidth: .infinity, alignment: .leading)  // Left-align the text
+                                }
+                                // Location with icon
+                                HStack(spacing: 5) {
+                                    Image(systemName: "mappin")  // Location icon
+                                        .foregroundColor(.blue)
+                                    Text("\(activity.location)")
+                                        .font(.body)
+                                        .foregroundColor(.secondary)
+                                        .frame(maxWidth: .infinity, alignment: .leading)  // Left-align the text
+                                }
+                                
                                 Text(activity.description)
                                     .font(.body)
                                     .foregroundColor(.black)
