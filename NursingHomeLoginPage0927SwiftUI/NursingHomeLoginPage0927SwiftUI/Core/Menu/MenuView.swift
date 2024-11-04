@@ -76,8 +76,13 @@ struct MenuView: View {
                     }
                 }
                 .padding()
+                .background(Color.white) // Background color for the card
+                .cornerRadius(15) // Rounded corners for the card
+                .shadow(color: Color.gray.opacity(0.3), radius: 5, x: 0, y: 2) // Optional shadow for depth
             }
+            .listStyle(PlainListStyle()) // Optional: removes extra spacing around the List items
             .navigationTitle("Menu")
         }
     }
 }
+

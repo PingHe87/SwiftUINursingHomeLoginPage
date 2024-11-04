@@ -23,9 +23,15 @@ struct HomepageView: View {
                 
                 // Activity reminder section
                 VStack(alignment: .leading, spacing: 15) {
-                    Text("Today's Activities")
-                        .font(.title2)
-                        .fontWeight(.bold)
+                    HStack {
+                            Image(systemName: "calendar")
+                                .foregroundColor(.blue) // Set the icon color to blue
+                                .font(.title2) // Set the size of the icon
+                            
+                            Text("Today's Activities")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                        }
                         .padding(.bottom, 5)
                     
                     if activityViewModel.activities.isEmpty {
