@@ -138,6 +138,7 @@
 		EF1792F52CA73FD300E9D691 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EF5638552CD9527E002AF271 /* Menu */,
 				EF5638502CD948D5002AF271 /* Activity */,
 				EF6846E82CD2BDE7003D0885 /* HomePage */,
 				492B33142CD17DF90031218D /* Calendar */,
@@ -245,6 +246,13 @@
 				EF5638512CD948E0002AF271 /* ActivityModel.swift */,
 			);
 			path = Activity;
+			sourceTree = "<group>";
+		};
+		EF5638552CD9527E002AF271 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		EF6846E82CD2BDE7003D0885 /* HomePage */ = {

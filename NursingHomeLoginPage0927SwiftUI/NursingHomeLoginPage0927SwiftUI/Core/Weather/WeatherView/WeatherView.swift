@@ -18,12 +18,13 @@ struct WeatherView: View {
     }
     
     var body: some View {
-        ZStack(alignment: .top) {
-            Color(red: 100/255, green: 153/255, blue: 233/255)  // Background color #6499E9
-                .edgesIgnoringSafeArea([.top, .leading, .trailing]) // Extend background to entire screen
-
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.7), Color.purple.opacity(0.4)]),
+                           startPoint: .topLeading, endPoint: .bottomTrailing)
+                .edgesIgnoringSafeArea(.top)  // Extend background only to the top, not full screen
+            
             ScrollView {
-                VStack(spacing: 20) {
+                VStack(spacing: 30) {
                     // Top Section: City Name and Date
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
@@ -43,16 +44,16 @@ struct WeatherView: View {
                             }
                         }
                         Text("Today, \(Date().formatted(.dateTime.month().day().hour().minute()))")
-                            .foregroundColor(.white)
+                            .foregroundColor(.white.opacity(0.9))
                             .font(.subheadline)
                     }
-                    .padding([.leading, .trailing], 20)
+                    .padding(.horizontal, 20)
                     
                     // Main Weather Information
-                    VStack(spacing: 10) {
+                    VStack(spacing: 15) {
                         Text("\(roundedTemperature(weather.main.feels_like))°F")
-                            .font(.system(size: 80))
-                            .fontWeight(.bold)
+                            .font(.system(size: 100))
+                            .fontWeight(.heavy)
                             .foregroundColor(.white)
                         
                         Text(weather.weather.first?.main ?? "Unknown")
@@ -75,13 +76,15 @@ struct WeatherView: View {
                         }
                     }
                     .padding()
-                    .background(Color.white.opacity(0.2))
-                    .cornerRadius(15)
+                    .background(Color.white.opacity(0.15))
+                    .cornerRadius(20)
+                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
                     .padding(.horizontal, 20)
                 }
                 .padding(.vertical, 20)
             }
         }
+        .navigationTitle("Weather")  // Set a title that works within the TabView
     }
     
     // Function to speak the main weather information
@@ -108,16 +111,17 @@ struct WeatherDetailCard: View {
             
             Text(label)
                 .font(.footnote)
-                .foregroundColor(.white.opacity(0.7))
+                .foregroundColor(.white.opacity(0.8))
             
             Text(value)
                 .font(.title2)
                 .fontWeight(.semibold)
                 .foregroundColor(.white)
         }
-        .frame(width: 120, height: 100)
-        .background(Color.blue.opacity(0.3))
-        .cornerRadius(10)
+        .frame(width: 130, height: 120)
+        .background(Color.blue.opacity(0.4))
+        .cornerRadius(15)
+        .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
     }
 }
 
@@ -126,3 +130,4 @@ struct WeatherView_Previews: PreviewProvider {
         WeatherView(weather: previewWeather)
     }
 }
+
