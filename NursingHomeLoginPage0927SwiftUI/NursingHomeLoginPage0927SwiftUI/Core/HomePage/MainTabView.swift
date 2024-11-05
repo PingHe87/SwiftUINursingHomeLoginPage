@@ -1,5 +1,5 @@
 //
-//  tabView.swift
+//  MainTabView.swift
 //  NursingHomeLoginPage0927SwiftUI
 //
 //  Created by p h on 10/30/24.
@@ -18,7 +18,6 @@ struct MainTabView: View {
     // State variable for tab selection
     @State private var selectedTab: Int = 2  // Default to Homepage tab
     
-    
     var body: some View {
         TabView {
             // Calendar Tab
@@ -28,52 +27,27 @@ struct MainTabView: View {
                         .font(.system(size: 18, weight: .bold))
                 }
             
-            // Real-time Weather Tab with WeatherView
-            Group {
-                if let weather = weather {
-                    WeatherView(weather: weather)  // Pass real-time weather data to WeatherView
-                } else if isLoading {
-                    VStack {
-                        Text("Loading Weather...")
-                        ProgressView()
-                    }
-                } else {
-                    Text("Failed to load weather data.")
+            // Contacts Tab with placeholder content
+            Text("Contacts Page Placeholder")
+                .tabItem {
+                    Label("Contacts", systemImage: "person.2")
+                        .font(.system(size: 18, weight: .bold))
                 }
-            }
-            .tabItem {
-                Label("Weather", systemImage: "cloud.sun")
-                    .font(.system(size: 18, weight: .bold))
-            }
-            .onAppear {
-                // Request location data on first appearance
-                if !locationUpdated {
-                    locationManager.requestLocation()
-                }
-            }
-            .onReceive(locationManager.$location) { newLocation in
-                // When location updates, fetch new weather data
-                if let location = newLocation {
-                    locationUpdated = true
-                    fetchWeatherData(latitude: location.latitude, longitude: location.longitude)
-                }
-            }
             
             // Homepage Tab in the center
             HomepageView()
                 .tabItem {
                     Label("Home", systemImage: "house")
                         .font(.system(size: 18, weight: .bold))
-                }  .tag(2)
+                }
+                .tag(2)
             
             // Menu Tab placeholder
-            
             MenuView()
                 .tabItem {
                     Label("Menu", systemImage: "list.bullet")
                         .font(.system(size: 18, weight: .bold))
                 }
-            
             
             // Profile Tab with navigation to ProfileView
             ProfileView()
@@ -85,18 +59,5 @@ struct MainTabView: View {
         }
         .environmentObject(locationManager)  // Ensure shared LocationManager instance
     }
-    
-    // Request weather data based on location
-    private func fetchWeatherData(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
-        isLoading = true
-        Task {
-            do {
-                weather = try await weatherManager.getCurrentWeather(latitude: latitude, longitude: longitude)
-                isLoading = false
-            } catch {
-                print("Error fetching weather:", error)
-                isLoading = false
-            }
-        }
-    }
 }
+

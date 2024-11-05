@@ -5,22 +5,17 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct HomepageView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     @StateObject private var activityViewModel = ActivityViewModel()
-    @State private var showingAddActivityView = false  // State to show the add activity view
+    @StateObject private var locationManager = LocationManager()  // LocationManager to get the device's location
+    @State private var showingAddActivityView = false
+    @State private var weather: ResponseBody? = nil  // Holds weather data
 
     var body: some View {
         ZStack {
-           
-//            LinearGradient(
-//                gradient: Gradient(colors: [Color.white, Color.blue.opacity(0.1)]),
-//                startPoint: .top,
-//                endPoint: .bottom
-//            )
-//            .edgesIgnoringSafeArea(.top)
-
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     // Greeting message for the user
@@ -28,6 +23,18 @@ struct HomepageView: View {
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding(.top, 20)
+
+                    // Weather card view at the top
+                    if let weather = weather {
+                        WeatherCardView(weather: weather)
+                            .padding(.bottom, 10)
+                    } else {
+                        // Placeholder text while loading weather data
+                        Text("Loading weather...")
+                            .padding()
+                            .background(Color.gray.opacity(0.2))
+                            .cornerRadius(10)
+                    }
 
                     // Header for today's activities with an "Add" button
                     HStack {
@@ -39,12 +46,10 @@ struct HomepageView: View {
                                 .font(.title2)
                                 .fontWeight(.bold)
                         }
-
-                        Spacer()  // Pushes the "Add" button to the right
-
-                        // "Add" button to navigate to AddActivityView
+                        Spacer()
+                        // "Add" button to show the AddActivityView
                         Button(action: {
-                            showingAddActivityView = true  // Show the AddActivityView
+                            showingAddActivityView = true
                         }) {
                             Image(systemName: "plus.circle")
                                 .font(.title)
@@ -53,7 +58,7 @@ struct HomepageView: View {
                     }
                     .padding(.bottom, 5)
 
-                    // Activity card views
+                    // Display activity cards
                     ForEach(activityViewModel.activities) { activity in
                         ActivityCardView(activity: activity)
                     }
@@ -61,7 +66,6 @@ struct HomepageView: View {
                     // Emergency and contact buttons
                     VStack(spacing: 15) {
                         Button(action: {
-                            // Action for emergency call
                             print("Emergency call tapped")
                         }) {
                             HStack {
@@ -77,7 +81,6 @@ struct HomepageView: View {
                         }
 
                         Button(action: {
-                            // Action to contact nurse
                             print("Contact nurse tapped")
                         }) {
                             HStack {
@@ -93,7 +96,6 @@ struct HomepageView: View {
                         }
 
                         Button(action: {
-                            // Action to get help
                             print("Get help tapped")
                         }) {
                             HStack {
@@ -112,12 +114,39 @@ struct HomepageView: View {
 
                     Spacer()  // Pushes content to the top of the screen
                 }
-                .padding(.horizontal)  // Correct context for padding
+                .padding(.horizontal)
                 .navigationTitle("Home")
                 .sheet(isPresented: $showingAddActivityView) {
-                    AddActivityView(activityViewModel: activityViewModel)  // Pass the view model
+                    AddActivityView(activityViewModel: activityViewModel)
                 }
+            }
+        }
+        .onAppear {
+            // Fetch weather data on appearance if the location is already available
+            if let location = locationManager.location {
+                fetchWeatherData(latitude: location.latitude, longitude: location.longitude)
+            } else {
+                locationManager.requestLocation()  // Request location if not available
+            }
+        }
+        .onReceive(locationManager.$location) { newLocation in
+            // Fetch weather data when location is updated
+            if let location = newLocation {
+                fetchWeatherData(latitude: location.latitude, longitude: location.longitude)
+            }
+        }
+    }
+
+    // Function to fetch weather data using latitude and longitude
+    private func fetchWeatherData(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+        Task {
+            do {
+                let weatherData = try await WeatherManager().getCurrentWeather(latitude: latitude, longitude: longitude)
+                self.weather = weatherData
+            } catch {
+                print("Error fetching weather data: \(error)")
             }
         }
     }
 }
+

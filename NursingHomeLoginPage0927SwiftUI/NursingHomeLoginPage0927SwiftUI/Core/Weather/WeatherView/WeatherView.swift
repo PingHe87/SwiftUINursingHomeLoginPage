@@ -1,4 +1,3 @@
-//
 //  WeatherView.swift
 //  NursingHomeLoginPage0927SwiftUI
 //
@@ -19,72 +18,76 @@ struct WeatherView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.7), Color.purple.opacity(0.4)]),
-                           startPoint: .topLeading, endPoint: .bottomTrailing)
-                .edgesIgnoringSafeArea(.top)  // Extend background only to the top, not full screen
+            // Set background color to blue
+            Color.gray
+                .edgesIgnoringSafeArea(.top)
             
-            ScrollView {
-                VStack(spacing: 30) {
-                    // Top Section: City Name and Date
-                    VStack(alignment: .leading, spacing: 8) {
-                        HStack {
-                            Text(weather.name)
-                                .font(.largeTitle)
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                            
-                            Spacer()
-                            
-                            Button(action: {
-                                speakWeather()  // Speak weather info
-                            }) {
-                                Image(systemName: "speaker.wave.2.fill")
-                                    .font(.title2)
-                                    .foregroundColor(.white)
-                            }
-                        }
-                        Text("Today, \(Date().formatted(.dateTime.month().day().hour().minute()))")
-                            .foregroundColor(.white.opacity(0.9))
-                            .font(.subheadline)
-                    }
-                    .padding(.horizontal, 20)
+            VStack {
+                // Top Section: City Name and Date
+                VStack(spacing: 10) {
+                    Text(weather.name)
+                        .font(.system(size: 36, weight: .bold))
+                        .foregroundColor(.white)
+                        .shadow(color: Color.black.opacity(0.7), radius: 1, x: 0, y: 1)
                     
-                    // Main Weather Information
-                    VStack(spacing: 15) {
-                        Text("\(roundedTemperature(weather.main.feels_like))°F")
-                            .font(.system(size: 100))
-                            .fontWeight(.heavy)
-                            .foregroundColor(.white)
-                        
-                        Text(weather.weather.first?.main ?? "Unknown")
-                            .font(.title2)
-                            .fontWeight(.medium)
-                            .foregroundColor(.white)
-                    }
-                    .padding(.top, 10)
+                    Text("Today, \(Date().formatted(.dateTime.month().day().hour().minute()))")
+                        .foregroundColor(.white.opacity(0.9))
+                        .font(.subheadline)
+                        .shadow(color: Color.black.opacity(0.5), radius: 1, x: 0, y: 1)
+                }
+                .padding(.top, 40)
+                
+                Spacer()
+                
+                // Main Weather Information
+                VStack(spacing: 8) {
+                    Text("\(roundedTemperature(weather.main.feels_like))°F")
+                        .font(.system(size: 100, weight: .bold))
+                        .foregroundColor(.white)
+                        .shadow(color: Color.black.opacity(0.7), radius: 2, x: 0, y: 2)
                     
-                    // Additional Weather Details in Card
-                    VStack(spacing: 20) {
-                        HStack(spacing: 20) {
-                            WeatherDetailCard(icon: "thermometer.low", label: "Min Temp", value: "\(roundedTemperature(weather.main.temp_min))°F")
-                            WeatherDetailCard(icon: "thermometer.high", label: "Max Temp", value: "\(roundedTemperature(weather.main.temp_max))°F")
-                        }
-                        
-                        HStack(spacing: 20) {
-                            WeatherDetailCard(icon: "wind", label: "Wind Speed", value: "\(weather.wind.speed.roundDouble()) m/s")
-                            WeatherDetailCard(icon: "humidity", label: "Humidity", value: "\(weather.main.humidity)%")
-                        }
-                    }
-                    .padding()
-                    .background(Color.white.opacity(0.15))
-                    .cornerRadius(20)
-                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
-                    .padding(.horizontal, 20)
+                    Text(weather.weather.first?.main ?? "Unknown")
+                        .font(.title2)
+                        .fontWeight(.medium)
+                        .foregroundColor(.white)
+                        .shadow(color: Color.black.opacity(0.5), radius: 1, x: 0, y: 1)
                 }
                 .padding(.vertical, 20)
+                
+                Spacer()
+                
+                // Additional Weather Details in Grid Layout
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
+                    WeatherDetailCard(icon: "thermometer.low", label: "Min Temp", value: "\(roundedTemperature(weather.main.temp_min))°F")
+                    WeatherDetailCard(icon: "thermometer.high", label: "Max Temp", value: "\(roundedTemperature(weather.main.temp_max))°F")
+                    WeatherDetailCard(icon: "wind", label: "Wind Speed", value: "\(weather.wind.speed.roundDouble()) m/s")
+                    WeatherDetailCard(icon: "humidity", label: "Humidity", value: "\(weather.main.humidity)%")
+                }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 20)
+                
+                // Button to speak weather info
+                HStack {
+                    Button(action: {
+                        speakWeather()  // Speak weather info
+                    }) {
+                        HStack {
+                            Image(systemName: "speaker.wave.2.fill")
+                                .font(.title2)
+                            Text("Hear Weather")
+                                .font(.headline)
+                        }
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.black.opacity(0.6))
+                        .cornerRadius(15)
+                        .shadow(color: Color.black.opacity(0.5), radius: 2, x: 0, y: 2)
+                    }
+                }
+                .padding(.bottom, 40)
             }
         }
-        .navigationTitle("Weather")  // Set a title that works within the TabView
+        .navigationTitle("Weather")
     }
     
     // Function to speak the main weather information
@@ -93,35 +96,7 @@ struct WeatherView: View {
         The weather in \(weather.name) is currently \(weather.weather.first?.description ?? "no description").
         The temperature is \(roundedTemperature(weather.main.temp)) degrees Fahrenheit.
         """
-        speechService.speak(text: weatherInfo)  // Use temperature with rounding
-    }
-}
-
-// A reusable card view for weather details
-struct WeatherDetailCard: View {
-    var icon: String
-    var label: String
-    var value: String
-    
-    var body: some View {
-        VStack(spacing: 8) {
-            Image(systemName: icon)
-                .font(.title)
-                .foregroundColor(.white)
-            
-            Text(label)
-                .font(.footnote)
-                .foregroundColor(.white.opacity(0.8))
-            
-            Text(value)
-                .font(.title2)
-                .fontWeight(.semibold)
-                .foregroundColor(.white)
-        }
-        .frame(width: 130, height: 120)
-        .background(Color.blue.opacity(0.4))
-        .cornerRadius(15)
-        .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
+        speechService.speak(text: weatherInfo)
     }
 }
 
