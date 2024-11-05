@@ -45,6 +45,9 @@
 		EFF51F542CDA8F6100EA7AF1 /* ActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF51F532CDA8F6000EA7AF1 /* ActivityCardView.swift */; };
 		EFF51F562CDA9B7E00EA7AF1 /* WeatherDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF51F552CDA9B7D00EA7AF1 /* WeatherDetailCard.swift */; };
 		EFF51F582CDAA4EB00EA7AF1 /* WeatherCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF51F572CDAA4EA00EA7AF1 /* WeatherCardView.swift */; };
+		EFF51F5B2CDAAB3300EA7AF1 /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF51F5A2CDAAB3200EA7AF1 /* ContactsModel.swift */; };
+		EFF51F5D2CDAAB4E00EA7AF1 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF51F5C2CDAAB4D00EA7AF1 /* ContactsView.swift */; };
+		EFF51F5F2CDAAC3900EA7AF1 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF51F5E2CDAAC3800EA7AF1 /* ChatView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +87,9 @@
 		EFF51F532CDA8F6000EA7AF1 /* ActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardView.swift; sourceTree = "<group>"; };
 		EFF51F552CDA9B7D00EA7AF1 /* WeatherDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailCard.swift; sourceTree = "<group>"; };
 		EFF51F572CDAA4EA00EA7AF1 /* WeatherCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCardView.swift; sourceTree = "<group>"; };
+		EFF51F5A2CDAAB3200EA7AF1 /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
+		EFF51F5C2CDAAB4D00EA7AF1 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		EFF51F5E2CDAAC3800EA7AF1 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -157,6 +163,7 @@
 		EF1792F52CA73FD300E9D691 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EFF51F592CDAAAFF00EA7AF1 /* Contacts */,
 				EF5638552CD9527E002AF271 /* Menu */,
 				EF5638502CD948D5002AF271 /* Activity */,
 				EF6846E82CD2BDE7003D0885 /* HomePage */,
@@ -309,6 +316,16 @@
 			path = Weather;
 			sourceTree = "<group>";
 		};
+		EFF51F592CDAAAFF00EA7AF1 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				EFF51F5E2CDAAC3800EA7AF1 /* ChatView.swift */,
+				EFF51F5C2CDAAB4D00EA7AF1 /* ContactsView.swift */,
+				EFF51F5A2CDAAB3200EA7AF1 /* ContactsModel.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -403,8 +420,10 @@
 				EF1792E92CA73FAD00E9D691 /* ContentView.swift in Sources */,
 				EFF51F562CDA9B7E00EA7AF1 /* WeatherDetailCard.swift in Sources */,
 				EF2A9FB42CC1FFAE0053460E /* ModelData.swift in Sources */,
+				EFF51F5D2CDAAB4E00EA7AF1 /* ContactsView.swift in Sources */,
 				EFAF0CC32CC1F89500070545 /* LocationManager.swift in Sources */,
 				EF5638522CD948E1002AF271 /* ActivityModel.swift in Sources */,
+				EFF51F5F2CDAAC3900EA7AF1 /* ChatView.swift in Sources */,
 				EF1792E72CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift in Sources */,
 				EFF51F582CDAA4EB00EA7AF1 /* WeatherCardView.swift in Sources */,
 				EFF51F542CDA8F6100EA7AF1 /* ActivityCardView.swift in Sources */,
@@ -423,6 +442,7 @@
 				EF5638572CD95397002AF271 /* MenuItem.swift in Sources */,
 				EF56385B2CD953E6002AF271 /* MenuViewModel.swift in Sources */,
 				4940A4082CD2CF0200011FEC /* ForgotPasswordView.swift in Sources */,
+				EFF51F5B2CDAAB3300EA7AF1 /* ContactsModel.swift in Sources */,
 				EF2A9FB82CC2005C0053460E /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

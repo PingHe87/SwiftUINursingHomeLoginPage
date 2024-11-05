@@ -27,12 +27,13 @@ struct MainTabView: View {
                         .font(.system(size: 18, weight: .bold))
                 }
             
-            // Contacts Tab with placeholder content
-            Text("Contacts Page Placeholder")
+            // Contacts Tab with real `ContactsView`
+            ContactsView()
                 .tabItem {
                     Label("Contacts", systemImage: "person.2")
                         .font(.system(size: 18, weight: .bold))
                 }
+                .tag(1)
             
             // Homepage Tab in the center
             HomepageView()
