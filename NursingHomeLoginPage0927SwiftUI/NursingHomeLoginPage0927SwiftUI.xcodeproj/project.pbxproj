@@ -41,6 +41,8 @@
 		EF9775F32CC2D2AA0019CFBA /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9775F22CC2D2AA0019CFBA /* SpeechService.swift */; };
 		EFAF0CC32CC1F89500070545 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF0CC22CC1F89500070545 /* LocationManager.swift */; };
 		EFAF0CC52CC1FA3B00070545 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF0CC42CC1FA3B00070545 /* WeatherView.swift */; };
+		EFF51F522CDA8E7100EA7AF1 /* AddActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF51F512CDA8E7000EA7AF1 /* AddActivityView.swift */; };
+		EFF51F542CDA8F6100EA7AF1 /* ActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF51F532CDA8F6000EA7AF1 /* ActivityCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,8 @@
 		EF9775F22CC2D2AA0019CFBA /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
 		EFAF0CC22CC1F89500070545 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		EFAF0CC42CC1FA3B00070545 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		EFF51F512CDA8E7000EA7AF1 /* AddActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityView.swift; sourceTree = "<group>"; };
+		EFF51F532CDA8F6000EA7AF1 /* ActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -253,6 +257,8 @@
 		EF5638502CD948D5002AF271 /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				EFF51F532CDA8F6000EA7AF1 /* ActivityCardView.swift */,
+				EFF51F512CDA8E7000EA7AF1 /* AddActivityView.swift */,
 				EF5638532CD948F0002AF271 /* ActivityViewModel.swift */,
 				EF5638512CD948E0002AF271 /* ActivityModel.swift */,
 			);
@@ -383,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF2A9FBA2CC202740053460E /* WeatherRow.swift in Sources */,
+				EFF51F522CDA8E7100EA7AF1 /* AddActivityView.swift in Sources */,
 				EF5638592CD953A7002AF271 /* MenuData.swift in Sources */,
 				EFAF0CC52CC1FA3B00070545 /* WeatherView.swift in Sources */,
 				EF1792FE2CA7424000E9D691 /* InputView.swift in Sources */,
@@ -392,6 +399,7 @@
 				EFAF0CC32CC1F89500070545 /* LocationManager.swift in Sources */,
 				EF5638522CD948E1002AF271 /* ActivityModel.swift in Sources */,
 				EF1792E72CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift in Sources */,
+				EFF51F542CDA8F6100EA7AF1 /* ActivityCardView.swift in Sources */,
 				EF6846EA2CD2BDF4003D0885 /* MainTabView.swift in Sources */,
 				EF9775F32CC2D2AA0019CFBA /* SpeechService.swift in Sources */,
 				8DF046682CADEA8E00D1F8E6 /* LoginView.swift in Sources */,

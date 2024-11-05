@@ -1,4 +1,3 @@
-//
 //  ActivityViewModel.swift
 //  NursingHomeLoginPage0927SwiftUI
 //
@@ -15,11 +14,13 @@ class ActivityViewModel: ObservableObject {
     }
 
     func loadTodayActivities() {
+        
+        let today = Date()
+        
         // Replace with actual data loading logic if needed
         self.activities = [
-                    Activity(title: "Health Check-up", time: "10:30 AM", location: "Medical Room", description: "Routine health check by the nurse."),
-                    
-                    Activity(title: "Afternoon Movie", time: "02:00 PM", location: "Common Room", description: "Movie screening in the common room.")
-                ]
+            Activity(title: "Health Check-up", date: today, time: "10:30 AM", location: "Medical Room", description: "Routine health check by the nurse."),
+            Activity(title: "Afternoon Movie", date: today, time: "02:00 PM", location: "Common Room", description: "Movie screening in the common room.")
+        ]
     }
 }

@@ -18,7 +18,7 @@ let sampleMenuItems: [MenuItem] = [
     MenuItem(
         name: "Vegetable Stir Fry",
         description: "A mix of seasonal vegetables stir-fried with soy sauce.",
-        imageUrl:"https://www.pexels.com/photo/cooked-broccoli-soup-53821/.jpeg",
+        imageUrl:"https://www.pexels.com/photo/cooked-broccoli-soup-53821.jpeg",
         nutritionInfo: "250 kcal",
         dietaryTags: ["V", "Vegan", "Low Salt"],
         allergens: ["Soy"]

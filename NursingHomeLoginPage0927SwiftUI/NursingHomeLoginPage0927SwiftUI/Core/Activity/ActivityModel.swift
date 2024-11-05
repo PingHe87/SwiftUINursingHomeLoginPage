@@ -1,4 +1,3 @@
-//
 //  ActivityModel.swift
 //  NursingHomeLoginPage0927SwiftUI
 //
@@ -10,7 +9,8 @@ import Foundation
 struct Activity: Identifiable {
     let id = UUID()
     let title: String
+    let date: Date  
     let time: String
-    let location : String
+    let location: String
     let description: String
 }
