@@ -18,7 +18,8 @@ struct ProfileView: View {
                 // User profile section
                 Section {
                     HStack {
-                        Text(authViewModel.currentUser?.initials ?? "")
+                        // Circle with initials
+                        Text(authViewModel.currentUser?.initials ?? "U")
                             .font(.title)
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
@@ -27,39 +28,36 @@ struct ProfileView: View {
                             .clipShape(Circle())
                         
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(authViewModel.currentUser?.fullname ?? "Unknown")
+                            // Full name
+                            Text(authViewModel.currentUser?.fullName ?? "Unknown User")
                                 .fontWeight(.semibold)
                                 .font(.subheadline)
                                 .padding(.top, 4)
                             
-                            Text(authViewModel.currentUser?.email ?? "No email")
+                            // Email address
+                            Text(authViewModel.currentUser?.email ?? "No email available")
                                 .font(.footnote)
                                 .foregroundColor(.gray)
                         }
                     }
+                    .padding(.vertical, 8)
                 }
-
 
                 // Account section with Sign Out button
                 Section("Account") {
                     Button {
-                        // Call sign out function
-                        authViewModel.signOut()
+                        authViewModel.signOut()  // Call sign out function
                     } label: {
                         SettingsRowView(imageName: "arrow.left.circle.fill", title: "Sign Out", tintColor: .red)
                     }
                 }
-                
             }
-          
-            .navigationTitle("Profile")  // Set navigation title
+            .navigationTitle("Profile")
         }
     }
-
-
-
 }
 
 #Preview {
     ProfileView()
 }
+

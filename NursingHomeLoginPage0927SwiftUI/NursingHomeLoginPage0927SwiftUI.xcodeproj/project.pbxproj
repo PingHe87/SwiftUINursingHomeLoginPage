@@ -28,6 +28,7 @@
 		EF2A9FB62CC1FFFA0053460E /* WeatherData.json in Resources */ = {isa = PBXBuildFile; fileRef = EF2A9FB52CC1FFFA0053460E /* WeatherData.json */; };
 		EF2A9FB82CC2005C0053460E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A9FB72CC2005C0053460E /* Extensions.swift */; };
 		EF2A9FBA2CC202740053460E /* WeatherRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A9FB92CC202740053460E /* WeatherRow.swift */; };
+		EF2B63402CF2840F007B4ADD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF2B633F2CF2840F007B4ADD /* GoogleService-Info.plist */; };
 		EF56384F2CD9480B002AF271 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56384E2CD94809002AF271 /* HomepageView.swift */; };
 		EF5638522CD948E1002AF271 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5638512CD948E0002AF271 /* ActivityModel.swift */; };
 		EF5638542CD948F1002AF271 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5638532CD948F0002AF271 /* ActivityViewModel.swift */; };
@@ -35,9 +36,7 @@
 		EF5638592CD953A7002AF271 /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5638582CD953A6002AF271 /* MenuData.swift */; };
 		EF56385B2CD953E6002AF271 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56385A2CD953E6002AF271 /* MenuViewModel.swift */; };
 		EF56385D2CD953FB002AF271 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56385C2CD953FA002AF271 /* MenuView.swift */; };
-		EF5638602CD9573B002AF271 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF56385F2CD95731002AF271 /* info.plist */; };
 		EF6846EA2CD2BDF4003D0885 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6846E92CD2BDF0003D0885 /* MainTabView.swift */; };
-		EF8F041F2CB8391800FCEE8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF8F041E2CB8391800FCEE8C /* GoogleService-Info.plist */; };
 		EF9775F32CC2D2AA0019CFBA /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9775F22CC2D2AA0019CFBA /* SpeechService.swift */; };
 		EFAF0CC32CC1F89500070545 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF0CC22CC1F89500070545 /* LocationManager.swift */; };
 		EFAF0CC52CC1FA3B00070545 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF0CC42CC1FA3B00070545 /* WeatherView.swift */; };
@@ -70,6 +69,7 @@
 		EF2A9FB52CC1FFFA0053460E /* WeatherData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WeatherData.json; sourceTree = "<group>"; };
 		EF2A9FB72CC2005C0053460E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EF2A9FB92CC202740053460E /* WeatherRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRow.swift; sourceTree = "<group>"; };
+		EF2B633F2CF2840F007B4ADD /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF56384E2CD94809002AF271 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
 		EF5638512CD948E0002AF271 /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 		EF5638532CD948F0002AF271 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
@@ -77,9 +77,7 @@
 		EF5638582CD953A6002AF271 /* MenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuData.swift; sourceTree = "<group>"; };
 		EF56385A2CD953E6002AF271 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		EF56385C2CD953FA002AF271 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
-		EF56385F2CD95731002AF271 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = info.plist; sourceTree = "<group>"; };
 		EF6846E92CD2BDF0003D0885 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
-		EF8F041E2CB8391800FCEE8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF9775F22CC2D2AA0019CFBA /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
 		EFAF0CC22CC1F89500070545 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		EFAF0CC42CC1FA3B00070545 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
@@ -131,8 +129,7 @@
 		EF1792E52CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				EF56385F2CD95731002AF271 /* info.plist */,
-				EF8F041E2CB8391800FCEE8C /* GoogleService-Info.plist */,
+				EF2B633F2CF2840F007B4ADD /* GoogleService-Info.plist */,
 				EF1792EA2CA73FAD00E9D691 /* Assets.xcassets */,
 				EF1792F42CA73FCF00E9D691 /* App */,
 				EF1792F52CA73FD300E9D691 /* Core */,
@@ -396,9 +393,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF5638602CD9573B002AF271 /* info.plist in Resources */,
 				EF1792EE2CA73FAD00E9D691 /* Preview Assets.xcassets in Resources */,
-				EF8F041F2CB8391800FCEE8C /* GoogleService-Info.plist in Resources */,
+				EF2B63402CF2840F007B4ADD /* GoogleService-Info.plist in Resources */,
 				EF2A9FB62CC1FFFA0053460E /* WeatherData.json in Resources */,
 				EF1792EB2CA73FAD00E9D691 /* Assets.xcassets in Resources */,
 			);

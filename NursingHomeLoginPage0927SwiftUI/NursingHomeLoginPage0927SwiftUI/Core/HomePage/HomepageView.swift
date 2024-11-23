@@ -19,7 +19,7 @@ struct HomepageView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     // Greeting message for the user
-                    Text("Hello, \(authViewModel.currentUser?.fullname ?? "User")!")
+                    Text("Hello, \(authViewModel.currentUser?.firstName ?? "User")!")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding(.top, 20)

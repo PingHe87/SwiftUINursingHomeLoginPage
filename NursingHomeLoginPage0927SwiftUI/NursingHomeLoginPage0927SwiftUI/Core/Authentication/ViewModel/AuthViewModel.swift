@@ -12,96 +12,141 @@ import FirebaseFirestore
 import SwiftUI
 
 protocol AuthenticationFormProtocal {
-    var formIsValid : Bool{ get }
+    var formIsValid: Bool { get }
 }
 
-class AuthViewModel : ObservableObject {
+class AuthViewModel: ObservableObject {
     
-    @Published var userSession : FirebaseAuth.User?
-    @Published var currentUser : User?
+    @Published var userSession: FirebaseAuth.User?
+    @Published var currentUser: User?
     
-    init(){
+    init() {
         self.userSession = Auth.auth().currentUser
         
-        Task{
+        Task {
             await fetchUser()
         }
     }
     
+    /// Sign in an existing user
+    /// - Parameters:
+    ///   - email: User's email
+    ///   - password: User's password
     func signIn(withEmail email: String, password: String) async throws {
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
             
-            // update  userSession
+            // Update userSession
             self.userSession = result.user
             
             await fetchUser()
-            
-            // print("User signed in successfully.")
         } catch {
-            // catch error
             print("Error signing in: \(error.localizedDescription)")
             throw error
         }
-        
     }
     
-    func createUser(withEmail email : String, password : String, fullname : String) async throws{
-        do{
+    /// Create a new user and save to Firestore
+    /// - Parameters:
+    ///   - email: User's email address
+    ///   - password: User's password
+    ///   - firstName: User's first name
+    ///   - middleName: User's middle name (optional)
+    ///   - lastName: User's last name
+    ///   - role: User's role (e.g., "staff", "resident", "relative")
+    func createUser(withEmail email: String, password: String, firstName: String, middleName: String?, lastName: String, role: String) async throws {
+        do {
+            // Create user in Firebase Authentication
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
+            
+            // Update userSession
             self.userSession = result.user
-            let user = User(id: result.user.uid, fullname: fullname, email: email)
+            
+            // Create a new User object with separated name fields
+            let user = User(
+                id: result.user.uid,
+                firstName: firstName,
+                middleName: middleName,
+                lastName: lastName,
+                email: email,
+                role: role
+            )
+            
+            // Encode and save user data to Firestore
             let encodeUser = try Firestore.Encoder().encode(user)
             try await Firestore.firestore().collection("users").document(user.id).setData(encodeUser)
+            
+            print("User created successfully with role: \(role)")
         } catch {
-            print(error.localizedDescription)
+            print("Error creating user: \(error.localizedDescription)")
+            throw error
         }
     }
     
+    /// Sign out the current user
     func signOut() {
         do {
-            //try sign out
+            // Try to sign out
             try Auth.auth().signOut()
             
-            // set nil after success
+            // Clear session data
             self.userSession = nil
             self.currentUser = nil
             print("User signed out successfully.")
         } catch {
-            // error control
             print("Error signing out: \(error.localizedDescription)")
         }
     }
     
-    func deleteAccount(){
-        
+    /// Fetch the current user's data from Firestore
+    func fetchUser() async {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            print("No logged-in user.")
+            return
+        }
+
+        do {
+            let snapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
+            
+            if let data = snapshot.data() {
+                print("Fetched data: \(data)")  // Log raw Firestore data
+                
+                // Decode Firestore data on the current thread (background)
+                let user = try snapshot.data(as: User.self)
+                
+                // Update @Published property on the main thread
+                DispatchQueue.main.async {
+                    self.currentUser = user
+                    print("Decoded user: \(String(describing: self.currentUser))")
+                }
+            } else {
+                print("No user document found for uid: \(uid)")
+            }
+        } catch {
+            print("Error fetching user: \(error.localizedDescription)")
+        }
     }
+
+
     
-    func fetchUser() async{
-        guard let uid = Auth.auth().currentUser?.uid else{ return }
-        
-        guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else { return }
-        
-        self.currentUser = try? snapshot.data(as : User.self)
-        
-        // print("Debug, current user is \(String(describing: self.currentUser))")
-    }
-    
-    
+    /// Change the current user's password
+    /// - Parameter newPassword: New password
     func changePassword(to newPassword: String) async throws {
         guard let user = Auth.auth().currentUser else {
             throw NSError(domain: "UserNotLoggedIn", code: 401, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])
         }
-            
+        
         do {
             try await user.updatePassword(to: newPassword)
-            print("Password changed successfully")
+            print("Password changed successfully.")
         } catch {
             print("Error updating password: \(error.localizedDescription)")
             throw error
         }
     }
     
+    /// Send a password reset email
+    /// - Parameter email: User's email
     func forgotPassword(email: String) async throws {
         guard !email.isEmpty else {
             throw NSError(domain: "InvalidEmail", code: 400, userInfo: [NSLocalizedDescriptionKey: "Email cannot be empty"])
@@ -116,3 +161,4 @@ class AuthViewModel : ObservableObject {
         }
     }
 }
+

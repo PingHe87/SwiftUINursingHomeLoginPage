@@ -10,50 +10,64 @@ import SwiftUI
 struct RegistrationView: View {
     
     @State private var email = ""
-    @State private var fullname = ""
+    @State private var firstName = ""
+    @State private var middleName = ""
+    @State private var lastName = ""
     @State private var password = ""
-    @State private var confirmpassword = ""
+    @State private var confirmPassword = ""
+    @State private var selectedRole = "resident" // Default role
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var viewModel : AuthViewModel
+    @EnvironmentObject var viewModel: AuthViewModel
+    
+    let roles = ["staff", "resident", "relative"] // Available roles
     
     var body: some View {
-        VStack{
+        VStack {
             
-            //image
+            // Image
             Image("splash")
                 .resizable()
                 .scaledToFill()
-                .frame(width: 100,height: 120)
+                .frame(width: 100, height: 120)
                 .padding(.vertical, 32)
             
-            //form fields
-            VStack(spacing: 24){
+            // Form fields
+            VStack(spacing: 24) {
                 InputView(text: $email,
                           title: "Email Address",
                           placeholder: "name@example.com")
                     .autocapitalization(.none)
+                    .keyboardType(.emailAddress)
                 
-                InputView(text: $fullname,
-                          title: "Full Name",
-                          placeholder: "Enter Your Full Name")
+                InputView(text: $firstName,
+                          title: "First Name",
+                          placeholder: "Enter your first name")
+                
+                InputView(text: $middleName,
+                          title: "Middle Name (optional)",
+                          placeholder: "Enter your middle name")
+                
+                InputView(text: $lastName,
+                          title: "Last Name",
+                          placeholder: "Enter your last name")
                 
                 InputView(text: $password,
                           title: "Password",
                           placeholder: "Enter your password",
                           isSecuredField: true)
                 
-                ZStack(alignment: .trailing){
-                    InputView(text: $confirmpassword,
+                ZStack(alignment: .trailing) {
+                    InputView(text: $confirmPassword,
                               title: "Confirm Password",
                               placeholder: "Confirm your password",
                               isSecuredField: true)
-                    if !password.isEmpty && !confirmpassword.isEmpty{
-                        if password == confirmpassword{
+                    if !password.isEmpty && !confirmPassword.isEmpty {
+                        if password == confirmPassword {
                             Image(systemName: "checkmark.circle.fill")
                                 .imageScale(.large)
                                 .fontWeight(.bold)
                                 .foregroundColor(Color(.systemGreen))
-                        }else{
+                        } else {
                             Image(systemName: "xmark.circle.fill")
                                 .imageScale(.large)
                                 .fontWeight(.bold)
@@ -61,19 +75,38 @@ struct RegistrationView: View {
                         }
                     }
                 }
+                
+                // Role picker
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Select Role")
+                        .font(.headline)
+                    Picker("Role", selection: $selectedRole) {
+                        ForEach(roles, id: \.self) { role in
+                            Text(role.capitalized)
+                                .tag(role)
+                        }
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                }
+                .padding(.top, 16)
             }
             .padding(.horizontal)
-            .padding(.top,12)
+            .padding(.top, 12)
             
-            //sign up button
-            Button{
-                Task{
-                    try await viewModel.createUser(withEmail : email,
-                                                   password : password,
-                                                   fullname : fullname)
+            // Sign Up button
+            Button {
+                Task {
+                    try await viewModel.createUser(
+                        withEmail: email,
+                        password: password,
+                        firstName: firstName,
+                        middleName: middleName.isEmpty ? nil : middleName, // Pass nil if empty
+                        lastName: lastName,
+                        role: selectedRole // Pass the selected role
+                    )
                 }
-            }label : {
-                HStack{
+            } label: {
+                HStack {
                     Text("SIGN UP")
                         .fontWeight(.semibold)
                     Image(systemName: "arrow.right")
@@ -85,15 +118,15 @@ struct RegistrationView: View {
             .disabled(!formIsValid)
             .opacity(formIsValid ? 1.0 : 0.5)
             .cornerRadius(10)
-            .padding(.top,24)
+            .padding(.top, 24)
             
             Spacer()
             
-            //back to sign in
-            Button{
+            // Back to Sign In
+            Button {
                 dismiss()
-            }label: {
-                HStack{
+            } label: {
+                HStack {
                     Text("Already have an account?")
                     Text("Sign in")
                         .fontWeight(.bold)
@@ -104,20 +137,21 @@ struct RegistrationView: View {
     }
 }
 
-// MARK : - AuthenticationFormProtocal
+// MARK: - AuthenticationFormProtocal
 
-extension RegistrationView: AuthenticationFormProtocal{
-    var formIsValid : Bool{
+extension RegistrationView: AuthenticationFormProtocal {
+    var formIsValid: Bool {
         return !email.isEmpty
         && email.contains("@")
         && !password.isEmpty
         && password.count > 5
-        && confirmpassword == password
-        && !fullname.isEmpty
+        && confirmPassword == password
+        && !firstName.isEmpty
+        && !lastName.isEmpty
     }
 }
-
 
 #Preview {
     RegistrationView()
 }
+
