@@ -8,25 +8,22 @@ import SwiftUI
 
 struct ContactsView: View {
     @StateObject private var viewModel = ContactsViewModel()
-    @State private var isAddingFriend = false
-    
+    @State private var isShowingPendingRequests = false
+
     var body: some View {
         NavigationView {
             VStack {
-               
                 List {
                     ForEach(viewModel.groupedContacts.keys.sorted(), id: \.self) { group in
                         Section(header: Text(group)) {
                             ForEach(viewModel.groupedContacts[group] ?? []) { contact in
-                                NavigationLink(destination: ContactDetailView(contact: contact)) {
-                                    HStack {
-                                        Text(contact.name)
-                                            .font(.headline)
-                                        Spacer()
-                                        Text(contact.role.capitalized)
-                                            .font(.subheadline)
-                                            .foregroundColor(.gray)
-                                    }
+                                HStack {
+                                    Text(contact.name)
+                                        .font(.headline)
+                                    Spacer()
+                                    Text(contact.role.capitalized)
+                                        .font(.subheadline)
+                                        .foregroundColor(.gray)
                                 }
                             }
                         }
@@ -35,15 +32,33 @@ struct ContactsView: View {
                 .listStyle(InsetGroupedListStyle())
             }
             .navigationTitle("Contacts")
-            .navigationBarItems(trailing: Button(action: {
-                isAddingFriend = true
-            }) {
-                Image(systemName: "person.badge.plus")
-                    .font(.title2)
-            })
-            .sheet(isPresented: $isAddingFriend) {
-                AddFriendView()
-            }
+            .navigationBarItems(
+                leading: Button(action: {
+                    isShowingPendingRequests = true
+                }) {
+                    HStack {
+                        Image(systemName: "bell")
+                            .font(.title2)
+                        if viewModel.pendingRequestsCount > 0 {
+                            Text("\(viewModel.pendingRequestsCount)")
+                                .font(.caption)
+                                .padding(4)
+                                .background(Color.red)
+                                .foregroundColor(.white)
+                                .clipShape(Circle())
+                        }
+                    }
+                }
+                .sheet(isPresented: $isShowingPendingRequests) {
+                    PendingRequestsView()
+                },
+                trailing: Button(action: {
+                    // Add Friend Button Action
+                }) {
+                    Image(systemName: "person.badge.plus")
+                        .font(.title2)
+                }
+            )
         }
     }
 }

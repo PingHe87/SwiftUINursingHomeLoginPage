@@ -5,7 +5,6 @@
 //  Created by p h on 11/24/24.
 //
 
-import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
@@ -16,16 +15,23 @@ class ContactsViewModel: ObservableObject {
             filterAndGroupContacts()
         }
     }
-    
+    @Published var pendingRequestsCount: Int = 0
+
     private var contacts: [Contact] = []
     private let db = Firestore.firestore()
+    private var listener: ListenerRegistration?
 
     init() {
         Task {
             await loadContacts()
         }
+        startListeningForPendingRequests()
     }
     
+    deinit {
+        listener?.remove()
+    }
+
     /// Load contacts of the current user from Firestore
     private func loadContacts() async {
         guard let currentUserID = Auth.auth().currentUser?.uid else {
@@ -34,21 +40,15 @@ class ContactsViewModel: ObservableObject {
         }
 
         do {
-            // Fetch the current user's document
             let userDoc = try await db.collection("users").document(currentUserID).getDocument()
-            
-            // Retrieve the contact IDs from the user's document
             guard let contactIDs = userDoc.data()?["contacts"] as? [String], !contactIDs.isEmpty else {
-                print("No contacts found for the current user.")
                 return
             }
-            
-            // Query Firestore for user documents matching the contact IDs
+
             let snapshot = try await db.collection("users")
                 .whereField(FieldPath.documentID(), in: contactIDs)
                 .getDocuments()
-            
-            // Map Firestore documents to Contact models
+
             let loadedContacts = snapshot.documents.compactMap { document -> Contact? in
                 guard let firstName = document.data()["firstName"] as? String,
                       let lastName = document.data()["lastName"] as? String,
@@ -64,8 +64,7 @@ class ContactsViewModel: ObservableObject {
                     role: role
                 )
             }
-            
-            // Update the contacts list and group them by role
+
             DispatchQueue.main.async {
                 self.contacts = loadedContacts
                 self.filterAndGroupContacts()
@@ -74,7 +73,7 @@ class ContactsViewModel: ObservableObject {
             print("Error loading contacts: \(error.localizedDescription)")
         }
     }
-    
+
     /// Filter and group contacts based on the search text and roles
     private func filterAndGroupContacts() {
         let filtered = searchText.isEmpty
@@ -82,5 +81,22 @@ class ContactsViewModel: ObservableObject {
             : contacts.filter { $0.name.lowercased().contains(searchText.lowercased()) }
         
         groupedContacts = Dictionary(grouping: filtered, by: { $0.role.capitalized })
+    }
+
+    /// Start listening for pending requests count
+    private func startListeningForPendingRequests() {
+        guard let currentUserID = Auth.auth().currentUser?.uid else { return }
+
+        listener = db.collection("users").document(currentUserID).addSnapshotListener { [weak self] snapshot, error in
+            guard let data = snapshot?.data(), error == nil else {
+                return
+            }
+            
+            if let requestIDs = data["pendingRequests"] as? [String] {
+                DispatchQueue.main.async {
+                    self?.pendingRequestsCount = requestIDs.count
+                }
+            }
+        }
     }
 }

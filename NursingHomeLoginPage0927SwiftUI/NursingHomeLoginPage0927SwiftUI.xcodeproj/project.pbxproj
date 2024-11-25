@@ -36,6 +36,8 @@
 		EF2B635B2CF433C4007B4ADD /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B635A2CF433C4007B4ADD /* AddFriendView.swift */; };
 		EF2B63602CF43402007B4ADD /* AddFriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B635F2CF433FC007B4ADD /* AddFriendViewModel.swift */; };
 		EF2B63622CF434A8007B4ADD /* FriendCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63612CF434A7007B4ADD /* FriendCard.swift */; };
+		EF2B63642CF43AFD007B4ADD /* PendingRequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63632CF43AFC007B4ADD /* PendingRequestsView.swift */; };
+		EF2B63682CF43C05007B4ADD /* PendingRequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63672CF43C05007B4ADD /* PendingRequestsViewModel.swift */; };
 		EF56384F2CD9480B002AF271 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56384E2CD94809002AF271 /* HomepageView.swift */; };
 		EF5638522CD948E1002AF271 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5638512CD948E0002AF271 /* ActivityModel.swift */; };
 		EF5638542CD948F1002AF271 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5638532CD948F0002AF271 /* ActivityViewModel.swift */; };
@@ -81,6 +83,8 @@
 		EF2B635A2CF433C4007B4ADD /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
 		EF2B635F2CF433FC007B4ADD /* AddFriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewModel.swift; sourceTree = "<group>"; };
 		EF2B63612CF434A7007B4ADD /* FriendCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCard.swift; sourceTree = "<group>"; };
+		EF2B63632CF43AFC007B4ADD /* PendingRequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingRequestsView.swift; sourceTree = "<group>"; };
+		EF2B63672CF43C05007B4ADD /* PendingRequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingRequestsViewModel.swift; sourceTree = "<group>"; };
 		EF56384E2CD94809002AF271 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
 		EF5638512CD948E0002AF271 /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 		EF5638532CD948F0002AF271 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
@@ -284,6 +288,7 @@
 		EF2B634F2CF4321A007B4ADD /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				EF2B63672CF43C05007B4ADD /* PendingRequestsViewModel.swift */,
 				EF2B635F2CF433FC007B4ADD /* AddFriendViewModel.swift */,
 				EF2B63532CF4324B007B4ADD /* ContactsViewModel.swift */,
 			);
@@ -301,6 +306,7 @@
 		EF2B63552CF4326F007B4ADD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EF2B63632CF43AFC007B4ADD /* PendingRequestsView.swift */,
 				EF2B63612CF434A7007B4ADD /* FriendCard.swift */,
 				EF2B635A2CF433C4007B4ADD /* AddFriendView.swift */,
 				EF2B63582CF4328E007B4ADD /* ContactDetailView.swift */,
@@ -456,6 +462,7 @@
 				EF5638592CD953A7002AF271 /* MenuData.swift in Sources */,
 				EFAF0CC52CC1FA3B00070545 /* WeatherView.swift in Sources */,
 				EF1792FE2CA7424000E9D691 /* InputView.swift in Sources */,
+				EF2B63682CF43C05007B4ADD /* PendingRequestsViewModel.swift in Sources */,
 				49D734B92CC68F51007358FF /* ChangePasswordView.swift in Sources */,
 				EF1792E92CA73FAD00E9D691 /* ContentView.swift in Sources */,
 				EFF51F562CDA9B7E00EA7AF1 /* WeatherDetailCard.swift in Sources */,
@@ -476,6 +483,7 @@
 				EF56384F2CD9480B002AF271 /* HomepageView.swift in Sources */,
 				EF2A9FB02CC1FBD20053460E /* WeatherManager.swift in Sources */,
 				EF1793062CA7520300E9D691 /* User.swift in Sources */,
+				EF2B63642CF43AFD007B4ADD /* PendingRequestsView.swift in Sources */,
 				EF1793022CA74E2C00E9D691 /* ProfileView.swift in Sources */,
 				EF1793002CA7478300E9D691 /* RegistrationView.swift in Sources */,
 				EF1793042CA74FCA00E9D691 /* SettingsRowView.swift in Sources */,
