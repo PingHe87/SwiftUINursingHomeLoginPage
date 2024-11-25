@@ -55,33 +55,35 @@ class AuthViewModel: ObservableObject {
     ///   - lastName: User's last name
     ///   - role: User's role (e.g., "staff", "resident", "relative")
     func createUser(withEmail email: String, password: String, firstName: String, middleName: String?, lastName: String, role: String) async throws {
+        let db = Firestore.firestore()
+
         do {
-            // Create user in Firebase Authentication
+            // Register the user with Firebase Authentication
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
-            
-            // Update userSession
-            self.userSession = result.user
-            
-            // Create a new User object with separated name fields
+
+            // Create a new user object
             let user = User(
                 id: result.user.uid,
                 firstName: firstName,
                 middleName: middleName,
                 lastName: lastName,
                 email: email,
-                role: role
+                role: role,
+                contacts: [], // Initialize contacts as empty
+                pendingRequests: [] // Initialize pendingRequests as empty
             )
-            
-            // Encode and save user data to Firestore
-            let encodeUser = try Firestore.Encoder().encode(user)
-            try await Firestore.firestore().collection("users").document(user.id).setData(encodeUser)
-            
-            print("User created successfully with role: \(role)")
+
+            // Add the new user to Firestore
+            let userRef = db.collection("users").document(user.id)
+            try userRef.setData(from: user)
+
+            print("User created successfully: \(user)")
         } catch {
             print("Error creating user: \(error.localizedDescription)")
             throw error
         }
     }
+
     
     /// Sign out the current user
     func signOut() {

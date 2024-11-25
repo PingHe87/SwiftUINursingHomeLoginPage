@@ -5,10 +5,11 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct ActivityCardView: View {
     let activity: Activity
-
+    let AspeechService = SpeechService()
     // Date formatter for the weekday
     private var weekdayFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -25,15 +26,11 @@ struct ActivityCardView: View {
 
     var body: some View {
         HStack(alignment: .top) {
-            // Full card container with left-aligned date block
             ZStack(alignment: .leading) {
-                // Card background with rounded corners and shadow
                 RoundedRectangle(cornerRadius: 15)
                     .fill(Color.white)
                     .shadow(color: Color.blue.opacity(0.3), radius: 5, x: 0, y: 2)
 
-
-                // Card content
                 HStack(alignment: .top) {
                     // Left side date block
                     VStack {
@@ -46,7 +43,7 @@ struct ActivityCardView: View {
                             .foregroundColor(.white)
                     }
                     .frame(width: 60, height: 60)
-                    .background(Color.blue)  // Change color to blue
+                    .background(Color.blue)
                     .cornerRadius(10)
                     .padding(.trailing, 8)
 
@@ -79,21 +76,52 @@ struct ActivityCardView: View {
                             Text(activity.description)
                                 .font(.subheadline)
                                 .foregroundColor(.black)
-                                .lineLimit(2)  // Limit description to 2 lines
+                                .lineLimit(2)
                                 .truncationMode(.tail)
                         }
+
+                        // Add the speech button
+                        Button(action: {
+                            speakActivity()  // Call the function to read the activity aloud
+                        }) {
+                            HStack {
+                                Image(systemName: "speaker.wave.2.fill")
+                                    .foregroundColor(.blue)
+                                Text("Read Aloud")
+                                    .font(.subheadline)
+                                    .foregroundColor(.blue)
+                            }
+                        }
+                        .padding(.top, 8)
                     }
                 }
-                .padding()  // Padding inside the card
+                .padding()
             }
-            .frame(maxWidth: .infinity)  // Set card width to almost full screen with padding
+            .frame(maxWidth: .infinity)
         }
-        .padding(.horizontal, 10)  // Add padding to keep space on the sides
+        .padding(.horizontal, 10)
         .padding(.vertical, 5)
+    }
+
+    // Function to speak activity details
+    private func speakActivity() {
+        let activityDetails = """
+        The activity is titled \(activity.title).
+        It is scheduled on \(weekdayFormatter.string(from: activity.date)), the \(dayFormatter.string(from: activity.date)).
+        The time is \(activity.time). Location: \(activity.location.isEmpty ? "No location provided" : activity.location).
+        Description: \(activity.description.isEmpty ? "No description available" : activity.description).
+        """
+        AspeechService.speak(text: activityDetails)
     }
 }
 
-// Preview for development purposes
-#Preview {
-    ActivityCardView(activity: Activity(title: "Sample Activity", date: Date(), time: "3:00 PM", location: "Meeting Room", description: "This is a sample description for testing purposes."))
+// A mock SpeechService class to handle speech synthesis
+class ASpeechService {
+    private let synthesizer = AVSpeechSynthesizer()
+
+    func speak(text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        synthesizer.speak(utterance)
+    }
 }

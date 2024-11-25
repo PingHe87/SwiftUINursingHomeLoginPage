@@ -15,6 +15,10 @@ struct User: Identifiable, Codable {
     let lastName: String
     let email: String
     let role: String // User's role (e.g., staff, resident, relative)
+    
+    // New fields
+    var contacts: [String] = [] // IDs of user's contacts
+    var pendingRequests: [String] = [] // IDs of pending friend requests
 
     // Combine first, middle, and last names into a full name
     var fullName: String {
@@ -51,7 +55,9 @@ extension User {
         middleName: "Middle",
         lastName: "Lastname",
         email: "test@gmail.com",
-        role: Role.staff.rawValue // Default mock role
+        role: Role.staff.rawValue, // Default mock role
+        contacts: ["mockContactID1", "mockContactID2"], // Mock contacts
+        pendingRequests: ["mockRequestID1"] // Mock pending requests
     )
 }
 
