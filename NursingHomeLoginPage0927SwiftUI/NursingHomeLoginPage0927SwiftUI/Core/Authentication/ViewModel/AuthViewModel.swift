@@ -58,10 +58,10 @@ class AuthViewModel: ObservableObject {
         let db = Firestore.firestore()
 
         do {
-            // Register the user with Firebase Authentication
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
 
-            // Create a new user object
+            let fullName = [firstName, middleName, lastName].compactMap { $0 }.joined(separator: " ")
+
             let user = User(
                 id: result.user.uid,
                 firstName: firstName,
@@ -69,20 +69,29 @@ class AuthViewModel: ObservableObject {
                 lastName: lastName,
                 email: email,
                 role: role,
-                contacts: [], // Initialize contacts as empty
-                pendingRequests: [] // Initialize pendingRequests as empty
+                contacts: [],
+                pendingRequests: []
             )
 
-            // Add the new user to Firestore
-            let userRef = db.collection("users").document(user.id)
-            try userRef.setData(from: user)
-
+            try await db.collection("users").document(user.id).setData([
+                "id": user.id,
+                "firstName": firstName,
+                "middleName": middleName ?? "",
+                "lastName": lastName,
+                "fullName": fullName,
+                "email": email,
+                "role": role,
+                "contacts": [],
+                "pendingRequests": []
+            ])
+            
             print("User created successfully: \(user)")
         } catch {
             print("Error creating user: \(error.localizedDescription)")
             throw error
         }
     }
+
 
     
     /// Sign out the current user

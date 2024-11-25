@@ -34,7 +34,6 @@
 		EF2B63572CF43279007B4ADD /* ConstactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63562CF43276007B4ADD /* ConstactsView.swift */; };
 		EF2B63592CF43297007B4ADD /* ContactDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63582CF4328E007B4ADD /* ContactDetailView.swift */; };
 		EF2B635B2CF433C4007B4ADD /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B635A2CF433C4007B4ADD /* AddFriendView.swift */; };
-		EF2B635D2CF433D2007B4ADD /* MockBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B635C2CF433D2007B4ADD /* MockBackend.swift */; };
 		EF2B63602CF43402007B4ADD /* AddFriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B635F2CF433FC007B4ADD /* AddFriendViewModel.swift */; };
 		EF2B63622CF434A8007B4ADD /* FriendCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63612CF434A7007B4ADD /* FriendCard.swift */; };
 		EF56384F2CD9480B002AF271 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56384E2CD94809002AF271 /* HomepageView.swift */; };
@@ -80,7 +79,6 @@
 		EF2B63562CF43276007B4ADD /* ConstactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstactsView.swift; sourceTree = "<group>"; };
 		EF2B63582CF4328E007B4ADD /* ContactDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailView.swift; sourceTree = "<group>"; };
 		EF2B635A2CF433C4007B4ADD /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
-		EF2B635C2CF433D2007B4ADD /* MockBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBackend.swift; sourceTree = "<group>"; };
 		EF2B635F2CF433FC007B4ADD /* AddFriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewModel.swift; sourceTree = "<group>"; };
 		EF2B63612CF434A7007B4ADD /* FriendCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCard.swift; sourceTree = "<group>"; };
 		EF56384E2CD94809002AF271 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
@@ -295,7 +293,6 @@
 		EF2B63502CF43221007B4ADD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EF2B635C2CF433D2007B4ADD /* MockBackend.swift */,
 				EF2B63512CF43232007B4ADD /* Contact.swift */,
 			);
 			path = Models;
@@ -472,7 +469,6 @@
 				EF6846EA2CD2BDF4003D0885 /* MainTabView.swift in Sources */,
 				EF9775F32CC2D2AA0019CFBA /* SpeechService.swift in Sources */,
 				EF2B635B2CF433C4007B4ADD /* AddFriendView.swift in Sources */,
-				EF2B635D2CF433D2007B4ADD /* MockBackend.swift in Sources */,
 				8DF046682CADEA8E00D1F8E6 /* LoginView.swift in Sources */,
 				EF2B63522CF43235007B4ADD /* Contact.swift in Sources */,
 				EF2B63542CF43258007B4ADD /* ContactsViewModel.swift in Sources */,
