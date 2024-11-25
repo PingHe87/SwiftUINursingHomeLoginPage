@@ -29,6 +29,10 @@
 		EF2A9FB82CC2005C0053460E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A9FB72CC2005C0053460E /* Extensions.swift */; };
 		EF2A9FBA2CC202740053460E /* WeatherRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A9FB92CC202740053460E /* WeatherRow.swift */; };
 		EF2B63402CF2840F007B4ADD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF2B633F2CF2840F007B4ADD /* GoogleService-Info.plist */; };
+		EF2B63522CF43235007B4ADD /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63512CF43232007B4ADD /* Contact.swift */; };
+		EF2B63542CF43258007B4ADD /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63532CF4324B007B4ADD /* ContactsViewModel.swift */; };
+		EF2B63572CF43279007B4ADD /* ConstactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63562CF43276007B4ADD /* ConstactsView.swift */; };
+		EF2B63592CF43297007B4ADD /* ContactDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63582CF4328E007B4ADD /* ContactDetailView.swift */; };
 		EF56384F2CD9480B002AF271 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56384E2CD94809002AF271 /* HomepageView.swift */; };
 		EF5638522CD948E1002AF271 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5638512CD948E0002AF271 /* ActivityModel.swift */; };
 		EF5638542CD948F1002AF271 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5638532CD948F0002AF271 /* ActivityViewModel.swift */; };
@@ -67,6 +71,10 @@
 		EF2A9FB72CC2005C0053460E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EF2A9FB92CC202740053460E /* WeatherRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRow.swift; sourceTree = "<group>"; };
 		EF2B633F2CF2840F007B4ADD /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EF2B63512CF43232007B4ADD /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		EF2B63532CF4324B007B4ADD /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
+		EF2B63562CF43276007B4ADD /* ConstactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstactsView.swift; sourceTree = "<group>"; };
+		EF2B63582CF4328E007B4ADD /* ContactDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailView.swift; sourceTree = "<group>"; };
 		EF56384E2CD94809002AF271 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
 		EF5638512CD948E0002AF271 /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 		EF5638532CD948F0002AF271 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
@@ -154,6 +162,7 @@
 		EF1792F52CA73FD300E9D691 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EF2B634D2CF431DC007B4ADD /* Contacts */,
 				EF5638552CD9527E002AF271 /* Menu */,
 				EF5638502CD948D5002AF271 /* Activity */,
 				EF6846E82CD2BDE7003D0885 /* HomePage */,
@@ -249,6 +258,48 @@
 			path = WeatherView;
 			sourceTree = "<group>";
 		};
+		EF2B634D2CF431DC007B4ADD /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				EF2B63552CF4326F007B4ADD /* Views */,
+				EF2B63502CF43221007B4ADD /* Models */,
+				EF2B634F2CF4321A007B4ADD /* ViewModels */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		EF2B634E2CF43215007B4ADD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EF2B634F2CF4321A007B4ADD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				EF2B63532CF4324B007B4ADD /* ContactsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		EF2B63502CF43221007B4ADD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EF2B63512CF43232007B4ADD /* Contact.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EF2B63552CF4326F007B4ADD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EF2B63582CF4328E007B4ADD /* ContactDetailView.swift */,
+				EF2B63562CF43276007B4ADD /* ConstactsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		EF56384B2CD94576002AF271 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +326,7 @@
 				EF56385A2CD953E6002AF271 /* MenuViewModel.swift */,
 				EF5638582CD953A6002AF271 /* MenuData.swift */,
 				EF5638562CD95396002AF271 /* MenuItem.swift */,
+				EF2B634E2CF43215007B4ADD /* Views */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -398,6 +450,7 @@
 				49D734B92CC68F51007358FF /* ChangePasswordView.swift in Sources */,
 				EF1792E92CA73FAD00E9D691 /* ContentView.swift in Sources */,
 				EFF51F562CDA9B7E00EA7AF1 /* WeatherDetailCard.swift in Sources */,
+				EF2B63592CF43297007B4ADD /* ContactDetailView.swift in Sources */,
 				EF2A9FB42CC1FFAE0053460E /* ModelData.swift in Sources */,
 				EFAF0CC32CC1F89500070545 /* LocationManager.swift in Sources */,
 				EF5638522CD948E1002AF271 /* ActivityModel.swift in Sources */,
@@ -407,6 +460,8 @@
 				EF6846EA2CD2BDF4003D0885 /* MainTabView.swift in Sources */,
 				EF9775F32CC2D2AA0019CFBA /* SpeechService.swift in Sources */,
 				8DF046682CADEA8E00D1F8E6 /* LoginView.swift in Sources */,
+				EF2B63522CF43235007B4ADD /* Contact.swift in Sources */,
+				EF2B63542CF43258007B4ADD /* ContactsViewModel.swift in Sources */,
 				EF56384F2CD9480B002AF271 /* HomepageView.swift in Sources */,
 				EF2A9FB02CC1FBD20053460E /* WeatherManager.swift in Sources */,
 				EF1793062CA7520300E9D691 /* User.swift in Sources */,
@@ -418,6 +473,7 @@
 				EF56385D2CD953FB002AF271 /* MenuView.swift in Sources */,
 				EF5638572CD95397002AF271 /* MenuItem.swift in Sources */,
 				EF56385B2CD953E6002AF271 /* MenuViewModel.swift in Sources */,
+				EF2B63572CF43279007B4ADD /* ConstactsView.swift in Sources */,
 				4940A4082CD2CF0200011FEC /* ForgotPasswordView.swift in Sources */,
 				EF2A9FB82CC2005C0053460E /* Extensions.swift in Sources */,
 			);
