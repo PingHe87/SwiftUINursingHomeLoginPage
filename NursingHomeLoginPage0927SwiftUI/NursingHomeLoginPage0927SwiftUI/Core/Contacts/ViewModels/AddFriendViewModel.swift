@@ -17,48 +17,61 @@ class AddFriendViewModel: ObservableObject {
 
     private let db = Firestore.firestore()
 
-    /// 搜索用户
+    /// Search for users in Firestore
     func searchUsers() async {
         guard !searchText.isEmpty else { return }
-        
-        // 在主线程更新 isLoading
+
         DispatchQueue.main.async {
             self.isLoading = true
         }
 
         do {
-            let snapshot = try await db.collection("users")
-                .whereField("fullName", isGreaterThanOrEqualTo: searchText)
-                .whereField("fullName", isLessThanOrEqualTo: searchText + "\u{f8ff}")
-                .getDocuments()
+            // Fetch all users (not ideal for large datasets)
+            let snapshot = try await db.collection("users").getDocuments()
 
             let users = snapshot.documents.compactMap { document -> User? in
-                try? document.data(as: User.self)
+                let data = document.data()
+                guard let firstName = data["firstName"] as? String,
+                      let lastName = data["lastName"] as? String,
+                      let email = data["email"] as? String,
+                      let role = data["role"] as? String else {
+                    return nil
+                }
+                
+                // Dynamically create fullName and filter by searchText
+                let fullName = "\(firstName) \(lastName)"
+                if fullName.lowercased().contains(self.searchText.lowercased()) {
+                    return User(
+                        id: document.documentID,
+                        firstName: firstName,
+                        middleName: nil,
+                        lastName: lastName,
+                        email: email,
+                        role: role,
+                        contacts: [],
+                        pendingRequests: []
+                    )
+                }
+                return nil
             }
 
-            // 在主线程更新 searchResults 和 isLoading
             DispatchQueue.main.async {
                 self.searchResults = users
                 self.isLoading = false
             }
         } catch {
-            print("Error searching users: \(error.localizedDescription)")
-            // 确保在主线程关闭加载状态
             DispatchQueue.main.async {
                 self.isLoading = false
             }
         }
     }
 
-
-    /// 发送好友请求
+    /// Send a friend request to a user
     func sendFriendRequest(to userID: String) async {
-        guard let currentUserID = Auth.auth().currentUser?.uid else {
-            print("No logged-in user.")
-            return
-        }
+        guard let currentUserID = Auth.auth().currentUser?.uid else { return }
 
         do {
+            // Update the target user's `pendingRequests` field
             let userRef = db.collection("users").document(userID)
             try await userRef.updateData([
                 "pendingRequests": FieldValue.arrayUnion([currentUserID])
@@ -68,7 +81,7 @@ class AddFriendViewModel: ObservableObject {
                 self.requestSent = true
             }
         } catch {
-            print("Error sending friend request: \(error.localizedDescription)")
+            // Handle any errors if necessary
         }
     }
 }
