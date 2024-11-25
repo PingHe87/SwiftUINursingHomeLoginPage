@@ -33,6 +33,10 @@
 		EF2B63542CF43258007B4ADD /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63532CF4324B007B4ADD /* ContactsViewModel.swift */; };
 		EF2B63572CF43279007B4ADD /* ConstactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63562CF43276007B4ADD /* ConstactsView.swift */; };
 		EF2B63592CF43297007B4ADD /* ContactDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63582CF4328E007B4ADD /* ContactDetailView.swift */; };
+		EF2B635B2CF433C4007B4ADD /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B635A2CF433C4007B4ADD /* AddFriendView.swift */; };
+		EF2B635D2CF433D2007B4ADD /* MockBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B635C2CF433D2007B4ADD /* MockBackend.swift */; };
+		EF2B63602CF43402007B4ADD /* AddFriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B635F2CF433FC007B4ADD /* AddFriendViewModel.swift */; };
+		EF2B63622CF434A8007B4ADD /* FriendCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63612CF434A7007B4ADD /* FriendCard.swift */; };
 		EF56384F2CD9480B002AF271 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56384E2CD94809002AF271 /* HomepageView.swift */; };
 		EF5638522CD948E1002AF271 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5638512CD948E0002AF271 /* ActivityModel.swift */; };
 		EF5638542CD948F1002AF271 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5638532CD948F0002AF271 /* ActivityViewModel.swift */; };
@@ -75,6 +79,10 @@
 		EF2B63532CF4324B007B4ADD /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
 		EF2B63562CF43276007B4ADD /* ConstactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstactsView.swift; sourceTree = "<group>"; };
 		EF2B63582CF4328E007B4ADD /* ContactDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailView.swift; sourceTree = "<group>"; };
+		EF2B635A2CF433C4007B4ADD /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
+		EF2B635C2CF433D2007B4ADD /* MockBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBackend.swift; sourceTree = "<group>"; };
+		EF2B635F2CF433FC007B4ADD /* AddFriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewModel.swift; sourceTree = "<group>"; };
+		EF2B63612CF434A7007B4ADD /* FriendCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCard.swift; sourceTree = "<group>"; };
 		EF56384E2CD94809002AF271 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
 		EF5638512CD948E0002AF271 /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 		EF5638532CD948F0002AF271 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
@@ -278,6 +286,7 @@
 		EF2B634F2CF4321A007B4ADD /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				EF2B635F2CF433FC007B4ADD /* AddFriendViewModel.swift */,
 				EF2B63532CF4324B007B4ADD /* ContactsViewModel.swift */,
 			);
 			path = ViewModels;
@@ -286,6 +295,7 @@
 		EF2B63502CF43221007B4ADD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EF2B635C2CF433D2007B4ADD /* MockBackend.swift */,
 				EF2B63512CF43232007B4ADD /* Contact.swift */,
 			);
 			path = Models;
@@ -294,6 +304,8 @@
 		EF2B63552CF4326F007B4ADD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EF2B63612CF434A7007B4ADD /* FriendCard.swift */,
+				EF2B635A2CF433C4007B4ADD /* AddFriendView.swift */,
 				EF2B63582CF4328E007B4ADD /* ContactDetailView.swift */,
 				EF2B63562CF43276007B4ADD /* ConstactsView.swift */,
 			);
@@ -459,9 +471,12 @@
 				EFF51F542CDA8F6100EA7AF1 /* ActivityCardView.swift in Sources */,
 				EF6846EA2CD2BDF4003D0885 /* MainTabView.swift in Sources */,
 				EF9775F32CC2D2AA0019CFBA /* SpeechService.swift in Sources */,
+				EF2B635B2CF433C4007B4ADD /* AddFriendView.swift in Sources */,
+				EF2B635D2CF433D2007B4ADD /* MockBackend.swift in Sources */,
 				8DF046682CADEA8E00D1F8E6 /* LoginView.swift in Sources */,
 				EF2B63522CF43235007B4ADD /* Contact.swift in Sources */,
 				EF2B63542CF43258007B4ADD /* ContactsViewModel.swift in Sources */,
+				EF2B63622CF434A8007B4ADD /* FriendCard.swift in Sources */,
 				EF56384F2CD9480B002AF271 /* HomepageView.swift in Sources */,
 				EF2A9FB02CC1FBD20053460E /* WeatherManager.swift in Sources */,
 				EF1793062CA7520300E9D691 /* User.swift in Sources */,
@@ -471,6 +486,7 @@
 				EF1793132CA7583900E9D691 /* AuthViewModel.swift in Sources */,
 				EF5638542CD948F1002AF271 /* ActivityViewModel.swift in Sources */,
 				EF56385D2CD953FB002AF271 /* MenuView.swift in Sources */,
+				EF2B63602CF43402007B4ADD /* AddFriendViewModel.swift in Sources */,
 				EF5638572CD95397002AF271 /* MenuItem.swift in Sources */,
 				EF56385B2CD953E6002AF271 /* MenuViewModel.swift in Sources */,
 				EF2B63572CF43279007B4ADD /* ConstactsView.swift in Sources */,
