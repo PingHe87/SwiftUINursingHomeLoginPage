@@ -9,15 +9,11 @@ import FirebaseFirestore
 import FirebaseAuth
 
 class ContactsViewModel: ObservableObject {
-    @Published var groupedContacts: [String: [Contact]] = [:]
-    @Published var searchText: String = "" {
-        didSet {
-            filterAndGroupContacts()
-        }
-    }
+    @Published var groupedContacts: [String: [Contact]] = [:] // Original grouped contacts
+    @Published var filteredContacts: [String: [Contact]] = [:] // Filtered contacts for search
     @Published var pendingRequestsCount: Int = 0
 
-    private var contacts: [Contact] = []
+    private var contacts: [Contact] = [] // Raw contacts
     private let db = Firestore.firestore()
     private var listener: ListenerRegistration?
 
@@ -27,12 +23,12 @@ class ContactsViewModel: ObservableObject {
         }
         startListeningForPendingRequests()
     }
-    
+
     deinit {
         listener?.remove()
     }
 
-    /// Load contacts of the current user from Firestore
+    /// Load contacts and group them
     private func loadContacts() async {
         guard let currentUserID = Auth.auth().currentUser?.uid else {
             print("No logged-in user.")
@@ -67,20 +63,23 @@ class ContactsViewModel: ObservableObject {
 
             DispatchQueue.main.async {
                 self.contacts = loadedContacts
-                self.filterAndGroupContacts()
+                self.groupedContacts = Dictionary(grouping: loadedContacts, by: { $0.role.capitalized })
+                self.filteredContacts = self.groupedContacts
             }
         } catch {
             print("Error loading contacts: \(error.localizedDescription)")
         }
     }
 
-    /// Filter and group contacts based on the search text and roles
-    private func filterAndGroupContacts() {
-        let filtered = searchText.isEmpty
-            ? contacts
-            : contacts.filter { $0.name.lowercased().contains(searchText.lowercased()) }
-        
-        groupedContacts = Dictionary(grouping: filtered, by: { $0.role.capitalized })
+    /// Filter contacts based on search text
+    func filterContacts(by searchText: String) {
+        if searchText.isEmpty {
+            filteredContacts = groupedContacts // Show all contacts if search is empty
+        } else {
+            filteredContacts = groupedContacts.mapValues { contacts in
+                contacts.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+            }
+        }
     }
 
     /// Start listening for pending requests count
@@ -91,7 +90,7 @@ class ContactsViewModel: ObservableObject {
             guard let data = snapshot?.data(), error == nil else {
                 return
             }
-            
+
             if let requestIDs = data["pendingRequests"] as? [String] {
                 DispatchQueue.main.async {
                     self?.pendingRequestsCount = requestIDs.count
@@ -100,3 +99,4 @@ class ContactsViewModel: ObservableObject {
         }
     }
 }
+

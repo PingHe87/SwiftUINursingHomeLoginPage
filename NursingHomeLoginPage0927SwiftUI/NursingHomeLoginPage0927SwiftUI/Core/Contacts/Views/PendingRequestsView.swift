@@ -11,37 +11,51 @@ struct PendingRequestsView: View {
     @StateObject private var viewModel = PendingRequestsViewModel()
 
     var body: some View {
-        List {
-            ForEach(viewModel.pendingRequests) { user in
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text(user.fullName)
-                            .font(.headline)
-                        Text(user.email)
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                    }
-                    Spacer()
-                    HStack {
-                        Button("Accept") {
-                            Task {
-                                await viewModel.acceptRequest(from: user.id)
+        VStack {
+            if viewModel.pendingRequests.isEmpty {
+                // Display message when no pending requests
+                Text("No pending friend requests.")
+                    .font(.headline)
+                    .foregroundColor(.gray)
+                    .padding()
+            } else {
+                // List of pending requests
+                List {
+                    ForEach(viewModel.pendingRequests) { user in
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(user.fullName)
+                                    .font(.headline)
+                                Text(user.email)
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
                             }
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .tint(.green)
+                            Spacer()
+                            HStack {
+                                // Accept button
+                                Button("Accept") {
+                                    Task {
+                                        await viewModel.acceptRequest(from: user.id)
+                                    }
+                                }
+                                .buttonStyle(.borderedProminent)
+                                .tint(.green)
 
-                        Button("Reject") {
-                            Task {
-                                await viewModel.rejectRequest(from: user.id)
+                                // Reject button
+                                Button("Reject") {
+                                    Task {
+                                        await viewModel.rejectRequest(from: user.id)
+                                    }
+                                }
+                                .buttonStyle(.borderedProminent)
+                                .tint(.red)
                             }
                         }
-                        .buttonStyle(.borderedProminent)
-                        .tint(.red)
                     }
                 }
             }
         }
-        .navigationTitle("Pending Requests")
+        .navigationTitle("Pending Requests") // Set the navigation title
     }
 }
+

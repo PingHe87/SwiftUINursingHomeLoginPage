@@ -8,90 +8,130 @@
 import SwiftUI
 
 struct ContactsView: View {
-    @StateObject private var viewModel = ContactsViewModel()
-    @State private var isShowingPendingRequests = false // Control Pending Requests view
+    @StateObject private var viewModel = ContactsViewModel() // View model for contacts
+    @State private var isRelativeExpanded = true             // Expanded state for Relative group
+    @State private var isStaffExpanded = true                // Expanded state for Staff group
+    @State private var searchText: String = ""               // Search text
+    @State private var isShowingPendingRequests = false      // Control pending requests view
+    @State private var isShowingAddFriendView = false        // Control add friend view
 
     var body: some View {
         NavigationView {
-            List {
-                // Loop through grouped contacts by category
-                ForEach(viewModel.groupedContacts.keys.sorted(), id: \.self) { group in
-                    Section(header: HStack {
-                        Image(systemName: "person.3.fill")
-                            .foregroundColor(.blue)
-                            .font(.title3)
-                        Text(group)
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundColor(.primary)
+            VStack(spacing: 10) {
+                // Top buttons: Notification and Add Friend
+                HStack {
+                    Button(action: {
+                        isShowingPendingRequests = true
                     }) {
-                        // Display each contact with navigation to ChatView
-                        ForEach(viewModel.groupedContacts[group] ?? []) { contact in
-                            NavigationLink(destination: ChatView(contact: contact)) {
-                                HStack(spacing: 15) {
-                                    // Profile image
-                                    Image(systemName: "person.circle.fill")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 50, height: 50)
-                                        .foregroundColor(.blue)
-
-                                    // Contact details
-                                    VStack(alignment: .leading, spacing: 5) {
-                                        Text(contact.name)
-                                            .font(.headline)
-                                            .foregroundColor(.primary)
-                                        Text(contact.email)
-                                            .font(.subheadline)
-                                            .foregroundColor(.gray)
-                                    }
-
-                                    Spacer()
-
-                                    // Role tag
-                                    Text(contact.role.capitalized)
-                                        .font(.caption)
-                                        .padding(5)
-                                        .background(Color.gray.opacity(0.2))
-                                        .cornerRadius(5)
-                                }
-                                .padding(.vertical, 8)
+                        HStack {
+                            Image(systemName: "bell")
+                                .font(.title2)
+                            if viewModel.pendingRequestsCount > 0 {
+                                Text("\(viewModel.pendingRequestsCount)")
+                                    .font(.caption)
+                                    .padding(4)
+                                    .background(Color.red)
+                                    .foregroundColor(.white)
+                                    .clipShape(Circle())
                             }
                         }
                     }
-                }
-            }
-            .listStyle(InsetGroupedListStyle())
-            .navigationTitle("Contacts")
-            .navigationBarItems(
-                // Leading button for pending requests
-                leading: Button(action: {
-                    isShowingPendingRequests = true
-                }) {
-                    HStack {
-                        Image(systemName: "bell")
+                    .sheet(isPresented: $isShowingPendingRequests) {
+                        PendingRequestsView()
+                    }
+
+                    Spacer()
+
+                    Button(action: {
+                        isShowingAddFriendView = true
+                    }) {
+                        Image(systemName: "person.badge.plus")
                             .font(.title2)
-                        if viewModel.pendingRequestsCount > 0 {
-                            Text("\(viewModel.pendingRequestsCount)")
-                                .font(.caption)
-                                .padding(4)
-                                .background(Color.red)
-                                .foregroundColor(.white)
-                                .clipShape(Circle())
+                            .foregroundColor(.blue)
+                    }
+                    .sheet(isPresented: $isShowingAddFriendView) {
+                        AddFriendView() // Navigate to AddFriendView
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.top, 10)
+
+                // Search bar
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(.gray)
+                    TextField("Search contacts...", text: $searchText)
+                        .padding(8)
+                        .background(Color(.systemGray6))
+                        .cornerRadius(8)
+                        .onChange(of: searchText) { _ in
+                            viewModel.filterContacts(by: searchText)
+                        }
+                }
+                .padding(.horizontal)
+
+                // Contacts list
+                List {
+                    // Relative group with toggle
+                    if let relatives = viewModel.filteredContacts["Relative"], !relatives.isEmpty {
+                        Section {
+                            if isRelativeExpanded {
+                                ForEach(relatives) { contact in
+                                    ContactCard(contact: contact)
+                                        .padding(.vertical, 5)
+                                }
+                            }
+                        } header: {
+                            GroupHeader(title: "RELATIVE", isExpanded: $isRelativeExpanded)
+                        }
+                    }
+
+                    // Staff group with toggle
+                    if let staff = viewModel.filteredContacts["Staff"], !staff.isEmpty {
+                        Section {
+                            if isStaffExpanded {
+                                ForEach(staff) { contact in
+                                    ContactCard(contact: contact)
+                                        .padding(.vertical, 5)
+                                }
+                            }
+                        } header: {
+                            GroupHeader(title: "STAFF", isExpanded: $isStaffExpanded)
                         }
                     }
                 }
-                .sheet(isPresented: $isShowingPendingRequests) {
-                    PendingRequestsView()
-                },
-                // Trailing button for adding new friends
-                trailing: Button(action: {
-                    // Add Friend Button Action
-                }) {
-                    Image(systemName: "person.badge.plus")
-                        .font(.title2)
-                }
-            )
+                .listStyle(InsetGroupedListStyle())
+            }
+            .navigationBarHidden(true) // Hide navigation bar
         }
+    }
+}
+
+// Custom group header with toggle functionality
+struct GroupHeader: View {
+    let title: String
+    @Binding var isExpanded: Bool
+
+    var body: some View {
+        HStack {
+            Text(title)
+                .font(.title2)
+                .fontWeight(.bold)
+                .foregroundColor(.primary)
+            Spacer()
+            Button(action: {
+                withAnimation {
+                    isExpanded.toggle()
+                }
+            }) {
+                Image(systemName: isExpanded ? "chevron.down" : "chevron.right")
+                    .foregroundColor(.gray)
+                    .imageScale(.medium)
+            }
+            .buttonStyle(PlainButtonStyle())
+        }
+        .padding(.vertical, 5)
+        .background(Color(.systemGroupedBackground))
     }
 }
 

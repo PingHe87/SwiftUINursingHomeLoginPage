@@ -53,6 +53,7 @@
 		EFB0A1DF2CFE184300A042B2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB0A1DE2CFE184000A042B2 /* Message.swift */; };
 		EFB0A1E32CFE185800A042B2 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB0A1E22CFE184C00A042B2 /* ChatView.swift */; };
 		EFB0A1E52CFE18E400A042B2 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB0A1E42CFE18DF00A042B2 /* ChatViewModel.swift */; };
+		EFB0A1E72CFE1C0200A042B2 /* ContactCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB0A1E62CFE1BFF00A042B2 /* ContactCard.swift */; };
 		EFF51F522CDA8E7100EA7AF1 /* AddActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF51F512CDA8E7000EA7AF1 /* AddActivityView.swift */; };
 		EFF51F542CDA8F6100EA7AF1 /* ActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF51F532CDA8F6000EA7AF1 /* ActivityCardView.swift */; };
 		EFF51F562CDA9B7E00EA7AF1 /* WeatherDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF51F552CDA9B7D00EA7AF1 /* WeatherDetailCard.swift */; };
@@ -104,6 +105,7 @@
 		EFB0A1DE2CFE184000A042B2 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		EFB0A1E22CFE184C00A042B2 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		EFB0A1E42CFE18DF00A042B2 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		EFB0A1E62CFE1BFF00A042B2 /* ContactCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCard.swift; sourceTree = "<group>"; };
 		EFF51F512CDA8E7000EA7AF1 /* AddActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityView.swift; sourceTree = "<group>"; };
 		EFF51F532CDA8F6000EA7AF1 /* ActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardView.swift; sourceTree = "<group>"; };
 		EFF51F552CDA9B7D00EA7AF1 /* WeatherDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailCard.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 		EF2B63552CF4326F007B4ADD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EFB0A1E62CFE1BFF00A042B2 /* ContactCard.swift */,
 				EF2B63632CF43AFC007B4ADD /* PendingRequestsView.swift */,
 				EF2B63612CF434A7007B4ADD /* FriendCard.swift */,
 				EF2B635A2CF433C4007B4ADD /* AddFriendView.swift */,
@@ -542,6 +545,7 @@
 				EF2B63542CF43258007B4ADD /* ContactsViewModel.swift in Sources */,
 				EF2B63622CF434A8007B4ADD /* FriendCard.swift in Sources */,
 				EF56384F2CD9480B002AF271 /* HomepageView.swift in Sources */,
+				EFB0A1E72CFE1C0200A042B2 /* ContactCard.swift in Sources */,
 				EF2A9FB02CC1FBD20053460E /* WeatherManager.swift in Sources */,
 				EF1793062CA7520300E9D691 /* User.swift in Sources */,
 				EFB0A1DF2CFE184300A042B2 /* Message.swift in Sources */,
