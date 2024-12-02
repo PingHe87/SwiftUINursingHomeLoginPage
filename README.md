@@ -14,6 +14,7 @@ Seamlessly register and log in to the application:
 <img width="327" alt="image" src="https://github.com/user-attachments/assets/75b18cad-6d69-4ba8-8e7d-470a7262df5b">
 <img width="327" alt="image" src="https://github.com/user-attachments/assets/df54a150-efc3-4fe0-a228-24cb391cbc18">
 
+---
   
 ### 2. **Home Page**
 The central hub of the app that provides quick access to key features:
