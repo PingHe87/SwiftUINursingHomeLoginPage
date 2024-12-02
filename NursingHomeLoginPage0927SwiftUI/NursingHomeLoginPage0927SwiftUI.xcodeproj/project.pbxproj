@@ -49,6 +49,7 @@
 		EF9775F32CC2D2AA0019CFBA /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9775F22CC2D2AA0019CFBA /* SpeechService.swift */; };
 		EFAF0CC32CC1F89500070545 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF0CC22CC1F89500070545 /* LocationManager.swift */; };
 		EFAF0CC52CC1FA3B00070545 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF0CC42CC1FA3B00070545 /* WeatherView.swift */; };
+		EFB0A1D72CFE09B500A042B2 /* ActivityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB0A1D62CFE09B400A042B2 /* ActivityListView.swift */; };
 		EFF51F522CDA8E7100EA7AF1 /* AddActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF51F512CDA8E7000EA7AF1 /* AddActivityView.swift */; };
 		EFF51F542CDA8F6100EA7AF1 /* ActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF51F532CDA8F6000EA7AF1 /* ActivityCardView.swift */; };
 		EFF51F562CDA9B7E00EA7AF1 /* WeatherDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF51F552CDA9B7D00EA7AF1 /* WeatherDetailCard.swift */; };
@@ -96,6 +97,7 @@
 		EF9775F22CC2D2AA0019CFBA /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
 		EFAF0CC22CC1F89500070545 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		EFAF0CC42CC1FA3B00070545 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		EFB0A1D62CFE09B400A042B2 /* ActivityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListView.swift; sourceTree = "<group>"; };
 		EFF51F512CDA8E7000EA7AF1 /* AddActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityView.swift; sourceTree = "<group>"; };
 		EFF51F532CDA8F6000EA7AF1 /* ActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardView.swift; sourceTree = "<group>"; };
 		EFF51F552CDA9B7D00EA7AF1 /* WeatherDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailCard.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 		EF5638502CD948D5002AF271 /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				EFB0A1D62CFE09B400A042B2 /* ActivityListView.swift */,
 				EFF51F532CDA8F6000EA7AF1 /* ActivityCardView.swift */,
 				EFF51F512CDA8E7000EA7AF1 /* AddActivityView.swift */,
 				EF5638532CD948F0002AF271 /* ActivityViewModel.swift */,
@@ -486,6 +489,7 @@
 				EF2B63642CF43AFD007B4ADD /* PendingRequestsView.swift in Sources */,
 				EF1793022CA74E2C00E9D691 /* ProfileView.swift in Sources */,
 				EF1793002CA7478300E9D691 /* RegistrationView.swift in Sources */,
+				EFB0A1D72CFE09B500A042B2 /* ActivityListView.swift in Sources */,
 				EF1793042CA74FCA00E9D691 /* SettingsRowView.swift in Sources */,
 				EF1793132CA7583900E9D691 /* AuthViewModel.swift in Sources */,
 				EF5638542CD948F1002AF271 /* ActivityViewModel.swift in Sources */,

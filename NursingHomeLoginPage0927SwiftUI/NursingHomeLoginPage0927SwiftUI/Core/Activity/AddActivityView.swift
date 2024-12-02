@@ -4,7 +4,6 @@
 //  Created by p h on 11/5/24.
 //
 
-
 struct IdentifiableCoordinate: Identifiable {
     let id = UUID()
     let coordinate: CLLocationCoordinate2D
@@ -28,6 +27,7 @@ struct AddActivityView: View {
     )
     @State private var selectedCoordinate: IdentifiableCoordinate?
     @State private var showAlert = false  // State to control the alert display
+    @State private var selectedCategory: String = "Health Management"  // Default category
 
     var body: some View {
         NavigationView {
@@ -36,12 +36,23 @@ struct AddActivityView: View {
                     TextField("Title", text: $title)
                     DatePicker("Date", selection: $date, displayedComponents: .date)
                     DatePicker("Time", selection: $time, displayedComponents: .hourAndMinute)
-                    
-                    // Interactive Map for selecting location
+                    TextField("Location", text: $location)
+                    TextField("Description", text: $description)
+
+                    // Category Picker as a dropdown menu
+                    Picker("Category", selection: $selectedCategory) {
+                        Text("Health Management").tag("Health Management")
+                        Text("Social and Entertainment").tag("Social and Entertainment")
+                        Text("Education and Learning").tag("Education and Learning")
+                        Text("Family Interaction").tag("Family Interaction")
+                        Text("Daily Affairs").tag("Daily Affairs")
+                    }
+                    .pickerStyle(MenuPickerStyle())  // Use dropdown menu for category selection
+                }
+
+                // Optional interactive map for selecting location
+                Section(header: Text("Select Location")) {
                     VStack {
-                        Text("Select Location")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
                         Map(coordinateRegion: $region, interactionModes: .all, showsUserLocation: true, annotationItems: selectedCoordinate == nil ? [] : [selectedCoordinate!]) { coordinate in
                             MapPin(coordinate: coordinate.coordinate, tint: .blue)
                         }
@@ -59,12 +70,11 @@ struct AddActivityView: View {
                             .font(.footnote)
                             .foregroundColor(.gray)
                     }
-                    TextField("Description", text: $description)
                 }
             }
             .navigationTitle("Add New Activity")
             .navigationBarItems(trailing: Button("Save") {
-                // Check if the title is empty
+                // Validate title
                 if title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                     showAlert = true  // Show alert if title is empty
                 } else {
@@ -72,7 +82,15 @@ struct AddActivityView: View {
                     timeFormatter.timeStyle = .short
                     let formattedTime = timeFormatter.string(from: time)
 
-                    let newActivity = Activity(title: title, date: date, time: formattedTime, location: location, description: description)
+                    // Create new activity with selected category
+                    let newActivity = Activity(
+                        title: title,
+                        date: date,
+                        time: formattedTime,
+                        location: location,
+                        description: description,
+                        category: selectedCategory
+                    )
                     activityViewModel.activities.append(newActivity)
                     presentationMode.wrappedValue.dismiss()  // Close the view
                 }
@@ -86,14 +104,16 @@ struct AddActivityView: View {
             }
         }
     }
-    
+
     // Function to update the location name from coordinates
     private func updateLocationName(for coordinate: CLLocationCoordinate2D) {
         let geocoder = CLGeocoder()
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
         geocoder.reverseGeocodeLocation(location) { placemarks, error in
             if let placemark = placemarks?.first, error == nil {
-                self.location = [placemark.name, placemark.locality, placemark.administrativeArea, placemark.country].compactMap { $0 }.joined(separator: ", ")
+                self.location = [placemark.name, placemark.locality, placemark.administrativeArea, placemark.country]
+                    .compactMap { $0 }
+                    .joined(separator: ", ")
             } else {
                 self.location = "Unknown location"
             }
@@ -105,3 +125,4 @@ struct AddActivityView: View {
 #Preview {
     AddActivityView(activityViewModel: ActivityViewModel())
 }
+

@@ -58,9 +58,15 @@ struct HomepageView: View {
                     }
                     .padding(.bottom, 5)
 
-                    // Display activity cards
-                    ForEach(activityViewModel.activities) { activity in
-                        ActivityCardView(activity: activity)
+                    // Display activity cards grouped by category
+                    ForEach(activityViewModel.groupedActivities().sorted(by: { $0.key < $1.key }), id: \.key) { category, activities in
+                        Section(header: Text(category)
+                                    .font(.headline)
+                                    .foregroundColor(.blue)) {
+                            ForEach(activities) { activity in
+                                ActivityCardView(activity: activity)
+                            }
+                        }
                     }
 
                     // Emergency and contact buttons
@@ -148,5 +154,10 @@ struct HomepageView: View {
             }
         }
     }
+}
+
+#Preview {
+    HomepageView()
+        .environmentObject(AuthViewModel())
 }
 
