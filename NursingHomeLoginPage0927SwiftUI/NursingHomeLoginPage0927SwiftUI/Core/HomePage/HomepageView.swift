@@ -60,13 +60,20 @@ struct HomepageView: View {
 
                     // Display activity cards grouped by category
                     ForEach(activityViewModel.groupedActivities().sorted(by: { $0.key < $1.key }), id: \.key) { category, activities in
-                        Section(header: Text(category)
-                                    .font(.headline)
-                                    .foregroundColor(.blue)) {
+                        Section(header: HStack {
+                            Image(systemName: "bookmark.fill") // 使用图标
+                                .foregroundColor(.blue)
+                            Text(category)
+                                .font(.system(size: 18, weight: .bold))
+                                .foregroundColor(.blue.opacity(0.9))
+                        }) {
                             ForEach(activities) { activity in
                                 ActivityCardView(activity: activity)
                             }
                         }
+
+
+
                     }
 
                     // Emergency and contact buttons
