@@ -50,6 +50,9 @@
 		EFAF0CC32CC1F89500070545 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF0CC22CC1F89500070545 /* LocationManager.swift */; };
 		EFAF0CC52CC1FA3B00070545 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF0CC42CC1FA3B00070545 /* WeatherView.swift */; };
 		EFB0A1D72CFE09B500A042B2 /* ActivityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB0A1D62CFE09B400A042B2 /* ActivityListView.swift */; };
+		EFB0A1DF2CFE184300A042B2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB0A1DE2CFE184000A042B2 /* Message.swift */; };
+		EFB0A1E32CFE185800A042B2 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB0A1E22CFE184C00A042B2 /* ChatView.swift */; };
+		EFB0A1E52CFE18E400A042B2 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB0A1E42CFE18DF00A042B2 /* ChatViewModel.swift */; };
 		EFF51F522CDA8E7100EA7AF1 /* AddActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF51F512CDA8E7000EA7AF1 /* AddActivityView.swift */; };
 		EFF51F542CDA8F6100EA7AF1 /* ActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF51F532CDA8F6000EA7AF1 /* ActivityCardView.swift */; };
 		EFF51F562CDA9B7E00EA7AF1 /* WeatherDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF51F552CDA9B7D00EA7AF1 /* WeatherDetailCard.swift */; };
@@ -98,6 +101,9 @@
 		EFAF0CC22CC1F89500070545 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		EFAF0CC42CC1FA3B00070545 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		EFB0A1D62CFE09B400A042B2 /* ActivityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListView.swift; sourceTree = "<group>"; };
+		EFB0A1DE2CFE184000A042B2 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		EFB0A1E22CFE184C00A042B2 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		EFB0A1E42CFE18DF00A042B2 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		EFF51F512CDA8E7000EA7AF1 /* AddActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityView.swift; sourceTree = "<group>"; };
 		EFF51F532CDA8F6000EA7AF1 /* ActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardView.swift; sourceTree = "<group>"; };
 		EFF51F552CDA9B7D00EA7AF1 /* WeatherDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailCard.swift; sourceTree = "<group>"; };
@@ -174,6 +180,7 @@
 		EF1792F52CA73FD300E9D691 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EFB0A1D82CFE180500A042B2 /* Chat */,
 				EF2B634D2CF431DC007B4ADD /* Contacts */,
 				EF5638552CD9527E002AF271 /* Menu */,
 				EF5638502CD948D5002AF271 /* Activity */,
@@ -376,6 +383,56 @@
 			path = Weather;
 			sourceTree = "<group>";
 		};
+		EFB0A1D82CFE180500A042B2 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				EFB0A1DD2CFE183200A042B2 /* SupportingFiles */,
+				EFB0A1DC2CFE182600A042B2 /* Services */,
+				EFB0A1DB2CFE181A00A042B2 /* ViewModels */,
+				EFB0A1DA2CFE181200A042B2 /* Views */,
+				EFB0A1D92CFE180B00A042B2 /* Models */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		EFB0A1D92CFE180B00A042B2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EFB0A1DE2CFE184000A042B2 /* Message.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EFB0A1DA2CFE181200A042B2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EFB0A1E22CFE184C00A042B2 /* ChatView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EFB0A1DB2CFE181A00A042B2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				EFB0A1E42CFE18DF00A042B2 /* ChatViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		EFB0A1DC2CFE182600A042B2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EFB0A1DD2CFE183200A042B2 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -460,6 +517,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFB0A1E32CFE185800A042B2 /* ChatView.swift in Sources */,
 				EF2A9FBA2CC202740053460E /* WeatherRow.swift in Sources */,
 				EFF51F522CDA8E7100EA7AF1 /* AddActivityView.swift in Sources */,
 				EF5638592CD953A7002AF271 /* MenuData.swift in Sources */,
@@ -486,6 +544,7 @@
 				EF56384F2CD9480B002AF271 /* HomepageView.swift in Sources */,
 				EF2A9FB02CC1FBD20053460E /* WeatherManager.swift in Sources */,
 				EF1793062CA7520300E9D691 /* User.swift in Sources */,
+				EFB0A1DF2CFE184300A042B2 /* Message.swift in Sources */,
 				EF2B63642CF43AFD007B4ADD /* PendingRequestsView.swift in Sources */,
 				EF1793022CA74E2C00E9D691 /* ProfileView.swift in Sources */,
 				EF1793002CA7478300E9D691 /* RegistrationView.swift in Sources */,
@@ -499,6 +558,7 @@
 				EF56385B2CD953E6002AF271 /* MenuViewModel.swift in Sources */,
 				EF2B63572CF43279007B4ADD /* ContactsView.swift in Sources */,
 				4940A4082CD2CF0200011FEC /* ForgotPasswordView.swift in Sources */,
+				EFB0A1E52CFE18E400A042B2 /* ChatViewModel.swift in Sources */,
 				EF2A9FB82CC2005C0053460E /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,35 +9,33 @@ import SwiftUI
 
 struct ContactsView: View {
     @StateObject private var viewModel = ContactsViewModel()
-    @State private var isShowingPendingRequests = false // Control the Pending Requests view
-    @State private var isShowingAddFriendView = false // Control the Add Friend view
+    @State private var isShowingPendingRequests = false // Control Pending Requests view
 
     var body: some View {
         NavigationView {
-            VStack {
-                List {
-                    // Loop through grouped contacts by category
-                    ForEach(viewModel.groupedContacts.keys.sorted(), id: \.self) { group in
-                        Section(header: HStack {
-                            // Group header with icon and title
-                            Image(systemName: "person.3.fill")
-                                .foregroundColor(.blue)
-                                .font(.title3)
-                            Text(group)
-                                .font(.system(size: 18, weight: .bold))
-                                .foregroundColor(.primary)
-                        }) {
-                            // Display contacts in each group
-                            ForEach(viewModel.groupedContacts[group] ?? []) { contact in
+            List {
+                // Loop through grouped contacts by category
+                ForEach(viewModel.groupedContacts.keys.sorted(), id: \.self) { group in
+                    Section(header: HStack {
+                        Image(systemName: "person.3.fill")
+                            .foregroundColor(.blue)
+                            .font(.title3)
+                        Text(group)
+                            .font(.system(size: 18, weight: .bold))
+                            .foregroundColor(.primary)
+                    }) {
+                        // Display each contact with navigation to ChatView
+                        ForEach(viewModel.groupedContacts[group] ?? []) { contact in
+                            NavigationLink(destination: ChatView(contact: contact)) {
                                 HStack(spacing: 15) {
-                                    // Avatar or profile image
+                                    // Profile image
                                     Image(systemName: "person.circle.fill")
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 50, height: 50)
                                         .foregroundColor(.blue)
 
-                                    // Contact information
+                                    // Contact details
                                     VStack(alignment: .leading, spacing: 5) {
                                         Text(contact.name)
                                             .font(.headline)
@@ -49,7 +47,7 @@ struct ContactsView: View {
 
                                     Spacer()
 
-                                    // Role tag with styling
+                                    // Role tag
                                     Text(contact.role.capitalized)
                                         .font(.caption)
                                         .padding(5)
@@ -61,8 +59,8 @@ struct ContactsView: View {
                         }
                     }
                 }
-                .listStyle(InsetGroupedListStyle())
             }
+            .listStyle(InsetGroupedListStyle())
             .navigationTitle("Contacts")
             .navigationBarItems(
                 // Leading button for pending requests
@@ -87,13 +85,10 @@ struct ContactsView: View {
                 },
                 // Trailing button for adding new friends
                 trailing: Button(action: {
-                    isShowingAddFriendView = true // Trigger Add Friend view
+                    // Add Friend Button Action
                 }) {
                     Image(systemName: "person.badge.plus")
                         .font(.title2)
-                }
-                .sheet(isPresented: $isShowingAddFriendView) {
-                    AddFriendView() // Display Add Friend View
                 }
             )
         }
