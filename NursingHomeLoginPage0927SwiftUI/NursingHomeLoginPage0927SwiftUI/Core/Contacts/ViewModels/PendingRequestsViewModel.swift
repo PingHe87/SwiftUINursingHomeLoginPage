@@ -38,7 +38,16 @@ class PendingRequestsViewModel: ObservableObject {
     }
 
     private func fetchPendingRequestUsers(userIDs: [String]) async {
+        // Check if the array is empty
+        guard !userIDs.isEmpty else {
+            DispatchQueue.main.async {
+                self.pendingRequests = [] // Clear pending requests
+            }
+            return
+        }
+
         do {
+            // Firestore query
             let snapshot = try await db.collection("users")
                 .whereField(FieldPath.documentID(), in: userIDs)
                 .getDocuments()
@@ -54,6 +63,7 @@ class PendingRequestsViewModel: ObservableObject {
             print("Error fetching pending request users: \(error.localizedDescription)")
         }
     }
+
 
     func acceptRequest(from requesterID: String) async {
         guard let currentUserID = Auth.auth().currentUser?.uid else { return }

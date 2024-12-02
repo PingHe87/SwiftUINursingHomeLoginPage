@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContactsView: View {
     @StateObject private var viewModel = ContactsViewModel()
-    @State private var isShowingPendingRequests = false
+    @State private var isShowingPendingRequests = false // Control the Pending Requests view
+    @State private var isShowingAddFriendView = false // Control the Add Friend view
 
     var body: some View {
         NavigationView {
@@ -86,10 +87,13 @@ struct ContactsView: View {
                 },
                 // Trailing button for adding new friends
                 trailing: Button(action: {
-                    // Add Friend Button Action
+                    isShowingAddFriendView = true // Trigger Add Friend view
                 }) {
                     Image(systemName: "person.badge.plus")
                         .font(.title2)
+                }
+                .sheet(isPresented: $isShowingAddFriendView) {
+                    AddFriendView() // Display Add Friend View
                 }
             )
         }

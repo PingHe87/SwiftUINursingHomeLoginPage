@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddFriendView: View {
     @StateObject private var viewModel = AddFriendViewModel()
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -47,7 +47,7 @@ struct AddFriendView: View {
                     .padding()
                 }
             }
-            
+
             Spacer()
         }
         .navigationTitle("Add Friend")

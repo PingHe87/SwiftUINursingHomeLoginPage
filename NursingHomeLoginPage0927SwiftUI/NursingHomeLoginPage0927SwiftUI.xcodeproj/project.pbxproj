@@ -31,7 +31,7 @@
 		EF2B63402CF2840F007B4ADD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF2B633F2CF2840F007B4ADD /* GoogleService-Info.plist */; };
 		EF2B63522CF43235007B4ADD /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63512CF43232007B4ADD /* Contact.swift */; };
 		EF2B63542CF43258007B4ADD /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63532CF4324B007B4ADD /* ContactsViewModel.swift */; };
-		EF2B63572CF43279007B4ADD /* ConstactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63562CF43276007B4ADD /* ConstactsView.swift */; };
+		EF2B63572CF43279007B4ADD /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63562CF43276007B4ADD /* ContactsView.swift */; };
 		EF2B63592CF43297007B4ADD /* ContactDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63582CF4328E007B4ADD /* ContactDetailView.swift */; };
 		EF2B635B2CF433C4007B4ADD /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B635A2CF433C4007B4ADD /* AddFriendView.swift */; };
 		EF2B63602CF43402007B4ADD /* AddFriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B635F2CF433FC007B4ADD /* AddFriendViewModel.swift */; };
@@ -79,7 +79,7 @@
 		EF2B633F2CF2840F007B4ADD /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF2B63512CF43232007B4ADD /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		EF2B63532CF4324B007B4ADD /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
-		EF2B63562CF43276007B4ADD /* ConstactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstactsView.swift; sourceTree = "<group>"; };
+		EF2B63562CF43276007B4ADD /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		EF2B63582CF4328E007B4ADD /* ContactDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailView.swift; sourceTree = "<group>"; };
 		EF2B635A2CF433C4007B4ADD /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
 		EF2B635F2CF433FC007B4ADD /* AddFriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewModel.swift; sourceTree = "<group>"; };
@@ -312,7 +312,7 @@
 				EF2B63612CF434A7007B4ADD /* FriendCard.swift */,
 				EF2B635A2CF433C4007B4ADD /* AddFriendView.swift */,
 				EF2B63582CF4328E007B4ADD /* ContactDetailView.swift */,
-				EF2B63562CF43276007B4ADD /* ConstactsView.swift */,
+				EF2B63562CF43276007B4ADD /* ContactsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -497,7 +497,7 @@
 				EF2B63602CF43402007B4ADD /* AddFriendViewModel.swift in Sources */,
 				EF5638572CD95397002AF271 /* MenuItem.swift in Sources */,
 				EF56385B2CD953E6002AF271 /* MenuViewModel.swift in Sources */,
-				EF2B63572CF43279007B4ADD /* ConstactsView.swift in Sources */,
+				EF2B63572CF43279007B4ADD /* ContactsView.swift in Sources */,
 				4940A4082CD2CF0200011FEC /* ForgotPasswordView.swift in Sources */,
 				EF2A9FB82CC2005C0053460E /* Extensions.swift in Sources */,
 			);
