@@ -16,28 +16,39 @@ struct ContactCard: View {
             ZStack {
                 Circle()
                     .fill(Color.blue.opacity(0.2))
-                    .frame(width: 60, height: 60)
+                    .frame(width: 50, height: 50)
                 Image(systemName: "person.circle.fill")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 50, height: 50)
+                    .frame(width: 40, height: 40)
                     .foregroundColor(.blue)
             }
 
             // Contact details
             VStack(alignment: .leading, spacing: 5) {
                 Text(contact.name)
-                    .font(.headline)
+                    .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(.primary)
                 Text(contact.email)
-                    .font(.subheadline)
+                    .font(.system(size: 14))
                     .foregroundColor(.gray)
             }
 
-            Spacer() // Push content to the left
+            Spacer()
+
+            // Message button
+            NavigationLink(destination: ChatView(contact: contact)) {
+                Image(systemName: "message.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 24, height: 24)
+                    .foregroundColor(.blue)
+                    .padding(10)
+                    .background(Circle().fill(Color.blue.opacity(0.1)))
+            }
         }
         .padding()
-        .background(Color.white) // Unified background color for all cards
+        .background(Color.white)
         .cornerRadius(10)
         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
     }
@@ -53,4 +64,3 @@ struct ContactCard_Previews: PreviewProvider {
         .background(Color(.systemGroupedBackground))
     }
 }
-
