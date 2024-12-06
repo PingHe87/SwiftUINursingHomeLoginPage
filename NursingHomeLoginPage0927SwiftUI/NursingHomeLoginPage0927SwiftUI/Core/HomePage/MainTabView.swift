@@ -17,11 +17,13 @@ struct MainTabView: View {
     
     // State variable for tab selection
     @State private var selectedTab: Int = 2  // Default to Homepage tab
+    @StateObject private var activityViewModel = ActivityViewModel()
+
     
     var body: some View {
         TabView {
             // Calendar Tab
-            Text("Calendar Page Placeholder")
+            CalendarView(activityViewModel: activityViewModel)
                 .tabItem {
                     Label("Calendar", systemImage: "calendar")
                         .font(.system(size: 18, weight: .bold))
