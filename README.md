@@ -78,7 +78,7 @@ Provide quick and accessible help options for users:
 
 ---
 
-### 8. **Calendar (In Development)**
+### 8. **Calendar**
 Keep track of events and appointments:
 - A visually clean calendar view.
 - Highlighted dates for planned activities or events.
