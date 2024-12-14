@@ -78,11 +78,14 @@ Provide quick and accessible help options for users:
 
 ---
 
-### 8. **Calendar (In Development)**
+### 8. **Calendar**
 Keep track of events and appointments:
 - A visually clean calendar view.
 - Highlighted dates for planned activities or events.
 - Features are still under development.
+ <img width="327" alt="image" src="https://github.com/user-attachments/assets/33c13bc2-0290-4e4a-bf33-9273e3d96738">
+
+
 
 ---
 
