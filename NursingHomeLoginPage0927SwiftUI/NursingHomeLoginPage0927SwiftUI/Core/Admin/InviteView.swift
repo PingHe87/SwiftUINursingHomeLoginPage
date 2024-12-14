@@ -13,6 +13,7 @@ struct InviteView: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     @State private var selectedRole = "relative" // Default role
+    @State private var showCopyAlert = false // Alert for copy-to-clipboard success
     @EnvironmentObject var authViewModel: AuthViewModel
 
     let userRole: String // Current user's role
@@ -77,12 +78,27 @@ struct InviteView: View {
             .disabled(email.isEmpty)
             .opacity(email.isEmpty ? 0.5 : 1.0)
 
-            // Show Generated Invite Code
+            // Show Generated Invite Code with Copy Button
             if !inviteCode.isEmpty {
-                Text("Invite Code: \(inviteCode)")
-                    .font(.headline)
-                    .foregroundColor(.green)
-                    .padding(.top, 10)
+                VStack(spacing: 10) {
+                    Text("Invite Code:")
+                        .font(.headline)
+                    Text(inviteCode)
+                        .font(.body)
+                        .foregroundColor(.green)
+
+                    Button(action: {
+                        UIPasteboard.general.string = inviteCode
+                        showCopyAlert = true
+                    }) {
+                        HStack {
+                            Image(systemName: "doc.on.doc")
+                            Text("Copy to Clipboard")
+                        }
+                        .foregroundColor(.blue)
+                    }
+                }
+                .padding(.top, 10)
             }
 
             Spacer()
@@ -91,6 +107,11 @@ struct InviteView: View {
         .navigationTitle("Invite User")
         .alert(alertMessage, isPresented: $showAlert) {
             Button("OK", role: .cancel) {}
+        }
+        .alert("Copied to Clipboard", isPresented: $showCopyAlert) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("The invite code has been copied to your clipboard.")
         }
     }
 }

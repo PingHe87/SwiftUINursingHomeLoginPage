@@ -266,6 +266,43 @@ class AuthViewModel: ObservableObject {
             throw error
         }
     }
+    
+    /// Validate invite code and email match
+        /// - Parameters:
+        ///   - code: The invite code
+        ///   - email: The email address to validate
+        /// - Throws: An error if validation fails
+        func validateInviteCodeWithEmail(_ code: String, email: String) async throws {
+            let db = Firestore.firestore()
+            
+            do {
+                // Query the invites collection to find the invite code and email
+                let snapshot = try await db.collection("invites")
+                    .whereField("inviteCode", isEqualTo: code)
+                    .whereField("email", isEqualTo: email)
+                    .getDocuments()
+                
+                guard let document = snapshot.documents.first else {
+                    throw NSError(domain: "InvalidInviteCode", code: 404, userInfo: [NSLocalizedDescriptionKey: "Invalid invite code or email."])
+                }
+                
+                // Check if the invite has already been used
+                let data = document.data()
+                if let isUsed = data["isUsed"] as? Bool, isUsed == true {
+                    throw NSError(domain: "InviteCodeUsed", code: 400, userInfo: [NSLocalizedDescriptionKey: "Invite code has already been used."])
+                }
+                
+                // Mark the invite as used
+                try await db.collection("invites").document(document.documentID).updateData([
+                    "isUsed": true
+                ])
+                
+                print("Invite code and email validated successfully.")
+            } catch {
+                print("Error validating invite code with email: \(error.localizedDescription)")
+                throw error
+            }
+        }
 
 
 }
