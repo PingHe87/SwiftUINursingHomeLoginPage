@@ -18,8 +18,10 @@ struct MainTabView: View {
     // State variable for tab selection
     @State private var selectedTab: Int = 2  // Default to Homepage tab
     @StateObject private var activityViewModel = ActivityViewModel()
-
     
+    // Inject AuthViewModel to get user information
+    @EnvironmentObject var authViewModel: AuthViewModel
+
     var body: some View {
         TabView {
             // Calendar Tab
@@ -59,6 +61,8 @@ struct MainTabView: View {
                         .font(.system(size: 18, weight: .bold))
                 }
                 .environmentObject(locationManager)  // Pass location manager to ProfileView
+            
+
         }
         .environmentObject(locationManager)  // Ensure shared LocationManager instance
     }

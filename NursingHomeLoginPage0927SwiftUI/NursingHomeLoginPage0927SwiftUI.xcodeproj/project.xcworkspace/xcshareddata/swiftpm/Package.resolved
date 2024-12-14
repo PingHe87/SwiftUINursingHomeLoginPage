@@ -1,5 +1,5 @@
 {
-  "originHash" : "c63c63846d9c539229e96de38d6af51417e28c0ee9a0bc48bd0f0f19d923c329",
+  "originHash" : "3a860725d4ee662ed0e2841e3ad089b9cd8152ab555cab18215786213a0095ab",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -107,6 +107,15 @@
       "state" : {
         "revision" : "540318ecedd63d883069ae7f1ed811a2df00b6ac",
         "version" : "2.4.0"
+      }
+    },
+    {
+      "identity" : "sendgrid-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/scottkawai/sendgrid-swift.git",
+      "state" : {
+        "revision" : "74934cafe4f9d202ee223113e56f0ad300754d14",
+        "version" : "2.2.1"
       }
     },
     {

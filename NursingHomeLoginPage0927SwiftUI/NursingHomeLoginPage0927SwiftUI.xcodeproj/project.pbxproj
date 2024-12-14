@@ -38,6 +38,13 @@
 		EF2B63622CF434A8007B4ADD /* FriendCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63612CF434A7007B4ADD /* FriendCard.swift */; };
 		EF2B63642CF43AFD007B4ADD /* PendingRequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63632CF43AFC007B4ADD /* PendingRequestsView.swift */; };
 		EF2B63682CF43C05007B4ADD /* PendingRequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2B63672CF43C05007B4ADD /* PendingRequestsViewModel.swift */; };
+		EF3CD62C2D0D4194009566DF /* EmailSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3CD62B2D0D4193009566DF /* EmailSender.swift */; };
+		EF3CD62E2D0D426E009566DF /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = EF3CD62D2D0D426E009566DF /* FirebaseFunctions */; };
+		EF3CD6312D0DEE18009566DF /* AdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3CD6302D0DEE15009566DF /* AdminView.swift */; };
+		EF3CD6332D0DEF74009566DF /* InviteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3CD6322D0DEF73009566DF /* InviteView.swift */; };
+		EF3CD6362D0DF486009566DF /* SendGrid in Frameworks */ = {isa = PBXBuildFile; productRef = EF3CD6352D0DF486009566DF /* SendGrid */; };
+		EF3CD6382D0DF5C5009566DF /* AdminPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3CD6372D0DF5C4009566DF /* AdminPanelView.swift */; };
+		EF3CD63C2D0DF5FE009566DF /* Invite.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3CD63B2D0DF5FD009566DF /* Invite.swift */; };
 		EF56384F2CD9480B002AF271 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56384E2CD94809002AF271 /* HomepageView.swift */; };
 		EF5638522CD948E1002AF271 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5638512CD948E0002AF271 /* ActivityModel.swift */; };
 		EF5638542CD948F1002AF271 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5638532CD948F0002AF271 /* ActivityViewModel.swift */; };
@@ -90,6 +97,11 @@
 		EF2B63612CF434A7007B4ADD /* FriendCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCard.swift; sourceTree = "<group>"; };
 		EF2B63632CF43AFC007B4ADD /* PendingRequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingRequestsView.swift; sourceTree = "<group>"; };
 		EF2B63672CF43C05007B4ADD /* PendingRequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingRequestsViewModel.swift; sourceTree = "<group>"; };
+		EF3CD62B2D0D4193009566DF /* EmailSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSender.swift; sourceTree = "<group>"; };
+		EF3CD6302D0DEE15009566DF /* AdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
+		EF3CD6322D0DEF73009566DF /* InviteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteView.swift; sourceTree = "<group>"; };
+		EF3CD6372D0DF5C4009566DF /* AdminPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPanelView.swift; sourceTree = "<group>"; };
+		EF3CD63B2D0DF5FD009566DF /* Invite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invite.swift; sourceTree = "<group>"; };
 		EF56384E2CD94809002AF271 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
 		EF5638512CD948E0002AF271 /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 		EF5638532CD948F0002AF271 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
@@ -124,7 +136,9 @@
 			files = (
 				EF17930B2CA757C400E9D691 /* FirebaseAuth in Frameworks */,
 				EF17930D2CA757C400E9D691 /* FirebaseFirestore in Frameworks */,
+				EF3CD6362D0DF486009566DF /* SendGrid in Frameworks */,
 				EF17930F2CA757C400E9D691 /* FirebaseStorage in Frameworks */,
+				EF3CD62E2D0D426E009566DF /* FirebaseFunctions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +196,7 @@
 		EF1792F52CA73FD300E9D691 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EF3CD62F2D0DEDED009566DF /* Admin */,
 				EFB0A1D82CFE180500A042B2 /* Chat */,
 				EF2B634D2CF431DC007B4ADD /* Contacts */,
 				EF5638552CD9527E002AF271 /* Menu */,
@@ -254,6 +269,7 @@
 		EF1793112CA7581800E9D691 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				EF3CD62B2D0D4193009566DF /* EmailSender.swift */,
 				EF1793122CA7583900E9D691 /* AuthViewModel.swift */,
 			);
 			path = ViewModel;
@@ -325,6 +341,17 @@
 				EF2B63562CF43276007B4ADD /* ContactsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		EF3CD62F2D0DEDED009566DF /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				EF3CD63B2D0DF5FD009566DF /* Invite.swift */,
+				EF3CD6372D0DF5C4009566DF /* AdminPanelView.swift */,
+				EF3CD6302D0DEE15009566DF /* AdminView.swift */,
+				EF3CD6322D0DEF73009566DF /* InviteView.swift */,
+			);
+			path = Admin;
 			sourceTree = "<group>";
 		};
 		EF56384B2CD94576002AF271 /* Recovered References */ = {
@@ -460,6 +487,8 @@
 				EF17930A2CA757C400E9D691 /* FirebaseAuth */,
 				EF17930C2CA757C400E9D691 /* FirebaseFirestore */,
 				EF17930E2CA757C400E9D691 /* FirebaseStorage */,
+				EF3CD62D2D0D426E009566DF /* FirebaseFunctions */,
+				EF3CD6352D0DF486009566DF /* SendGrid */,
 			);
 			productName = NursingHomeLoginPage0927SwiftUI;
 			productReference = EF1792E32CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUI.app */;
@@ -491,6 +520,7 @@
 			mainGroup = EF1792DA2CA73FAD00E9D691;
 			packageReferences = (
 				EF1793092CA757C400E9D691 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				EF3CD6342D0DF486009566DF /* XCRemoteSwiftPackageReference "sendgrid-swift" */,
 			);
 			productRefGroup = EF1792E42CA73FAD00E9D691 /* Products */;
 			projectDirPath = "";
@@ -531,8 +561,10 @@
 				EF1792E92CA73FAD00E9D691 /* ContentView.swift in Sources */,
 				EFF51F562CDA9B7E00EA7AF1 /* WeatherDetailCard.swift in Sources */,
 				EF2B63592CF43297007B4ADD /* ContactDetailView.swift in Sources */,
+				EF3CD62C2D0D4194009566DF /* EmailSender.swift in Sources */,
 				EF2A9FB42CC1FFAE0053460E /* ModelData.swift in Sources */,
 				EFAF0CC32CC1F89500070545 /* LocationManager.swift in Sources */,
+				EF3CD6312D0DEE18009566DF /* AdminView.swift in Sources */,
 				EF5638522CD948E1002AF271 /* ActivityModel.swift in Sources */,
 				EF1792E72CA73FAD00E9D691 /* NursingHomeLoginPage0927SwiftUIApp.swift in Sources */,
 				EFF51F582CDAA4EB00EA7AF1 /* WeatherCardView.swift in Sources */,
@@ -542,6 +574,7 @@
 				EF2B635B2CF433C4007B4ADD /* AddFriendView.swift in Sources */,
 				8DF046682CADEA8E00D1F8E6 /* LoginView.swift in Sources */,
 				EF2B63522CF43235007B4ADD /* Contact.swift in Sources */,
+				EF3CD6332D0DEF74009566DF /* InviteView.swift in Sources */,
 				EF2B63542CF43258007B4ADD /* ContactsViewModel.swift in Sources */,
 				EF2B63622CF434A8007B4ADD /* FriendCard.swift in Sources */,
 				EF56384F2CD9480B002AF271 /* HomepageView.swift in Sources */,
@@ -559,9 +592,11 @@
 				EF56385D2CD953FB002AF271 /* MenuView.swift in Sources */,
 				EF2B63602CF43402007B4ADD /* AddFriendViewModel.swift in Sources */,
 				EF5638572CD95397002AF271 /* MenuItem.swift in Sources */,
+				EF3CD63C2D0DF5FE009566DF /* Invite.swift in Sources */,
 				EF56385B2CD953E6002AF271 /* MenuViewModel.swift in Sources */,
 				EF2B63572CF43279007B4ADD /* ContactsView.swift in Sources */,
 				4940A4082CD2CF0200011FEC /* ForgotPasswordView.swift in Sources */,
+				EF3CD6382D0DF5C5009566DF /* AdminPanelView.swift in Sources */,
 				EFB0A1E52CFE18E400A042B2 /* ChatViewModel.swift in Sources */,
 				EF2A9FB82CC2005C0053460E /* Extensions.swift in Sources */,
 			);
@@ -783,6 +818,14 @@
 				minimumVersion = 11.2.0;
 			};
 		};
+		EF3CD6342D0DF486009566DF /* XCRemoteSwiftPackageReference "sendgrid-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scottkawai/sendgrid-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -800,6 +843,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EF1793092CA757C400E9D691 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		EF3CD62D2D0D426E009566DF /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF1793092CA757C400E9D691 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		EF3CD6352D0DF486009566DF /* SendGrid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF3CD6342D0DF486009566DF /* XCRemoteSwiftPackageReference "sendgrid-swift" */;
+			productName = SendGrid;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

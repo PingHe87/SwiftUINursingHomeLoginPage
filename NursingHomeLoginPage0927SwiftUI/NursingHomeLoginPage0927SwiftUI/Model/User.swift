@@ -11,10 +11,10 @@ struct User: Identifiable, Codable {
     
     let id: String
     let firstName: String
-    let middleName: String? // Optional middle name
+    var middleName: String?  = nil// Optional middle name
     let lastName: String
     let email: String
-    let role: String // User's role (e.g., staff, resident, relative)
+    let role: String // User's role (e.g., staff, resident, relative, admin)
     
     // New fields
     var contacts: [String] = [] // IDs of user's contacts
@@ -46,6 +46,7 @@ extension User {
         case staff = "staff"
         case resident = "resident"
         case relative = "relative"
+        case admin = "admin" // Added admin role
     }
 
     // Example MOCK_USER for testing
@@ -60,4 +61,3 @@ extension User {
         pendingRequests: ["mockRequestID1"] // Mock pending requests
     )
 }
-

@@ -9,11 +9,10 @@ import SwiftUI
 import CoreLocation
 
 struct ProfileView: View {
-    
     @EnvironmentObject var authViewModel: AuthViewModel
-    
+
     var body: some View {
-        NavigationView {  // Add NavigationView to enable navigation
+        NavigationView {
             List {
                 // User profile section
                 Section {
@@ -26,14 +25,14 @@ struct ProfileView: View {
                             .frame(width: 72, height: 72)
                             .background(Color(.systemGray3))
                             .clipShape(Circle())
-                        
+
                         VStack(alignment: .leading, spacing: 4) {
                             // Full name
                             Text(authViewModel.currentUser?.fullName ?? "Unknown User")
                                 .fontWeight(.semibold)
                                 .font(.subheadline)
                                 .padding(.top, 4)
-                            
+
                             // Email address
                             Text(authViewModel.currentUser?.email ?? "No email available")
                                 .font(.footnote)
@@ -43,12 +42,23 @@ struct ProfileView: View {
                     .padding(.vertical, 8)
                 }
 
+                // Invite functionality (Visible for all users)
+                Section("Actions") {
+                    NavigationLink(destination: InviteView(userRole: authViewModel.currentUser?.role ?? "")) {
+                        SettingsRowView(imageName: "person.badge.plus",
+                                        title: "Invite User",
+                                        tintColor: .blue)
+                    }
+                }
+
                 // Account section with Sign Out button
                 Section("Account") {
                     Button {
-                        authViewModel.signOut()  // Call sign out function
+                        authViewModel.signOut() // Call sign out function
                     } label: {
-                        SettingsRowView(imageName: "arrow.left.circle.fill", title: "Sign Out", tintColor: .red)
+                        SettingsRowView(imageName: "arrow.left.circle.fill",
+                                        title: "Sign Out",
+                                        tintColor: .red)
                     }
                 }
             }
@@ -56,6 +66,9 @@ struct ProfileView: View {
         }
     }
 }
+
+
+
 
 #Preview {
     ProfileView()

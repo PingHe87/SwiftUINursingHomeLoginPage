@@ -1,157 +1,139 @@
-//
-//  RegistrationView.swift
-//  NursingHomeLoginPage0927SwiftUI
-//
-//  Created by p h on 9/27/24.
-//
-
 import SwiftUI
 
 struct RegistrationView: View {
-    
     @State private var email = ""
     @State private var firstName = ""
-    @State private var middleName = ""
     @State private var lastName = ""
     @State private var password = ""
     @State private var confirmPassword = ""
-    @State private var selectedRole = "resident" // Default role
-    @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var viewModel: AuthViewModel
-    
-    let roles = ["staff", "resident", "relative"] // Available roles
+    @State private var inviteCode = "" // Invite code field
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+    @State private var isInviteCodeValid = false // State to track invite code validation
+    @EnvironmentObject var authViewModel: AuthViewModel
     
     var body: some View {
-        ScrollView { // Wrap everything in ScrollView
-            VStack {
-                
-                // Image
-                Image("splash")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 100, height: 120)
-                    .padding(.vertical, 32)
-                
+        ScrollView {
+            VStack(spacing: 20) {
+                Text("Register")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding(.top, 20)
+
                 // Form fields
-                VStack(spacing: 24) {
-                    InputView(text: $email,
-                              title: "Email Address",
-                              placeholder: "name@example.com")
-                        .autocapitalization(.none)
-                        .keyboardType(.emailAddress)
+                InputView(text: $email,
+                          title: "Email",
+                          placeholder: "Enter your email")
+                    .keyboardType(.emailAddress)
+                    .autocapitalization(.none)
+
+                InputView(text: $firstName,
+                          title: "First Name",
+                          placeholder: "Enter your first name")
+
+                InputView(text: $lastName,
+                          title: "Last Name",
+                          placeholder: "Enter your last name")
+
+                InputView(text: $password,
+                          title: "Password",
+                          placeholder: "Enter your password",
+                          isSecuredField: true)
+
+                InputView(text: $confirmPassword,
+                          title: "Confirm Password",
+                          placeholder: "Confirm your password",
+                          isSecuredField: true)
+
+                // Invite Code Field
+                ZStack(alignment: .trailing) {
+                    InputView(text: $inviteCode,
+                              title: "Invite Code",
+                              placeholder: "Enter your invite code")
                     
-                    InputView(text: $firstName,
-                              title: "First Name",
-                              placeholder: "Enter your first name")
-                    
-                    InputView(text: $middleName,
-                              title: "Middle Name (optional)",
-                              placeholder: "Enter your middle name")
-                    
-                    InputView(text: $lastName,
-                              title: "Last Name",
-                              placeholder: "Enter your last name")
-                    
-                    InputView(text: $password,
-                              title: "Password",
-                              placeholder: "Enter your password",
-                              isSecuredField: true)
-                    .textContentType(.none) // Disable autofill
-                    
-                    ZStack(alignment: .trailing) {
-                        InputView(text: $confirmPassword,
-                                  title: "Confirm Password",
-                                  placeholder: "Confirm your password",
-                                  isSecuredField: true)
-                        if !password.isEmpty && !confirmPassword.isEmpty {
-                            if password == confirmPassword {
-                                Image(systemName: "checkmark.circle.fill")
-                                    .imageScale(.large)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(.systemGreen))
-                            } else {
-                                Image(systemName: "xmark.circle.fill")
-                                    .imageScale(.large)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(.systemRed))
-                            }
+                    // Validation status for invite code
+                    if !inviteCode.isEmpty {
+                        if isInviteCodeValid {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
+                        } else {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(.red)
                         }
                     }
-                    
-                    // Role picker
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Select Role")
-                            .font(.headline)
-                        Picker("Role", selection: $selectedRole) {
-                            ForEach(roles, id: \.self) { role in
-                                Text(role.capitalized)
-                                    .tag(role)
-                            }
-                        }
-                        .pickerStyle(SegmentedPickerStyle())
-                    }
-                    .padding(.top, 16)
                 }
-                .padding(.horizontal)
-                .padding(.top, 12)
-                
-                // Sign Up button
-                Button {
+
+                // Validate Invite Code Button
+                Button("Validate Invite Code") {
                     Task {
-                        try await viewModel.createUser(
-                            withEmail: email,
-                            password: password,
-                            firstName: firstName,
-                            middleName: middleName.isEmpty ? nil : middleName, // Pass nil if empty
-                            lastName: lastName,
-                            role: selectedRole // Pass the selected role
-                        )
+                        do {
+                            try await authViewModel.validateInviteCode(inviteCode)
+                            isInviteCodeValid = true
+                            alertMessage = "Invite code is valid!"
+                            showAlert = true
+                        } catch {
+                            isInviteCodeValid = false
+                            alertMessage = error.localizedDescription
+                            showAlert = true
+                        }
                     }
-                } label: {
-                    HStack {
-                        Text("SIGN UP")
-                            .fontWeight(.semibold)
-                        Image(systemName: "arrow.right")
-                    }
-                    .foregroundColor(.white)
-                    .frame(width: UIScreen.main.bounds.width - 32, height: 48)
                 }
-                .background(Color(.systemBlue))
-                .disabled(!formIsValid)
-                .opacity(formIsValid ? 1.0 : 0.5)
+                .font(.system(size: 16, weight: .bold))
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity, minHeight: 44)
+                .background(isInviteCodeValid ? Color.gray : Color.blue)
                 .cornerRadius(10)
-                .padding(.top, 24)
-                
-                Spacer()
-                
-                // Back to Sign In
-                Button {
-                    dismiss()
-                } label: {
-                    HStack {
-                        Text("Already have an account?")
-                        Text("Sign in")
-                            .fontWeight(.bold)
+                .disabled(inviteCode.isEmpty || isInviteCodeValid)
+
+                // Sign Up button
+                Button(action: {
+                    Task {
+                        do {
+                            // Proceed with registration after invite code validation
+                            try await authViewModel.createUser(
+                                withEmail: email,
+                                password: password,
+                                firstName: firstName,
+                                middleName: nil,
+                                lastName: lastName,
+                                role: "relative" // Default role or fetched from invite
+                            )
+                            showAlert = true
+                            alertMessage = "Registration successful!"
+                        } catch {
+                            showAlert = true
+                            alertMessage = error.localizedDescription
+                        }
                     }
-                    .font(.system(size: 17))
+                }) {
+                    Text("Sign Up")
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity, minHeight: 44)
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+                        .cornerRadius(10)
                 }
+                .disabled(!formIsValid || !isInviteCodeValid) // Disable until form is valid and invite code is validated
+                .opacity(formIsValid && isInviteCodeValid ? 1.0 : 0.5)
+
+                Spacer()
             }
-            .padding() // Add padding inside ScrollView
+            .padding()
+            .alert(alertMessage, isPresented: $showAlert) {
+                Button("OK", role: .cancel) {}
+            }
         }
     }
-}
-
-// MARK: - AuthenticationFormProtocal
-
-extension RegistrationView: AuthenticationFormProtocal {
+    
+    /// Form validation logic
     var formIsValid: Bool {
         return !email.isEmpty
-        && email.contains("@")
-        && !password.isEmpty
-        && password.count > 5
-        && confirmPassword == password
-        && !firstName.isEmpty
-        && !lastName.isEmpty
+            && email.contains("@")
+            && !firstName.isEmpty
+            && !lastName.isEmpty
+            && !password.isEmpty
+            && password == confirmPassword
+            && !inviteCode.isEmpty
     }
 }
 
