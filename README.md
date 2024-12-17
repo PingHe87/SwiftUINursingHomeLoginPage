@@ -6,13 +6,17 @@ A comprehensive iOS application designed to enhance communication, activity mana
 
 ## Features
   
-### 1. **Sign-Up and Login**
-Seamlessly register and log in to the application:
-- Role-based account registration (e.g., Staff, Resident, Relative).
-- Role-specific functionalities accessible after login.
-- Secure authentication using FirebaseAuth.  
-<img width="327" alt="image" src="https://github.com/user-attachments/assets/75b18cad-6d69-4ba8-8e7d-470a7262df5b">
-<img width="327" alt="image" src="https://github.com/user-attachments/assets/df54a150-efc3-4fe0-a228-24cb391cbc18">
+### 1. **Sign-Up and Login**  
+Seamlessly register and log in to the application with an **invite-based registration system**:  
+
+- **Invite-Based Registration**: Users can only register after receiving an invite code from an admin or existing users.  
+- **Role-Specific Invitations**:  
+   - **Admins** can invite staff, residents, and relatives.  
+   - **Regular Users** (e.g., Residents) can invite their relatives.  
+- **Secure Validation**: The email and invite code must match during registration.  
+- **Role-Based Functionalities**: Access specific features based on the assigned role after login.  
+- **Secure Authentication**: Powered by FirebaseAuth for safe and reliable user management.  
+
 
 ---
   
