@@ -11,11 +11,11 @@ struct AdminView: View {
     @State private var email = ""
     @State private var firstName = ""
     @State private var lastName = ""
-    @State private var selectedRole = "resident" // 默认角色
-    @State private var inviteCode = "" // 用于显示生成的邀请码
+    @State private var selectedRole = "resident"
+    @State private var inviteCode = ""
     @EnvironmentObject var authViewModel: AuthViewModel
     
-    let roles = ["staff", "resident", "relative"] // 可选角色
+    let roles = ["staff", "resident", "relative"]
 
     var body: some View {
         NavigationStack {

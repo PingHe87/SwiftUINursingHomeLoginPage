@@ -9,5 +9,5 @@ struct Invite: Identifiable, Codable {
     var id: String
     var code: String
     var isUsed: Bool
-    var usedBy: String? // Optional, 用户的 ID 或邮箱
+    var usedBy: String? // Optional
 }
