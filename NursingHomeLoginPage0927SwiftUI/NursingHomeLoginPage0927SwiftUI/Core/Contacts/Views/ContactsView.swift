@@ -12,6 +12,7 @@ struct ContactsView: View {
     @State private var isRelativeExpanded = true             // Expanded state for Relative group
     @State private var isStaffExpanded = true                // Expanded state for Staff group
     @State private var searchText: String = ""               // Search text
+    @State private var selectedTag: String = ""              // Selected tag for filtering
     @State private var isShowingPendingRequests = false      // Control pending requests view
     @State private var isShowingAddFriendView = false        // Control add friend view
 
@@ -66,6 +67,20 @@ struct ContactsView: View {
                         .cornerRadius(8)
                         .onChange(of: searchText) { _ in
                             viewModel.filterContacts(by: searchText)
+                        }
+                }
+                .padding(.horizontal)
+
+                // Tag filtering bar
+                HStack {
+                    Image(systemName: "tag")
+                        .foregroundColor(.blue)
+                    TextField("Filter by tag...", text: $selectedTag)
+                        .padding(8)
+                        .background(Color(.systemGray6))
+                        .cornerRadius(8)
+                        .onChange(of: selectedTag) { _ in
+                            viewModel.filterContacts(by: selectedTag)
                         }
                 }
                 .padding(.horizontal)

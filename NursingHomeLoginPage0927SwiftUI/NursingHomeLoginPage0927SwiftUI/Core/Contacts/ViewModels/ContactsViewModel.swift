@@ -52,12 +52,14 @@ class ContactsViewModel: ObservableObject {
                       let role = document.data()["role"] as? String else {
                     return nil
                 }
+                let tags = document.data()["tags"] as? [String] ?? [] // Load tags safely
                 let fullName = "\(firstName) \(lastName)"
                 return Contact(
                     id: document.documentID,
                     name: fullName,
                     email: email,
-                    role: role
+                    role: role,
+                    tags: tags // Pass tags to the Contact model
                 )
             }
 
@@ -71,13 +73,13 @@ class ContactsViewModel: ObservableObject {
         }
     }
 
-    /// Filter contacts based on search text
-    func filterContacts(by searchText: String) {
-        if searchText.isEmpty {
-            filteredContacts = groupedContacts // Show all contacts if search is empty
+    /// Filter contacts based on search text or tag
+    func filterContacts(by tag: String) {
+        if tag.isEmpty {
+            filteredContacts = groupedContacts
         } else {
             filteredContacts = groupedContacts.mapValues { contacts in
-                contacts.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+                contacts.filter { $0.tags.contains(tag) }
             }
         }
     }
@@ -96,6 +98,32 @@ class ContactsViewModel: ObservableObject {
                     self?.pendingRequestsCount = requestIDs.count
                 }
             }
+        }
+    }
+
+    /// Add a tag to a contact
+    func addTag(to contactID: String, tag: String) async {
+        let contactRef = db.collection("users").document(contactID)
+
+        do {
+            try await contactRef.updateData([
+                "tags": FieldValue.arrayUnion([tag])
+            ])
+        } catch {
+            print("Error adding tag: \(error.localizedDescription)")
+        }
+    }
+
+    /// Remove a tag from a contact
+    func removeTag(from contactID: String, tag: String) async {
+        let contactRef = db.collection("users").document(contactID)
+
+        do {
+            try await contactRef.updateData([
+                "tags": FieldValue.arrayRemove([tag])
+            ])
+        } catch {
+            print("Error removing tag: \(error.localizedDescription)")
         }
     }
 }

@@ -12,4 +12,5 @@ struct Contact: Identifiable, Codable {
     let name: String // Full name
     let email: String
     let role: String // Role (staff, resident, relative)
+    let tags: [String] 
 }
