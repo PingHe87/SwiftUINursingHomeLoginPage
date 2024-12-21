@@ -162,22 +162,22 @@ class AuthViewModel: ObservableObject {
     /// - Returns: A unique invite code for the new user
     func createUserAsAdmin(email: String, firstName: String, lastName: String, role: String) async throws -> String {
         let db = Firestore.firestore()
-        let emailSender = EmailSender() // 实例化 EmailSender
+        let emailSender = EmailSender() 
         
         do {
             let inviteCode = UUID().uuidString // Generate a unique invite code
             let userId = UUID().uuidString // Locally generated user ID
             
-            // 保存用户数据到 Firestore
+            
             try await saveUserToFirestore(id: userId, email: email, firstName: firstName, middleName: nil, lastName: lastName, role: role)
             
-            // 添加邀请码相关数据
+          
             try await db.collection("users").document(userId).updateData([
                 "inviteCode": inviteCode,
-                "isRegistered": false // 标记为尚未注册
+                "isRegistered": false
             ])
             
-            // 发送邀请邮件
+          
             emailSender.sendInvitationEmail(to: email, inviteCode: inviteCode, inviterName: "Admin") { success in
                 if success {
                     print("Invitation email sent successfully!")

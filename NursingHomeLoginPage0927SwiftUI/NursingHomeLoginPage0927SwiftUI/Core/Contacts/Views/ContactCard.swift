@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ContactCard: View {
     let contact: Contact // Contact details
-    @State private var isShowingDetail = false // 控制详情页的显示状态
+    @State private var isShowingDetail = false // Controls the visibility of the detail view
 
     var body: some View {
         HStack(spacing: 15) {
-            // 点击头像进入 ContactDetailView
+            // Tap on the avatar to navigate to ContactDetailView
             Button(action: {
-                // 修改状态变量，触发跳转
+                // Change state variable to trigger navigation
                 isShowingDetail = true
             }) {
                 ZStack {
@@ -29,19 +29,19 @@ struct ContactCard: View {
                         .foregroundColor(.blue)
                 }
             }
-            .buttonStyle(PlainButtonStyle()) // 移除默认按钮样式
+            .buttonStyle(PlainButtonStyle()) // Removes default button styling
             .background(
-                // 隐藏的 NavigationLink，用于触发跳转
+                // Hidden NavigationLink to handle navigation
                 NavigationLink(
                     destination: ContactDetailView(contact: contact),
                     isActive: $isShowingDetail
                 ) {
-                    EmptyView() // 空视图
+                    EmptyView() // Invisible view
                 }
-                .hidden() // 隐藏 NavigationLink
+                .hidden() // Hide the NavigationLink
             )
 
-            // 联系人信息（不可点击）
+            // Display contact information (not clickable)
             VStack(alignment: .leading, spacing: 5) {
                 Text(contact.name)
                     .font(.system(size: 16, weight: .semibold))
@@ -53,7 +53,7 @@ struct ContactCard: View {
 
             Spacer()
 
-            // 聊天按钮
+            // Chat button
             NavigationLink(destination: ChatView(contact: contact)) {
                 Image(systemName: "message.fill")
                     .resizable()
@@ -87,3 +87,4 @@ struct ContactCard_Previews: PreviewProvider {
         .background(Color(.systemGroupedBackground))
     }
 }
+

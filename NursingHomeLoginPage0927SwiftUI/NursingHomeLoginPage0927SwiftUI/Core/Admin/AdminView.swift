@@ -25,7 +25,7 @@ struct AdminView: View {
                     .fontWeight(.bold)
                     .padding(.top, 20)
 
-                // 输入用户信息表单
+                // Input form for user information
                 VStack(spacing: 16) {
                     InputView(text: $email,
                               title: "Email",
@@ -41,7 +41,7 @@ struct AdminView: View {
                               title: "Last Name",
                               placeholder: "Enter last name")
 
-                    // 角色选择器
+                    // Role selector
                     VStack(alignment: .leading) {
                         Text("Role")
                             .font(.headline)
@@ -57,7 +57,7 @@ struct AdminView: View {
                 .padding(.horizontal)
                 .padding(.top, 10)
 
-                // 创建用户按钮
+                // Button to create user
                 Button(action: {
                     Task {
                         do {
@@ -81,10 +81,10 @@ struct AdminView: View {
                         .cornerRadius(10)
                 }
                 .padding(.top, 20)
-                .disabled(email.isEmpty || firstName.isEmpty || lastName.isEmpty) // 表单验证
+                .disabled(email.isEmpty || firstName.isEmpty || lastName.isEmpty) // Form validation
                 .opacity(email.isEmpty || firstName.isEmpty || lastName.isEmpty ? 0.5 : 1.0)
 
-                // 显示生成的邀请码
+                // Display the generated invite code
                 if !inviteCode.isEmpty {
                     Text("Invite Code: \(inviteCode)")
                         .font(.headline)
@@ -99,3 +99,4 @@ struct AdminView: View {
         }
     }
 }
+

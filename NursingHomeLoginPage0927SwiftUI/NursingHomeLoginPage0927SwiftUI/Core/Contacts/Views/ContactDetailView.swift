@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ContactDetailView: View {
     let contact: Contact
-    @State private var newTag: String = "" // 输入的标签
-    @StateObject private var viewModel = ContactsViewModel() // ViewModel
+    @State private var newTag: String = "" // Tag input field
+    @StateObject private var viewModel = ContactsViewModel() // ViewModel for handling tags
 
     var body: some View {
         VStack(spacing: 20) {
-            // 联系人基本信息
+            // Contact Basic Information
             Text(contact.name)
                 .font(.largeTitle)
                 .bold()
@@ -26,12 +26,12 @@ struct ContactDetailView: View {
             Text("Role: \(contact.role.capitalized)")
                 .font(.headline)
             
-            // 标签管理区域
+            // Tag Management Section
             VStack(alignment: .leading, spacing: 10) {
                 Text("Tags:")
                     .font(.headline)
                 
-                // 输入框：添加新标签
+                // Input Field for Adding a New Tag
                 HStack {
                     TextField("Enter a tag", text: $newTag)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -41,7 +41,7 @@ struct ContactDetailView: View {
                         guard !newTag.isEmpty else { return }
                         Task {
                             await viewModel.addTag(to: contact.id, tag: newTag)
-                            newTag = "" // 清空输入框
+                            newTag = "" // Clear the input field
                         }
                     }) {
                         Text("Add")
@@ -52,7 +52,7 @@ struct ContactDetailView: View {
                     }
                 }
                 
-                // 已有标签展示
+                // Display Existing Tags
                 ScrollView(.horizontal) {
                     HStack(spacing: 10) {
                         ForEach(contact.tags, id: \.self) { tag in
@@ -62,7 +62,7 @@ struct ContactDetailView: View {
                                     .background(Color.blue.opacity(0.2))
                                     .cornerRadius(5)
                                 
-                                // 删除按钮
+                                // Button to Remove a Tag
                                 Button(action: {
                                     Task {
                                         await viewModel.removeTag(from: contact.id, tag: tag)
@@ -84,3 +84,4 @@ struct ContactDetailView: View {
         .navigationTitle("Contact Details")
     }
 }
+

@@ -9,14 +9,14 @@ import SwiftUI
 import FirebaseFirestore
 
 struct AdminPanelView: View {
-    @State private var inviteCodes: [Invite] = [] // 邀请码列表
-    @State private var users: [User] = [] // 用户列表
+    @State private var inviteCodes: [Invite] = [] // List of invite codes
+    @State private var users: [User] = [] // List of users
     @EnvironmentObject var authViewModel: AuthViewModel
 
     var body: some View {
         NavigationView {
             List {
-                // 邀请码列表
+                // Invite Code Section
                 Section(header: Text("Invite Codes")) {
                     ForEach(inviteCodes) { invite in
                         VStack(alignment: .leading, spacing: 8) {
@@ -34,7 +34,7 @@ struct AdminPanelView: View {
                     }
                 }
 
-                // 用户列表
+                // User List Section
                 Section(header: Text("Users")) {
                     ForEach(users) { user in
                         VStack(alignment: .leading, spacing: 8) {
@@ -53,8 +53,8 @@ struct AdminPanelView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        fetchInviteCodes() // 刷新邀请码
-                        fetchUsers() // 刷新用户列表
+                        fetchInviteCodes() // Refresh invite codes
+                        fetchUsers() // Refresh user list
                     }) {
                         Image(systemName: "arrow.clockwise")
                     }
@@ -99,3 +99,4 @@ struct AdminPanelView: View {
         }
     }
 }
+
